@@ -1,0 +1,313 @@
+let mapleader=" "
+set incsearch
+set ignorecase
+set smartcase
+set showmode
+set hlsearch
+set clipboard=unnamed
+set relativenumber
+set number
+" 突出顯示當前行
+set cursorline
+" Use ctrl-v as an ide shortcut in insert modes
+"https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
+sethandler <C-v> n-v:vim i:ide
+" Use ctrl-c as an ide shortcut in normal and visual modes
+sethandler <C-C> n-v:ide i:vim
+sethandler <C-A> n-v:ide i:ide
+sethandler <C-S> n-v:ide i:ide
+" 在狀態列顯示正在輸入的命令
+set showcmd
+set clipboard+=ideaput
+
+nmap <enter> o<Esc>
+nmap o o
+nmap <up> #zz
+nmap <down> *zz
+
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap <leader>p "_dP
+
+" Rload .ideavimrc
+nnoremap <Leader>vs :source ~/.ideavimrc<CR>
+
+" select function
+nnoremap <Leader>sf Vj%
+
+" clear the highlighted search result
+nnoremap <Leader>sc :nohlsearch<CR>
+nnoremap <Leader>fs :w<CR>
+
+" Quickly switch to last buffer
+nnoremap <leader><Leader> :e#<CR>
+
+"enter column mode
+noremap <Leader>v <C-v>
+
+map <Leader>j :action AceTargetAction<CR>
+
+map <S-Space> <Action>(GotoNextError)
+map <Leader>ne <Action>(GotoNextError)
+
+nnoremap <Leader>? :action GotoAction<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gu :action FindUsages<CR>
+" project search
+nnoremap <Leader>ps :action SearchEverywhere<CR>
+nnoremap <Leader>gf :action GotoFile<CR>
+nnoremap <Leader>fu :action FindUsages<CR>
+nnoremap <Leader>ns :action NewScratchFile<CR>
+" ==================================================
+" Show all the provided actions via `:actionlist`
+" ==================================================
+map <left> <Action>(Back)
+map <right> <Action>(Forward)
+
+
+nnoremap <Leader>ed :action ShowErrorDescription<CR>
+vnoremap <Leader>ed :action ShowErrorDescription<CR>
+"nnoremap Q q
+
+nnoremap <Leader>q :action JumpToLastChange<CR>
+nnoremap <Leader>n :action JumpToNextChange<CR>
+" built in search looks better
+nnoremap <Leader>/ :action Find<CR>
+vnoremap / :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action Find<CR>
+" but preserve ideavim search
+
+nnoremap <Leader>gr :action Replace<CR>
+vnoremap <Leader>gr :action Replace<CR>
+nnoremap <Leader>;; :action CommentByLineComment<CR>
+nnoremap <Leader>g1 :action CollapseAllRegions<CR>
+nnoremap <Leader>g7 :action ExpandAllRegions<CR>
+nnoremap <Leader>g2 :action ExpandAllToLevel1<CR>
+nnoremap <Leader>g3 :action ExpandAllToLevel2<CR>
+nnoremap <Leader>g4 :action ExpandAllToLevel3<CR>
+nnoremap <Leader>g5 :action ExpandAllToLevel4<CR>
+nnoremap <Leader>g6 :action ExpandAllToLevel5<CR>
+nnoremap <Leader>cv :action ChangeView<CR>
+nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
+nnoremap <Leader>ga :action GotoAction<CR>
+nnoremap <Leader>gc :action GotoClass<CR>
+nnoremap <Leader>gf :action GotoFile<CR>
+nnoremap <Leader>gi :action GotoImplementation<CR>
+nnoremap <Leader>gs :action GotoSymbol<CR>
+nnoremap <Leader>gt :action GotoTest<CR>
+nnoremap <Leader>fp :action ShowFilePath<CR>
+nnoremap <Leader>ff :action FindInPath<CR>
+vnoremap <Leader>ff :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action FindInPath<CR>
+nnoremap <Leader>ic :action InspectCode<CR>
+nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
+nnoremap <Leader>oi :action OptimizeImports<CR>
+nnoremap <Leader>pm :action ShowPopupMenu<CR>
+"nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
+nnoremap <Leader>re :action RenameElement<CR>
+nnoremap <Leader>rn :action RenameFile<CR>
+nnoremap <Leader>rf :action RecentFiles<CR>
+nnoremap <Leader>rl :action RecentLocations<CR>
+nnoremap <Leader>rc :action RecentChangedFiles<CR>
+nnoremap <Leader>se :action SearchEverywhere<CR>
+nnoremap <Leader>su :action ShowUsages<CR>
+nnoremap <Leader>tc :action CloseActiveTab<CR>
+nnoremap <Leader>gp :action ParameterInfo<CR>
+nnoremap <Leader>cp :action CompareTwoFiles<CR>
+nnoremap <Leader>cw :action CompareActions<CR>
+nnoremap <Leader>rp :action Replace<CR>
+vnoremap <Leader>rp :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action Replace<CR>
+vnoremap <Leader>gc  :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action $Copy<CR>
+nnoremap <Leader>cp :action CompareTwoFiles<CR>
+nnoremap <Leader>cg :action Compare.SameVersion <CR>
+nnoremap <leader>cc :action CommentByLineComment<CR> :action VimMotionUp<CR>
+nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
+vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+nnoremap <Leader>O :action GotoFile<CR>
+nnoremap <Leader>k :action FileStructurePopup<CR>
+nnoremap <Leader>h :action QuickJavaDoc<CR>
+vnoremap <Leader>fc :action ReformatCode<CR>
+vnoremap <Leader>gm :action Git.Diff<CR>
+nnoremap <Leader>si :action StepIntoMyCode<CR>
+nnoremap <Leader>rc :action RunToCursor<CR>
+nnoremap <Leader>so :action StepOver<CR>
+nnoremap <Leader>su :action StepOut<CR>
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>br :action ViewBreakpoints<CR>
+nnoremap <Leader>db :action Debug<CR>
+nnoremap <Leader>aw :action Debugger.AddToWatch<CR>
+
+nnoremap <A-k> :action MethodUp<CR>
+nnoremap <A-j> :action MethodDown<CR>
+
+
+"nnoremap - '<
+"":imap jj <ESC>
+"nmap * *zz
+"nmap # #zz
+"nmap <up> #zz
+"nmap <down> *zz
+""nmap <S-Enter> O<Esc>
+"noremap <CR> <S-CR>
+
+"nmap ]] ]]zz
+"nmap [[ [[zz
+"nmap ) )zz
+"nmap ( (zz
+"nmap { {zz
+"nmap } }zz
+
+
+
+" Move to the start of line
+"nnoremap H ^
+"vnoremap H ^
+
+" Move to the end of line
+"map L $
+"map L $
+
+" copy paste command
+"noremap dd "0dd
+"noremap DD dd
+"noremap YY "byy
+"noremap x "_x
+"noremap X x
+"noremap dw "0dw
+"noremap db "0db
+"vmap r "_dP
+"vmap R "bP
+"noremap J "0diw
+"noremap K "bp
+"vnoremap J "by
+
+"noremap <C-s> "_ciw<esc>p
+"noremap <C-v> <C-v>
+"noremap <C-a> viw
+"noremap <C-c> viwy
+"noremap <C-x> diw
+"noremap <A-n> 3gj3<C-e>
+"noremap <A-m> 3gk3<C-y>
+
+" Scroll screen with the cursor
+"noremap <C-j> gj<C-e>
+"noremap <C-k> gk<C-y>
+
+
+" Join lines
+"nnoremap <Leader>J J
+"nnoremap <Delete> l"_x
+"nnoremap <bs> h"_x
+"nnoremap <tab> i<Leader><esc>l
+"nnoremap <Leader>h H
+"nnoremap <Leader>l L
+"nnoremap <Leader>m M
+
+" Moving blocks of text in visual mode
+"vnoremap < <gv
+"vnoremap > >gv
+
+" navigate trought wrapped lines easily
+"nmap j gj
+"nmap k gk
+" Insert mode shortcut
+"inoremap <C-h> <Left>
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-l> <Right>
+"inoremap <C-a> <Home>
+"inoremap <C-e> <End>
+"inoremap <C-d> <Delete>
+
+" Redo
+"nnoremap U <C-r>
+
+" Window operation
+"nnoremap <Leader>ww <C-W>w
+"nnoremap <Leader>wd <C-W>c
+"nnoremap <Leader>wj <C-W>j
+"nnoremap <Leader>wk <C-W>k
+"nnoremap <Leader>wh <C-W>h
+"nnoremap <Leader>wl <C-W>l
+"nnoremap <Leader>ws <C-W>s
+"nnoremap <Leader>w- <C-W>s
+"nnoremap <Leader>wv <C-W>v
+"nnoremap <Leader>w\| <C-W>v
+
+
+
+"nnoremap <leader>r :action Replace<CR>
+"nnoremap <leader>p :action ParameterInfo<CR>
+"nnoremap <leader>j :action RecentFiles<CR>
+
+"nnoremap o <C-o>
+"nnoremap <C-o> o
+"nnoremap q <C-i>
+"nnoremap <C-i> q
+"nnoremap N :action FindNext<CR>
+"nnoremap <leader>n  :action FindPrevious<CR>
+" Press `f` to activate AceJump
+"map f :action AceAction<CR>
+" Press `F` to activate Target Mode
+
+"map <leader>b <Action>(ToggleLineBreakpoint)
+"map <leader>o <Action>(FileStructurePopup)
+""" ideavim github sample Mappings --------------------------------
+
+"nnoremap <Tab> >>_
+"nnoremap <S-Tab> <<_
+"inoremap <S-Tab> <C-D>
+"vnoremap <Tab> >gv
+"vnoremap <S-Tab> <gv
+
+"vnoremap O o
+"vnoremap o O
+"nnoremap O o
+"nnoremap o O
+
+""" ideavim github sample Mappings --------------------------------
+"map <leader>f <Plug>(easymotion-s)
+"map <leader>e <Plug>(easymotion-f)
+"
+"map <leader>d <Action>(Debug)
+"map <leader>r <Action>(RenameElement)
+"map <leader>c <Action>(Stop)
+"map <leader>z <Action>(ToggleDistractionFreeMode)
+"
+"map <leader>s <Action>(SelectInProjectView)
+"map <leader>a <Action>(Annotate)
+"map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+
+" Press `g` to activate Line Mode
+"map <Leader>j :action AceLineAction<CR>
+"noremap H "0diw
+"noremap K "0di"
+"noremap L "0ci"
+
+" Tab operation
+"nnoremap tn gt
+"nnoremap tp gT
+"nnoremap <A-h> gT
+"nnoremap <A-l> gt
+
+" Move half page faster
+"nnoremap <Leader>d  <C-d>
+"nnoremap <Leader>u  <C-u>
+
+"vmap <left> :action FindPrevious<CR>
+"nmap <left> :action FindPrevious<CR>
+"vmap <right> :action FindNext<CR>
+"nmap <right> :action FindNext<CR>
+
+" Quit visual mode
+"vnoremap v <Esc>
+
+"nnoremap <Tab> <Tab>
+"nnoremap <S-Tab> <S-Tab>
+"inoremap <S-Tab> <S-Tab>
+"vnoremap <Tab> <Tab>
+"vnoremap <S-Tab> <Tab>
+"nnoremap <Leader>/ /
