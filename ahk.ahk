@@ -156,17 +156,11 @@ MovePotPlayerToPosition(position) {
             currentPosition := ""
             GetCurrentScreenAndPosition(&currentScreen, &currentPosition)
             
-            if (currentPosition = position) {
-                CURRENT_SCREEN := GetNextScreen()
-            } else {
-                CURRENT_SCREEN := currentScreen
-            }
-            
             left := 0
             top := 0
             right := 0
             bottom := 0
-            MonitorGet(CURRENT_SCREEN, &left, &top, &right, &bottom)
+            MonitorGet(currentScreen, &left, &top, &right, &bottom)
             
             width := right - left
             height := bottom - top
@@ -188,6 +182,43 @@ MovePotPlayerToPosition(position) {
                     y := top + height - quarterHeight
             }
             
+            ; 获取当前窗口位置和大小
+            WinGetPos(&currentX, &currentY, &currentWidth, &currentHeight, "ahk_exe " . potplayerExe)
+            
+            ; 检查窗口是否已经在计划位置（完全匹配）
+            isInPlannedPosition := (currentX = x) and (currentY = y) and 
+                                   (currentWidth = quarterWidth) and (currentHeight = quarterHeight)
+            
+            if (isInPlannedPosition) {
+                ; 如果已经在计划位置，移动到下一个屏幕
+                CURRENT_SCREEN := GetNextScreen()
+                ; 获取新屏幕的尺寸
+                MonitorGet(CURRENT_SCREEN, &left, &top, &right, &bottom)
+                width := right - left
+                height := bottom - top
+                quarterWidth := Floor(width / 2)
+                quarterHeight := Floor(height / 2)
+                
+                ; 计算新屏幕上的位置
+                switch position {
+                    case "topleft":
+                        x := left
+                        y := top
+                    case "topright":
+                        x := left + width - quarterWidth
+                        y := top
+                    case "bottomleft":
+                        x := left
+                        y := top + height - quarterHeight
+                    case "bottomright":
+                        x := left + width - quarterWidth
+                        y := top + height - quarterHeight
+                }
+            } else {
+                ; 如果不在计划位置，移动到当前屏幕的计划位置
+                CURRENT_SCREEN := currentScreen
+            }
+            
             WinMove(x, y, quarterWidth, quarterHeight, "ahk_exe " . potplayerExe)
             WinActivate("ahk_exe " . potplayerExe)
             
@@ -199,6 +230,7 @@ MovePotPlayerToPosition(position) {
         MsgBox("未找到 PotPlayer 窗口。请确保 PotPlayer 正在运行。")
     }
 }
+
 
 DistributePotPlayerWindows() {
     potplayerWindows := []
@@ -284,6 +316,31 @@ d:: MovePotPlayerToPosition("bottomright")
 r:: DistributePotPlayerWindows()
 #HotIf
 
+;系統熱鍵,先透過powertoy remap alt+shit+ 在用akh 模擬alt+shift+
+; !+t:: {
+;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+; }
+
+; !+g:: {
+;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+; }
+
+; !+r:: {
+;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+; }
+
+; !+l:: {
+;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+; }
+
+!2:: {
+    ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
+}
+
+; Alt+2: 啟動/切換 VS Code
+!+T:: {
+    ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+}
 ; 熱鍵設置
 ; Alt+A: 啟動/切換 Microsoft Edge
 !a:: {
@@ -309,7 +366,7 @@ r:: DistributePotPlayerWindows()
 }
 
 
-; Alt+T: 啟動/切換 Total Commander
+; Alt+f: 啟動/切換 Total Commander
 !f:: {
     ActivateOrRun("TOTALCMD64.EXE", "C:\Program Files\totalcmd\TOTALCMD64.EXE")
 }
@@ -323,12 +380,8 @@ r:: DistributePotPlayerWindows()
 }
 
 
-; Alt+2: 啟動/切換 VS Code
-!2:: {
-    ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
-}
 
-; Alt+p: 啟動/切換 file explorer
+
 !p:: {
     ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
 }
@@ -338,10 +391,7 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("daqxqlite.exe", "C:\Users\yulia\OneDrive\Desktop\XQ全球贏家(個人版).lnk")
 }
 
-; Alt+t: 啟動/切換 Teams
-!+t:: {
-    ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-}
+
 
 !\:: {
     ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
@@ -350,6 +400,16 @@ r:: DistributePotPlayerWindows()
 !;:: {
     ActivateOrRun("FTNN.exe", "C:\Program Files (x86)\FTNN\FTNN.exe")
 }
+
+!d:: {
+    ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+}
+
+; !c:: {
+;     ; ActivateOrRun("YoudaoDict.exe", "C:\Users\yulia\AppData\Local\youdao\dict\Application\YoudaoDict.exe")
+; }
+
+
 
 ; Alt+W: 啟動/切換 Firefox
 !+w:: {
@@ -384,17 +444,6 @@ r:: DistributePotPlayerWindows()
 ; Win+Shift+M 最大化当前窗口
 #+m:: {
     Send "#" "{Up}"
-}
-
-
-; Win+Shift+. 右移動窗口
-#+.:: {
-    Send "#" "+" "{Right}"
-}
-
-; Win+Shift+, 左移動窗口
-#+,:: {
-    Send "#" "+" "{Left}"
 }
 
 
@@ -464,6 +513,36 @@ q::
     ; Send "{Enter}"  ; 注釋掉自動回車，按照您的要求
 }
 #HotIf  ; 結束條件熱鍵
+
+; 函数：获取当前资源管理器路径
+GetExplorerPath() {
+    for window in ComObject("Shell.Application").Windows {
+        if (window.HWND == WinGetID("A")) {
+            return window.Document.Folder.Self.Path
+        }
+    }
+    return ""
+}
+
+; 函数：在Total Commander中打开当前路径
+OpenInTotalCommander() {
+    currentPath := GetExplorerPath()
+    if (currentPath != "") {
+        try {
+            Run 'C:\Program Files\totalcmd\TOTALCMD64.EXE /O /T "' . currentPath . '"'
+            ; MsgBox("Attempting to open Total Commander with path: " . currentPath)
+        } catch as e {
+            MsgBox("Error running Total Commander: " . e.Message)
+        }
+    } else {
+        MsgBox("Failed to get current path")
+    }
+}
+
+; 使用优化的 #HotIf 表达式
+#HotIf WinActive("ahk_class CabinetWClass") or WinActive("ahk_class ExploreWClass")
+^/::OpenInTotalCommander()
+#HotIf
 
 
 ; 啟動提示
