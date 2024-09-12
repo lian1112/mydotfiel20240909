@@ -524,13 +524,46 @@ GetExplorerPath() {
     return ""
 }
 
-; 函数：在Total Commander中打开当前路径
+; 使用优化的 #HotIf 表达式
+#HotIf WinActive("ahk_class CabinetWClass") or WinActive("ahk_class ExploreWClass")
+/::OpenInTotalCommander()
+#HotIf
+
 OpenInTotalCommander() {
     currentPath := GetExplorerPath()
+    selectedItem := GetSelectedItem()
+    isFolder := IsSelectedItemFolder()
+    
     if (currentPath != "") {
         try {
-            Run 'C:\Program Files\totalcmd\TOTALCMD64.EXE /O /T "' . currentPath . '"'
-            ; MsgBox("Attempting to open Total Commander with path: " . currentPath)
+            tcPath := 'C:\Program Files\totalcmd\TOTALCMD64.EXE'
+            
+            ; 构建命令行参数
+            if (selectedItem != "" && isFolder) {
+                ; 如果选中的是文件夹，打开该文件夹
+                params := '/O /T "' . currentPath . "\" . selectedItem . '"'
+            } else {
+                ; 否则，打开当前路径
+                params := '/O /T "' . currentPath . '"'
+            }
+            
+            ; 检查 Total Commander 是否已经运行
+            if (WinExist("ahk_class TTOTAL_CMD")) {
+                ; 如果已运行，使用 /O /T 参数来激活现有窗口并应用新的路径
+                Run tcPath . " " . params
+            } else {
+                ; 如果未运行，正常启动 Total Commander
+                Run tcPath . " " . params
+            }
+            
+            ; 等待 Total Commander 窗口出现或激活
+            WinWait "ahk_class TTOTAL_CMD"
+            
+            ; 激活 Total Commander 窗口
+            WinActivate "ahk_class TTOTAL_CMD"
+            
+            ; 给 Total Commander 一些时间来加载
+            Sleep 500
         } catch as e {
             MsgBox("Error running Total Commander: " . e.Message)
         }
@@ -538,11 +571,39 @@ OpenInTotalCommander() {
         MsgBox("Failed to get current path")
     }
 }
+; 函数：获取当前选中的文件或文件夹名称
+GetSelectedItem() {
+    try {
+        for window in ComObject("Shell.Application").Windows {
+            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
+                for item in window.Document.SelectedItems {
+                    return item.Name
+                }
+            }
+        }
+    }
+    return ""
+}
 
-; 使用优化的 #HotIf 表达式
-#HotIf WinActive("ahk_class CabinetWClass") or WinActive("ahk_class ExploreWClass")
-^/::OpenInTotalCommander()
-#HotIf
+; 函数：判断选中的项目是否为文件夹
+IsSelectedItemFolder() {
+    try {
+        for window in ComObject("Shell.Application").Windows {
+            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
+                for item in window.Document.SelectedItems {
+                    return item.IsFolder
+                }
+            }
+        }
+    }
+    return false
+}
+
+; 确保 GetExplorerPath 函数在此处定义
+; 如果它在其他地方定义，可以删除这个注释
+
+; 确保 GetExplorerPath 函数在此处定义
+; 如果它在其他地方定义，可以删除这个注释
 
 
 ; 啟動提示
