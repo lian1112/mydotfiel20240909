@@ -1,2 +1,2 @@
 @echo off
-start cmd /k "e:\mydotfile\play_mp4.bat %*"
+powershell -ExecutionPolicy Bypass -File "e:\mydotfile\play_mp4.ps1" %*

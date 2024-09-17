@@ -375,10 +375,9 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
 }
 
-!k:: {
+!4:: {
     ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
 }
-
 
 
 
@@ -386,11 +385,13 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
 }
 
-; Alt+3: 啟動/切換 xq
+!i:: {
+    ActivateOrRun("Excel.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk")
+}
+
 !3:: {
     ActivateOrRun("daqxqlite.exe", "C:\Users\yulia\OneDrive\Desktop\XQ全球贏家(個人版).lnk")
 }
-
 
 
 !\:: {
@@ -405,6 +406,11 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
 }
 
+
+!r:: {
+    ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
+}
+
 ; !c:: {
 ;     ; ActivateOrRun("YoudaoDict.exe", "C:\Users\yulia\AppData\Local\youdao\dict\Application\YoudaoDict.exe")
 ; }
@@ -417,7 +423,7 @@ r:: DistributePotPlayerWindows()
 }
 
 ; Alt+4: 執行 Win+2
-!4:: Send "#2"
+; !4:: Send "#2"
 
 ; Alt+1: 執行 Win+1
 !1:: Send "#1"
@@ -527,6 +533,10 @@ GetExplorerPath() {
 ; 使用优化的 #HotIf 表达式
 #HotIf WinActive("ahk_class CabinetWClass") or WinActive("ahk_class ExploreWClass")
 /::OpenInTotalCommander()
+Left::Send "!{Up}"  ; Left 键映射到 Alt+Up（向上一级目录）
+Right::Send "{Enter}"
+^r::Send "{F2}"  ; Ctrl+R 映射到 F2（重命名）
++Enter::Send "{AppsKey}"  ; Shift+Enter 映射到显示上下文菜单
 #HotIf
 
 OpenInTotalCommander() {
