@@ -4,7 +4,7 @@ SetWorkingDir A_ScriptDir
 
 
 ::/ggg::yulian.lin2@gmail.com
-::/key::Synopsys_AllenLin_Engineering_Test_hub_00130000005No8C
+::/reg::Synopsys_AllenLin_Engineering_Test_hub_00130000005No8C
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
 
 ; 全局變量
@@ -325,9 +325,10 @@ r:: DistributePotPlayerWindows()
 ;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
 ; }
 
-; !+r:: {
-;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-; }
+!+r::
+!+g:: {
+    ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
+}
 
 ; !+l:: {
 ;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
@@ -349,13 +350,19 @@ r:: DistributePotPlayerWindows()
 
 ; Alt+z: 啟動/切換 Onenote
 !z:: {
-    ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
+    ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
 }
+
 
 ; Alt+Q: 啟動/切換 Google Chrome
 !q:: {
     ActivateOrRun("chrome.exe", "C:\Program Files\Google\Chrome\Application\chrome.exe")
 }
+
+!.:: {
+    ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
+}
+
 
 ; Alt+S: 啟動/切換 Windows Terminal
 ; !s:: {
@@ -380,7 +387,7 @@ r:: DistributePotPlayerWindows()
 }
 
 
-
+!5::
 !p:: {
     ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
 }
@@ -390,7 +397,7 @@ r:: DistributePotPlayerWindows()
 }
 
 !3:: {
-    ActivateOrRun("daqxqlite.exe", "C:\Users\yulia\OneDrive\Desktop\XQ全球贏家(個人版).lnk")
+    ActivateOrRun("daqxqlite.exe", "C:\SysJust\XQLite\daqxqlite.exe")
 }
 
 
@@ -404,11 +411,6 @@ r:: DistributePotPlayerWindows()
 
 !d:: {
     ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
-}
-
-
-!r:: {
-    ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
 }
 
 ; !c:: {
