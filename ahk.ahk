@@ -6,6 +6,7 @@ SetWorkingDir A_ScriptDir
 ::/ggg::yulian.lin2@gmail.com
 ::/reg::Synopsys_AllenLin_Engineering_Test_hub_00130000005No8C
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
+::/lll::林口區麗園一街6巷5號10樓-2
 
 ; 全局變量
 global LINE_PATH := "C:\Users\yulia\AppData\Local\LINE\bin\current\LINE.exe"
@@ -14,6 +15,325 @@ global FIREFOX_PATH := "C:\Program Files\Mozilla Firefox\firefox.exe"
 global POTPLAYER_EXES := ["PotPlayer64.exe", "PotPlayer.exe", "PotPlayerMini64.exe", "PotPlayerMini.exe"]
 global CURRENT_SCREEN := 2
 global LAST_POSITION := ""
+
+
+
+; PotPlayer 特定熱鍵
+#HotIf WinActive("ahk_exe PotPlayer64.exe") or WinActive("ahk_exe PotPlayer.exe") or WinActive("ahk_exe PotPlayerMini64.exe") or WinActive("ahk_exe PotPlayerMini.exe")
+w:: MovePotPlayerToPosition("topleft")
+e:: MovePotPlayerToPosition("topright")
+s:: MovePotPlayerToPosition("bottomleft")
+d:: MovePotPlayerToPosition("bottomright")
+r:: DistributePotPlayerWindows()
+#HotIf
+
+;系統熱鍵,先透過powertoy remap alt+shit+ 在用akh 模擬alt+shift+
+; !+t:: {
+;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+; }
+
+!u:: {
+    ActivateOrRun("WinSCP.exe", "C:\Program Files (x86)\WinSCP\WinSCP.exe")
+ }
+
+
+!+r:: {
+    ActivateOrRun("firefox.exe", FIREFOX_PATH)
+}
+
+!+g:: {
+    ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
+}
+
+; !+l:: {
+;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+; }
+
+!2:: {
+    ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
+}
+
+; Alt+2: 啟動/切換 VS Code
+!+T:: {
+    ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+}
+; 熱鍵設置
+; Alt+A: 啟動/切換 Microsoft Edge
+!a:: {
+    ActivateOrRun("msedge.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
+}
+
+; Alt+z: 啟動/切換 Onenote
+!z:: {
+    ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
+}
+
+
+; Alt+Q: 啟動/切換 Google Chrome
+!q:: {
+    ActivateOrRun("chrome.exe", "C:\Program Files\Google\Chrome\Application\chrome.exe")
+}
+
+!.:: {
+    ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
+}
+
+
+; Alt+S: 啟動/切換 Windows Terminal
+; !s:: {
+;     ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.20.11781.0_x64__8wekyb3d8bbwe\wt.exe")
+; }
+!s:: {
+    ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
+}
+
+
+; Alt+f: 啟動/切換 Total Commander
+!f:: {
+    ActivateOrRun("TOTALCMD64.EXE", "C:\Program Files\totalcmd\TOTALCMD64.EXE")
+}
+
+!x:: {
+    ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
+}
+
+!4:: {
+    ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
+}
+
+
+!5::
+!p:: {
+    ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
+}
+
+!i:: {
+    ActivateOrRun("Excel.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk")
+}
+
+!3:: {
+    ActivateOrRun("daqxqlite.exe", "C:\SysJust\XQLite\daqxqlite.exe")
+}
+
+!h::
+!\:: {
+    ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
+}
+
+!;::
+!+f:: {
+    ActivateOrRun("FTNN.exe", "C:\Program Files (x86)\FTNN\FTNN.exe")
+}
+
+!d:: {
+    ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+}
+
+; !c:: {
+;     ; ActivateOrRun("YoudaoDict.exe", "C:\Users\yulia\AppData\Local\youdao\dict\Application\YoudaoDict.exe")
+; }
+
+
+
+; Alt+W: 啟動/切換 Firefox
+; !+w:: Send "#3"
+!+w:: {
+    ActivateOrRun("firefox.exe", FIREFOX_PATH)
+}
+
+
+; Alt+4: 執行 Win+2
+; !4:: Send "#2"
+
+; Alt+1: 執行 Win+1
+!1:: Send "#1"
+
+; Alt+V: 執行 Win+V
+!v:: Send "#v"
+
+#c:: Send "^c"
+
+; ctl+Shift+R: 重新載入腳本
+^+r:: {
+    try {
+        Reload
+        SetTimer () => ToolTip("腳本已成功重新載入！"), -1000
+        SetTimer () => ToolTip(), -3000
+    } catch as err {
+        LogMessage("錯誤: 無法重新載入腳本: " . err.Message)
+        MsgBox("無法重新載入腳本: " . A_ScriptFullPath . "`n錯誤: " . err.Message)
+    }
+}
+
+                
+
+; Win+Shift+M 最大化当前窗口
+#+m:: {
+    Send "#" "{Up}"
+}
+
+
+#q:: {
+    Send "!" "{F4}"
+}
+
+
+
+; 檢查 115 app 是否為活動窗口
+is115Active() {
+    return WinActive("ahk_exe 115chrome.exe")
+}
+
+; 處理剪貼板文本
+ProcessClipboardText() {
+    text := A_Clipboard
+    processedText := ""
+    startFound := false
+    lastNumIndex := 0
+    
+    Loop Parse, text
+    {
+        if (!startFound && RegExMatch(A_LoopField, "[A-Za-z]"))
+            startFound := true
+        
+        if (startFound)
+        {
+            if (A_LoopField == "-")
+                processedText .= " "
+            else
+                processedText .= A_LoopField
+            
+            if (RegExMatch(A_LoopField, "\d"))
+                lastNumIndex := A_Index
+        }
+    }
+    
+    return Trim(SubStr(processedText, 1, lastNumIndex))
+}
+
+; 當 115 app 處於活動狀態時的熱鍵
+#HotIf is115Active()
+q::
+{
+    ; 三擊選擇當前文字
+    Click 3
+    Sleep 50  ; 短暫等待以確保選擇完成
+
+    ; 複製選中的文字
+    Send "^c"
+    Sleep 100  ; 等待以確保複製完成
+
+    ; 處理剪貼板文本
+    processedText := ProcessClipboardText()
+    A_Clipboard := processedText  ; 將處理後的文本放回剪貼板
+
+    ; 啟動 Listary
+    Send "{Ctrl}"
+    Sleep 100  ; 等待 Listary 打開
+    Send "{Ctrl}"
+
+    ; 貼上處理後的文字
+    Sleep 200  ; 給 Listary 更多時間來完全打開
+    Send "^v"
+    Sleep 100
+    ; Send "{Enter}"  ; 注釋掉自動回車，按照您的要求
+}
+#HotIf  ; 結束條件熱鍵
+
+; 函数：获取当前资源管理器路径
+GetExplorerPath() {
+    for window in ComObject("Shell.Application").Windows {
+        if (window.HWND == WinGetID("A")) {
+            return window.Document.Folder.Self.Path
+        }
+    }
+    return ""
+}
+
+; 使用优化的 #HotIf 表达式
+#HotIf WinActive("ahk_class CabinetWClass") or WinActive("ahk_class ExploreWClass")
+/::OpenInTotalCommander()
+Left::Send "!{Up}"  ; Left 键映射到 Alt+Up（向上一级目录）
+Right::Send "{Enter}"
+^r::Send "{F2}"  ; Ctrl+R 映射到 F2（重命名）
++Enter::Send "{AppsKey}"  ; Shift+Enter 映射到显示上下文菜单
+#HotIf
+
+OpenInTotalCommander() {
+    currentPath := GetExplorerPath()
+    selectedItem := GetSelectedItem()
+    isFolder := IsSelectedItemFolder()
+    
+    if (currentPath != "") {
+        try {
+            tcPath := 'C:\Program Files\totalcmd\TOTALCMD64.EXE'
+            
+            ; 构建命令行参数
+            if (selectedItem != "" && isFolder) {
+                ; 如果选中的是文件夹，打开该文件夹
+                params := '/O /T "' . currentPath . "\" . selectedItem . '"'
+            } else {
+                ; 否则，打开当前路径
+                params := '/O /T "' . currentPath . '"'
+            }
+            
+            ; 检查 Total Commander 是否已经运行
+            if (WinExist("ahk_class TTOTAL_CMD")) {
+                ; 如果已运行，使用 /O /T 参数来激活现有窗口并应用新的路径
+                Run tcPath . " " . params
+            } else {
+                ; 如果未运行，正常启动 Total Commander
+                Run tcPath . " " . params
+            }
+            
+            ; 等待 Total Commander 窗口出现或激活
+            WinWait "ahk_class TTOTAL_CMD"
+            
+            ; 激活 Total Commander 窗口
+            WinActivate "ahk_class TTOTAL_CMD"
+            
+            ; 给 Total Commander 一些时间来加载
+            Sleep 500
+        } catch as e {
+            MsgBox("Error running Total Commander: " . e.Message)
+        }
+    } else {
+        MsgBox("Failed to get current path")
+    }
+}
+; 函数：获取当前选中的文件或文件夹名称
+GetSelectedItem() {
+    try {
+        for window in ComObject("Shell.Application").Windows {
+            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
+                for item in window.Document.SelectedItems {
+                    return item.Name
+                }
+            }
+        }
+    }
+    return ""
+}
+
+; 函数：判断选中的项目是否为文件夹
+IsSelectedItemFolder() {
+    try {
+        for window in ComObject("Shell.Application").Windows {
+            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
+                for item in window.Document.SelectedItems {
+                    return item.IsFolder
+                }
+            }
+        }
+    }
+    return false
+}
+
+; 确保 GetExplorerPath 函数在此处定义
+; 如果它在其他地方定义，可以删除这个注释
+
+; 确保 GetExplorerPath 函数在此处定义
+; 如果它在其他地方定义，可以删除这个注释
 
 ; 函數：啟動或在多個實例間切換應用程序
 ActivateOrRun(processName, exePath, params := "") {
@@ -306,318 +626,6 @@ DistributeWindowsToScreens(windows, screenCount) {
         }
     }
 }
-
-; PotPlayer 特定熱鍵
-#HotIf WinActive("ahk_exe PotPlayer64.exe") or WinActive("ahk_exe PotPlayer.exe") or WinActive("ahk_exe PotPlayerMini64.exe") or WinActive("ahk_exe PotPlayerMini.exe")
-w:: MovePotPlayerToPosition("topleft")
-e:: MovePotPlayerToPosition("topright")
-s:: MovePotPlayerToPosition("bottomleft")
-d:: MovePotPlayerToPosition("bottomright")
-r:: DistributePotPlayerWindows()
-#HotIf
-
-;系統熱鍵,先透過powertoy remap alt+shit+ 在用akh 模擬alt+shift+
-; !+t:: {
-;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-; }
-
-; !+g:: {
-;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-; }
-
-!+r::
-!+g:: {
-    ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
-}
-
-; !+l:: {
-;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-; }
-
-!2:: {
-    ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
-}
-
-; Alt+2: 啟動/切換 VS Code
-!+T:: {
-    ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
-}
-; 熱鍵設置
-; Alt+A: 啟動/切換 Microsoft Edge
-!a:: {
-    ActivateOrRun("msedge.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
-}
-
-; Alt+z: 啟動/切換 Onenote
-!z:: {
-    ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
-}
-
-
-; Alt+Q: 啟動/切換 Google Chrome
-!q:: {
-    ActivateOrRun("chrome.exe", "C:\Program Files\Google\Chrome\Application\chrome.exe")
-}
-
-!.:: {
-    ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
-}
-
-
-; Alt+S: 啟動/切換 Windows Terminal
-; !s:: {
-;     ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.20.11781.0_x64__8wekyb3d8bbwe\wt.exe")
-; }
-!s:: {
-    ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
-}
-
-
-; Alt+f: 啟動/切換 Total Commander
-!f:: {
-    ActivateOrRun("TOTALCMD64.EXE", "C:\Program Files\totalcmd\TOTALCMD64.EXE")
-}
-
-!x:: {
-    ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
-}
-
-!4:: {
-    ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
-}
-
-
-!5::
-!p:: {
-    ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
-}
-
-!i:: {
-    ActivateOrRun("Excel.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk")
-}
-
-!3:: {
-    ActivateOrRun("daqxqlite.exe", "C:\SysJust\XQLite\daqxqlite.exe")
-}
-
-
-!\:: {
-    ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
-}
-
-!;:: {
-    ActivateOrRun("FTNN.exe", "C:\Program Files (x86)\FTNN\FTNN.exe")
-}
-
-!d:: {
-    ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
-}
-
-; !c:: {
-;     ; ActivateOrRun("YoudaoDict.exe", "C:\Users\yulia\AppData\Local\youdao\dict\Application\YoudaoDict.exe")
-; }
-
-
-
-; Alt+W: 啟動/切換 Firefox
-!+w:: {
-    ActivateOrRun("firefox.exe", FIREFOX_PATH)
-}
-
-; Alt+4: 執行 Win+2
-; !4:: Send "#2"
-
-; Alt+1: 執行 Win+1
-!1:: Send "#1"
-
-; Alt+V: 執行 Win+V
-!v:: Send "#v"
-
-#c:: Send "^c"
-
-; ctl+Shift+R: 重新載入腳本
-^+r:: {
-    try {
-        Reload
-        SetTimer () => ToolTip("腳本已成功重新載入！"), -1000
-        SetTimer () => ToolTip(), -3000
-    } catch as err {
-        LogMessage("錯誤: 無法重新載入腳本: " . err.Message)
-        MsgBox("無法重新載入腳本: " . A_ScriptFullPath . "`n錯誤: " . err.Message)
-    }
-}
-
-                
-
-; Win+Shift+M 最大化当前窗口
-#+m:: {
-    Send "#" "{Up}"
-}
-
-
-#q:: {
-    Send "!" "{F4}"
-}
-
-
-
-; 檢查 115 app 是否為活動窗口
-is115Active() {
-    return WinActive("ahk_exe 115chrome.exe")
-}
-
-; 處理剪貼板文本
-ProcessClipboardText() {
-    text := A_Clipboard
-    processedText := ""
-    startFound := false
-    lastNumIndex := 0
-    
-    Loop Parse, text
-    {
-        if (!startFound && RegExMatch(A_LoopField, "[A-Za-z]"))
-            startFound := true
-        
-        if (startFound)
-        {
-            if (A_LoopField == "-")
-                processedText .= " "
-            else
-                processedText .= A_LoopField
-            
-            if (RegExMatch(A_LoopField, "\d"))
-                lastNumIndex := A_Index
-        }
-    }
-    
-    return Trim(SubStr(processedText, 1, lastNumIndex))
-}
-
-; 當 115 app 處於活動狀態時的熱鍵
-#HotIf is115Active()
-q::
-{
-    ; 三擊選擇當前文字
-    Click 3
-    Sleep 50  ; 短暫等待以確保選擇完成
-
-    ; 複製選中的文字
-    Send "^c"
-    Sleep 100  ; 等待以確保複製完成
-
-    ; 處理剪貼板文本
-    processedText := ProcessClipboardText()
-    A_Clipboard := processedText  ; 將處理後的文本放回剪貼板
-
-    ; 啟動 Listary
-    Send "{Ctrl}"
-    Sleep 100  ; 等待 Listary 打開
-    Send "{Ctrl}"
-
-    ; 貼上處理後的文字
-    Sleep 200  ; 給 Listary 更多時間來完全打開
-    Send "^v"
-    Sleep 100
-    ; Send "{Enter}"  ; 注釋掉自動回車，按照您的要求
-}
-#HotIf  ; 結束條件熱鍵
-
-; 函数：获取当前资源管理器路径
-GetExplorerPath() {
-    for window in ComObject("Shell.Application").Windows {
-        if (window.HWND == WinGetID("A")) {
-            return window.Document.Folder.Self.Path
-        }
-    }
-    return ""
-}
-
-; 使用优化的 #HotIf 表达式
-#HotIf WinActive("ahk_class CabinetWClass") or WinActive("ahk_class ExploreWClass")
-/::OpenInTotalCommander()
-Left::Send "!{Up}"  ; Left 键映射到 Alt+Up（向上一级目录）
-Right::Send "{Enter}"
-^r::Send "{F2}"  ; Ctrl+R 映射到 F2（重命名）
-+Enter::Send "{AppsKey}"  ; Shift+Enter 映射到显示上下文菜单
-#HotIf
-
-OpenInTotalCommander() {
-    currentPath := GetExplorerPath()
-    selectedItem := GetSelectedItem()
-    isFolder := IsSelectedItemFolder()
-    
-    if (currentPath != "") {
-        try {
-            tcPath := 'C:\Program Files\totalcmd\TOTALCMD64.EXE'
-            
-            ; 构建命令行参数
-            if (selectedItem != "" && isFolder) {
-                ; 如果选中的是文件夹，打开该文件夹
-                params := '/O /T "' . currentPath . "\" . selectedItem . '"'
-            } else {
-                ; 否则，打开当前路径
-                params := '/O /T "' . currentPath . '"'
-            }
-            
-            ; 检查 Total Commander 是否已经运行
-            if (WinExist("ahk_class TTOTAL_CMD")) {
-                ; 如果已运行，使用 /O /T 参数来激活现有窗口并应用新的路径
-                Run tcPath . " " . params
-            } else {
-                ; 如果未运行，正常启动 Total Commander
-                Run tcPath . " " . params
-            }
-            
-            ; 等待 Total Commander 窗口出现或激活
-            WinWait "ahk_class TTOTAL_CMD"
-            
-            ; 激活 Total Commander 窗口
-            WinActivate "ahk_class TTOTAL_CMD"
-            
-            ; 给 Total Commander 一些时间来加载
-            Sleep 500
-        } catch as e {
-            MsgBox("Error running Total Commander: " . e.Message)
-        }
-    } else {
-        MsgBox("Failed to get current path")
-    }
-}
-; 函数：获取当前选中的文件或文件夹名称
-GetSelectedItem() {
-    try {
-        for window in ComObject("Shell.Application").Windows {
-            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
-                for item in window.Document.SelectedItems {
-                    return item.Name
-                }
-            }
-        }
-    }
-    return ""
-}
-
-; 函数：判断选中的项目是否为文件夹
-IsSelectedItemFolder() {
-    try {
-        for window in ComObject("Shell.Application").Windows {
-            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
-                for item in window.Document.SelectedItems {
-                    return item.IsFolder
-                }
-            }
-        }
-    }
-    return false
-}
-
-; 确保 GetExplorerPath 函数在此处定义
-; 如果它在其他地方定义，可以删除这个注释
-
-; 确保 GetExplorerPath 函数在此处定义
-; 如果它在其他地方定义，可以删除这个注释
-
-
 ; 啟動提示
 ToolTip("整合腳本已啟動！")
 SetTimer () => ToolTip(), -3000
