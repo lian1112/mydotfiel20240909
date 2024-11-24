@@ -7,6 +7,7 @@ SetWorkingDir A_ScriptDir
 ::/reg::Synopsys_AllenLin_Engineering_Test_hub_00130000005No8C
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
 ::/lll::林口區麗園一街6巷5號10樓-2
+::/eee::10F.-2, No. 5, Ln. 6, Liyuan 1st St., Linkou Dist., New Taipei City, Taiwan (R.O.C.) 
 
 ; 全局變量
 global LINE_PATH := "C:\Users\yulia\AppData\Local\LINE\bin\current\LINE.exe"
@@ -49,11 +50,11 @@ r:: DistributePotPlayerWindows()
 ;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
 ; }
 
-!2:: {
+!d:: {
     ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
 }
 
-; Alt+2: 啟動/切換 VS Code
+; Alt+t: 啟動/切換 VS Code
 !+T:: {
     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
 }
@@ -120,14 +121,14 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
 }
 
-!;::
-!+f:: {
+!;:: 
+!+d:: {
     ActivateOrRun("FTNN.exe", "C:\Program Files (x86)\FTNN\FTNN.exe")
 }
 
-!d:: {
-    ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
-}
+; !2:: {
+;     ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+; }
 
 ; !c:: {
 ;     ; ActivateOrRun("YoudaoDict.exe", "C:\Users\yulia\AppData\Local\youdao\dict\Application\YoudaoDict.exe")
