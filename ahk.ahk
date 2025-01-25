@@ -56,6 +56,10 @@ RunPowerShell(value) {
     ActivateOrRun("firefox.exe", FIREFOX_PATH)
 }
 
+!b:: {
+    ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
+}
+
 !+g:: {
     ActivateOrRun("onenote.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Chrome 遠端桌面.lnk")
     ; ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
