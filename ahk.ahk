@@ -8,6 +8,8 @@ SetWorkingDir A_ScriptDir
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
 ::/lll::林口區麗園一街6巷5號10樓-2
 ::/eee::10F.-2, No. 5, Ln. 6, Liyuan 1st St., Linkou Dist., New Taipei City, Taiwan (R.O.C.) 
+::/jjj::中文說明文法,假名發音,詞性
+::/ccc::給我完整的function,記得不要影響現有功能
 
 ; 全局變量
 global LINE_PATH := "C:\Users\yulia\AppData\Local\LINE\bin\current\LINE.exe"
@@ -29,37 +31,59 @@ r:: DistributePotPlayerWindows()
 #HotIf
 
 ;系統熱鍵,先透過powertoy remap alt+shit+ 在用akh 模擬alt+shift+
-; !+t:: {
-;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-; }
+!+t:: {
+    ActivateOrRun("Todo.exe", "C:\Program Files\WindowsApps\Microsoft.Todos_2.114.7122.0_x64__8wekyb3d8bbwe\Todo.exe")
+}
+
+
+RunPowerShell(value) {
+    cmd := Format('PowerShell.exe -Command "$path = `'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3`'; $v = (Get-ItemProperty -Path $path).Settings; $v[8] = {}; Set-ItemProperty -Path $path -Name Settings -Value $v; Stop-Process -Name explorer -Force"', value)
+    Run(cmd,, "Hide")
+}
+
+#h:: RunPowerShell(3)  ; 開啟自動隱藏taksbar
+; #l:: ^l
+#l:: ^l
+^l:: ^l
+#+h:: RunPowerShell(2)  ; 關閉自動隱藏tarskbar
 
 !u:: {
     ActivateOrRun("WinSCP.exe", "C:\Program Files (x86)\WinSCP\WinSCP.exe")
  }
 
 
-!+r:: {
+!e:: {
     ActivateOrRun("firefox.exe", FIREFOX_PATH)
 }
 
 !+g:: {
-    ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
+    ActivateOrRun("onenote.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Chrome 遠端桌面.lnk")
+    ; ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
 }
 
-; !+l:: {
+; !+t:: {
 ;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
 ; }
+!x:: {
+    ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+}
+
+!+f:: {
+    ActivateOrRun("Arc.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\Arc.exe")
+}
 
 !d:: {
-    ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
-}
-
-; Alt+t: 啟動/切換 VS Code
-!+T:: {
+    ; ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
 }
+
+; ; Alt+t: 啟動/切換 VS Code
+; !+T:: {
+;     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+; }
 ; 熱鍵設置
 ; Alt+A: 啟動/切換 Microsoft Edge
+; !e::
 !a:: {
     ActivateOrRun("msedge.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 }
@@ -88,17 +112,21 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
 }
 
+!+s:: {
+    ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.21.3231.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe")
+}
+
 
 ; Alt+f: 啟動/切換 Total Commander
 !f:: {
     ActivateOrRun("TOTALCMD64.EXE", "C:\Program Files\totalcmd\TOTALCMD64.EXE")
 }
 
-!x:: {
-    ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
-}
+; !x:: {
+;     ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
+; }
 
-!4:: {
+!y:: {
     ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
 }
 
@@ -108,11 +136,11 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
 }
 
-!i:: {
+!+e:: {
     ActivateOrRun("Excel.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk")
 }
 
-!3:: {
+!k:: {
     ActivateOrRun("daqxqlite.exe", "C:\SysJust\XQLite\daqxqlite.exe")
 }
 
@@ -126,28 +154,44 @@ r:: DistributePotPlayerWindows()
     ActivateOrRun("FTNN.exe", "C:\Program Files (x86)\FTNN\FTNN.exe")
 }
 
-; !2:: {
-;     ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+; !+t:: {
+;     ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+;     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
 ; }
 
-; !c:: {
-;     ; ActivateOrRun("YoudaoDict.exe", "C:\Users\yulia\AppData\Local\youdao\dict\Application\YoudaoDict.exe")
-; }
+
+!`:: {
+    ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+    ActivateOrRun("claude.exe", "C:\Users\yulia\AppData\Local\AnthropicClaude\claude.exe")
+}
+
+
+
+!+c:: {
+    ActivateOrRun("BCompare.exe", "e:\Tools\buy\Beyond_Compare\Beyond_Compare_Pro_Win_v4.4.4\BCompare\BCompare.exe")
+}
 
 
 
 ; Alt+W: 啟動/切換 Firefox
 ; !+w:: Send "#3"
 !+w:: {
-    ActivateOrRun("firefox.exe", FIREFOX_PATH)
+    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
+    ActivateOrRun("brave.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe")
 }
 
+
+!+r:: {
+    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
+    ActivateOrRun("opera.exe", "C:\Users\yulia\AppData\Local\Programs\Opera\opera.exe")
+}
 
 ; Alt+4: 執行 Win+2
 ; !4:: Send "#2"
 
 ; Alt+1: 執行 Win+1
 !1:: Send "#1"
+!3:: Send "#3"
 
 ; Alt+V: 執行 Win+V
 !v:: Send "#v"

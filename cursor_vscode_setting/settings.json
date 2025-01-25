@@ -1,5 +1,5 @@
 {
-    "window.commandCenter": 1,
+    "window.commandCenter": true,
     "files.autoSave": "afterDelay",
     "workbench.colorTheme": "Copilot Theme",
     "github.copilot.enable": {
@@ -17,9 +17,6 @@
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.handleKeys": {
-
-
-
         "<C-f>": false,
         "<C-y>": false,
         "<C-j>": false,
@@ -30,12 +27,13 @@
         "<C-c>": false,
         "<C-h>": false,
         "<C-x>": false,
+        "<C-v>": false,
         "<Tab>": false,
         "<S-Tab>": false  // 如果你也想停用 Shift+Tab
         // "<C-o>": false,
         // "<C-i>": false,
     },
-    "vim.leader": ";",
+    "vim.leader": "<space>",
     "vim.normalModeKeyBindings": [
         {
             "before": ["<C-a>"],
@@ -82,6 +80,15 @@
             "before": ["<leader>", "e"],
             "commands": ["workbench.view.explorer"]
         },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        
         
         // {//導致crash
         //     "before": ["<leader>", "m"],
@@ -205,8 +212,15 @@
         },
         {
             "before": ["p"],
+            // "after": ["\"", "_", "p", "v", "i", "{"]
             "after": ["p", "g", "v", "y"]
         },
+        // {
+        //     "before": ["<C-v>"],
+        //     // "after": ["\"", "_", "p", "g", "v", "y", "V", "}", "k"]
+        //     "after": ["p", "g", "v", "y", "V", "}"]
+        //     // "after": ["\"", "_", "p", "g", "v", "V", "}", "k"]
+        // },
         {
             "before": [";", "f", "f"],
             "commands": ["editor.action.formatSelection"]  // 注意這裡用 formatSelection
@@ -268,6 +282,16 @@
             "after": ["d", "d"]
         }
     ],
+    // "vim.operatorPendingModeKeyBindings": [
+    //     {
+    //         "before": ["L"],
+    //         "after": ["$"]
+    //     },
+    //     {
+    //         "before": ["H"],
+    //         "after": ["^"]
+    //     }
+    // ],
     "vim.useSystemClipboard": true,
     "editor.wordWrap": "on",
     "git.autofetch": true,
@@ -284,9 +308,14 @@
     "vim.easymotion": true,
     "workbench.editor.tabSwitchOrder": "default",
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "diffEditor.ignoreTrimWhitespace": false
     },
-    "python.createEnvironment.trigger": "off"
+    "python.createEnvironment.trigger": "off",
+    "terminal.integrated.defaultProfile.windows": "Ubuntu-24.04 (WSL)",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.enableMultiLinePasteWarning": false
+
 }
 /*
 是的，Vim 提供了幾種方式來跳轉到之前的修改位置：
