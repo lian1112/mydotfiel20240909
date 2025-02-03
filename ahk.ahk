@@ -8,7 +8,7 @@ SetWorkingDir A_ScriptDir
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
 ::/lll::林口區麗園一街6巷5號10樓-2
 ::/eee::10F.-2, No. 5, Ln. 6, Liyuan 1st St., Linkou Dist., New Taipei City, Taiwan (R.O.C.) 
-::/jjj::中文說明文法,假名發音,詞性
+::/jjj::中文說明文法,單字意思,假名發音,詞性 動詞形容詞助動詞等變化,助詞(ni,ha,wo,de,te,to)的用法
 ::/ccc::給我完整的function,記得不要影響現有功能
 
 ; 全局變量
@@ -164,15 +164,16 @@ RunPowerShell(value) {
 ; }
 
 
-!`:: {
-    ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
-    ActivateOrRun("claude.exe", "C:\Users\yulia\AppData\Local\AnthropicClaude\claude.exe")
-}
+;  !`::#5 
+; !`:: {
+;     ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+;     ActivateOrRun("claude.exe", "C:\Users\yulia\AppData\Local\AnthropicClaude\claude.exe")
+; }
 
 
 
 !+c:: {
-    ActivateOrRun("BCompare.exe", "e:\Tools\buy\Beyond_Compare\Beyond_Compare_Pro_Win_v4.4.4\BCompare\BCompare.exe")
+    ActivateOrRun("BCompare.exe", "d:\Tools\buy\Beyond_Compare\Beyond_Compare_Pro_Win_v4.4.4\BCompare\BCompare.exe")
 }
 
 
@@ -260,6 +261,33 @@ ProcessClipboardText() {
     return Trim(SubStr(processedText, 1, lastNumIndex))
 }
 
+; 處理剪貼板文本
+ProcessClipboardText2() {
+    text := A_Clipboard
+    processedText := ""
+    startFound := false
+    lastNumIndex := 0
+    
+    Loop Parse, text
+    {
+        if (!startFound && RegExMatch(A_LoopField, "[A-Za-z]"))
+            startFound := true
+        
+        if (startFound)
+        {
+            ; if (A_LoopField == "-")
+            ;     processedText .= " "
+            ; else
+            processedText .= A_LoopField
+            
+            if (RegExMatch(A_LoopField, "\d"))
+                lastNumIndex := A_Index
+        }
+    }
+    
+    return Trim(SubStr(processedText, 1, lastNumIndex))
+}
+
 ; 當 115 app 處於活動狀態時的熱鍵
 #HotIf is115Active()
 q::
@@ -286,6 +314,36 @@ q::
     Send "^v"
     Sleep 100
     ; Send "{Enter}"  ; 注釋掉自動回車，按照您的要求
+}
+#HotIf  ; 結束條件熱鍵
+
+; 當 115 app 處於活動狀態時的熱鍵
+#HotIf is115Active()
+^q::
+{
+    ; 三擊選擇當前文字
+    Click 3
+    Sleep 50  ; 短暫等待以確保選擇完成
+    ; 複製選中的文字
+    Send "^c"
+    Sleep 100  ; 等待以確保複製完成
+    ; 處理剪貼板文本
+    processedText := ProcessClipboardText2()
+    A_Clipboard := processedText  ; 將處理後的文本放回剪貼板
+    
+    ; 瀏覽器操作序列
+    Sleep 100
+    Send "e"  ; 瀏覽器前一個分頁
+    Sleep 100
+    Send "gg"  ; 瀏覽器滾動到頂部
+    Sleep 300
+    Send "gi"  ; 瀏覽器跳到輸入框
+    Sleep 100
+    Send "^a"  ; 選擇all文字
+    Sleep 100
+    Send "^v"  ; 貼上文字
+    Sleep 100
+    Send "{Enter}"  ; 執行搜尋
 }
 #HotIf  ; 結束條件熱鍵
 
