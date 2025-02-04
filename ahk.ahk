@@ -135,7 +135,7 @@ RunPowerShell(value) {
 }
 
 
-!5::
+; !5::
 !p:: {
     ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
 }
@@ -195,8 +195,8 @@ RunPowerShell(value) {
 ; !4:: Send "#2"
 
 ; Alt+1: 執行 Win+1
-!1:: Send "#1"
-!3:: Send "#3"
+; !1:: Send "#1"
+; !3:: Send "#3"
 
 ; Alt+V: 執行 Win+V
 !v:: Send "#v"
