@@ -565,6 +565,7 @@ MoveToCenterOfMonitor(monitorNumber) {
     centerX := left + (right - left) / 2
     centerY := top + (bottom - top) / 2
     MouseMove(centerX, centerY, 2)
+    Click ; Click to ensure focus
 }
 
 ActivateOrRun(processName, exePath, params := "") {
