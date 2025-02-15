@@ -3281,3 +3281,7 @@ Monitor 1: 0,0 to 3840,2160
 Monitor 2: 3840,0 to 7680,2160
 Monitor 3: -3840,1453 to 0,3613
 Found in monitor: 3
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
