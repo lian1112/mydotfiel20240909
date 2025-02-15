@@ -523,18 +523,12 @@ GetMonitorBounds() {
     return bounds
 }
 
-; Function to find monitor containing a point
 GetMonitorFromPoint(x, y) {
     bounds := GetMonitorBounds()
     
-    ; Log bounds and point for debugging
-    FileAppend("Point: " . x . "," . y . "`n", "monitor_debug.txt")
+    ; Check if point is within monitor bounds
     for bound in bounds {
-        FileAppend("Monitor " . bound.number . ": " . bound.left . "," . bound.top . " to " . bound.right . "," . bound.bottom . "`n", "monitor_debug.txt")
-        
-        ; Check if point is within monitor bounds
         if (x >= bound.left && x <= bound.right && y >= bound.top && y <= bound.bottom) {
-            FileAppend("Found in monitor: " . bound.number . "`n", "monitor_debug.txt")
             return bound.number
         }
     }
@@ -555,7 +549,6 @@ GetMonitorFromPoint(x, y) {
         }
     }
     
-    FileAppend("Closest monitor: " . closestMonitor . "`n", "monitor_debug.txt")
     return closestMonitor
 }
 
