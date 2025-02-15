@@ -56,14 +56,15 @@ RunPowerShell(value) {
     ActivateOrRun("firefox.exe", FIREFOX_PATH)
 }
 
+!+d::
 !b:: {
     ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
 }
 
-!+g:: {
-    ActivateOrRun("onenote.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Chrome 遠端桌面.lnk")
-    ; ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
-}
+; !+g:: {
+;     ActivateOrRun("onenote.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Chrome 遠端桌面.lnk")
+;     ; ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
+; }
 
 ; !+t:: {
 ;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
@@ -72,7 +73,7 @@ RunPowerShell(value) {
     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
 }
 
-!+f:: {
+!+g:: {
     ActivateOrRun("Arc.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\Arc.exe")
 }
 
@@ -130,6 +131,7 @@ RunPowerShell(value) {
 ;     ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
 ; }
 
+!+q::
 !y:: {
     ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
 }
@@ -153,8 +155,7 @@ RunPowerShell(value) {
     ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
 }
 
-!;:: 
-!+d:: {
+!;:: {
     ActivateOrRun("FTNN.exe", "C:\Program Files (x86)\FTNN\FTNN.exe")
 }
 
@@ -179,8 +180,13 @@ RunPowerShell(value) {
 
 
 ; Alt+W: 啟動/切換 Firefox
-; !+w:: Send "#3"
-!+w:: {
+!+w::
+!o:: {
+    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
+    ActivateOrRun("WhatsApp.exe", "C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2504.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe")
+}
+
+!`:: {
     ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
     ActivateOrRun("brave.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe")
 }
@@ -443,20 +449,135 @@ IsSelectedItemFolder() {
 ; 如果它在其他地方定义，可以删除这个注释
 
 ; 函數：啟動或在多個實例間切換應用程序
+; ActivateOrRun(processName, exePath, params := "") {
+;     LogMessage("嘗試啟動或切換到: " . processName)
+;     if (windowSet := WinGetList("ahk_exe " . processName)) {
+;         LogMessage("找到 " . windowSet.Length . " 個窗口")
+;         try {
+;             activeWindow := WinGetID("A")
+;         } catch as err {
+;             LogMessage("獲取活動窗口時出錯: " . err.Message)
+;             activeWindow := 0  
+;         }
+
+;         nextWindow := 0
+;         found := false  ; 初始化 found 變量
+
+;         if (activeWindow != 0) {
+;             for window in windowSet {
+;                 if (found) {
+;                     nextWindow := window
+;                     break
+;                 }
+;                 if (window == activeWindow) {
+;                     found := true
+;                 }
+;             }
+;         } else {
+;             if (windowSet.Length > 0) {
+;                 nextWindow := windowSet[1]
+;             }
+;         }
+
+;         ; 如果沒有找到下一個窗口，選擇第一個窗口
+;         if (nextWindow == 0 && windowSet.Length > 0) {
+;             nextWindow := windowSet[1]
+;         }
+
+;         ; 激活下一個窗口
+;         if (nextWindow != 0) {
+;             WinActivate(nextWindow)
+;             LogMessage("激活窗口: " . nextWindow)
+;         } else {
+;             ; 如果沒有找到窗口，啟動新實例
+;             RunProgram(exePath, params)
+;         }
+;     } else {
+;         LogMessage("沒有找到窗口，嘗試啟動新實例")
+;         ; 如果沒有找到任何窗口，啟動新實例
+;         RunProgram(exePath, params)
+;     }
+; }
+
+#SingleInstance Force
+#Warn
+
+; Ensure coordinate mode is screen
+CoordMode("Mouse", "Screen")
+
+; Function to get monitor bounds
+GetMonitorBounds() {
+    monitorCount := MonitorGetCount()
+    bounds := []
+    
+    loop monitorCount {
+        MonitorGet(A_Index, &left, &top, &right, &bottom)
+        bounds.Push({
+            number: A_Index,
+            left: left,
+            top: top,
+            right: right,
+            bottom: bottom
+        })
+    }
+    return bounds
+}
+
+; Function to find monitor containing a point
+GetMonitorFromPoint(x, y) {
+    bounds := GetMonitorBounds()
+    
+    ; Log bounds and point for debugging
+    FileAppend("Point: " . x . "," . y . "`n", "monitor_debug.txt")
+    for bound in bounds {
+        FileAppend("Monitor " . bound.number . ": " . bound.left . "," . bound.top . " to " . bound.right . "," . bound.bottom . "`n", "monitor_debug.txt")
+        
+        ; Check if point is within monitor bounds
+        if (x >= bound.left && x <= bound.right && y >= bound.top && y <= bound.bottom) {
+            FileAppend("Found in monitor: " . bound.number . "`n", "monitor_debug.txt")
+            return bound.number
+        }
+    }
+    
+    ; If not found, find closest monitor by comparing distances to center
+    minDist := -1
+    closestMonitor := 1
+    
+    for bound in bounds {
+        monitorCenterX := bound.left + (bound.right - bound.left) / 2
+        monitorCenterY := bound.top + (bound.bottom - bound.top) / 2
+        
+        dist := Sqrt((x - monitorCenterX) ** 2 + (y - monitorCenterY) ** 2)
+        
+        if (minDist = -1 || dist < minDist) {
+            minDist := dist
+            closestMonitor := bound.number
+        }
+    }
+    
+    FileAppend("Closest monitor: " . closestMonitor . "`n", "monitor_debug.txt")
+    return closestMonitor
+}
+
+; Function to move mouse to center of specific monitor
+MoveToCenterOfMonitor(monitorNumber) {
+    MonitorGetWorkArea(monitorNumber, &left, &top, &right, &bottom)
+    centerX := left + (right - left) / 2
+    centerY := top + (bottom - top) / 2
+    MouseMove(centerX, centerY, 2)
+}
+
 ActivateOrRun(processName, exePath, params := "") {
-    LogMessage("嘗試啟動或切換到: " . processName)
     if (windowSet := WinGetList("ahk_exe " . processName)) {
-        LogMessage("找到 " . windowSet.Length . " 個窗口")
         try {
             activeWindow := WinGetID("A")
-        } catch as err {
-            LogMessage("獲取活動窗口時出錯: " . err.Message)
-            activeWindow := 0  
+        } catch {
+            activeWindow := 0
         }
-
+        
         nextWindow := 0
-        found := false  ; 初始化 found 變量
-
+        found := false
+        
         if (activeWindow != 0) {
             for window in windowSet {
                 if (found) {
@@ -467,31 +588,40 @@ ActivateOrRun(processName, exePath, params := "") {
                     found := true
                 }
             }
-        } else {
-            if (windowSet.Length > 0) {
-                nextWindow := windowSet[1]
-            }
         }
-
-        ; 如果沒有找到下一個窗口，選擇第一個窗口
+        
         if (nextWindow == 0 && windowSet.Length > 0) {
             nextWindow := windowSet[1]
         }
-
-        ; 激活下一個窗口
+        
         if (nextWindow != 0) {
             WinActivate(nextWindow)
-            LogMessage("激活窗口: " . nextWindow)
+            
+            ; Get window position and size
+            WinGetPos(&winX, &winY, &winWidth, &winHeight, nextWindow)
+            
+            ; Calculate window center
+            centerX := winX + winWidth / 2
+            centerY := winY + winHeight / 2
+            
+            ; Find monitor number and move to its center
+            monitorNumber := GetMonitorFromPoint(centerX, centerY)
+            MoveToCenterOfMonitor(monitorNumber)
         } else {
-            ; 如果沒有找到窗口，啟動新實例
-            RunProgram(exePath, params)
+            Run(exePath . " " . params)
         }
     } else {
-        LogMessage("沒有找到窗口，嘗試啟動新實例")
-        ; 如果沒有找到任何窗口，啟動新實例
-        RunProgram(exePath, params)
+        Run(exePath . " " . params)
     }
 }
+
+; Monitor center movement hotkeys
+; F1::MoveToCenterOfMonitor(1)
+; F2::MoveToCenterOfMonitor(2)
+; F3::MoveToCenterOfMonitor(3)
+; F4::MoveToCenterOfMonitor(4)
+
+
 
 ; 函數：嘗試運行程序並處理錯誤
 RunProgram(exePath, params := "") {

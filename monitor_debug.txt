@@ -1,0 +1,2942 @@
+﻿Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 3640.0,1951.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -7,1453
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 2878.0,1340.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2994.0,258.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2994.0,258.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2994.0,258.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1289.0,249.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1768.0,-511.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1768.0,-511.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1768.0,-511.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1768.0,-511.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1768.0,-511.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1768.0,-511.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2816.0,956.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1918.0,865.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -485.0,1186.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3012.0,746.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3304.0,806.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1960.0,1032.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 3012.0,746.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1880.0,2533.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2506.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2506.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2506.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3012.0,746.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 3304.0,812.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1918.0,865.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -57.0,3583.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -57.0,3583.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -57.0,3583.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5318.0,446.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 2816.0,956.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1960.0,1032.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1960.0,1032.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1960.0,1032.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1960.0,1032.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1960.0,1032.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1960.0,1032.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 961.0,1037.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 961.0,1037.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 961.0,1037.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2140.5,253.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -2140.5,253.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2816.0,956.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1918.0,865.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1918.0,865.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3783.0,2034.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3783.0,2034.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3783.0,2034.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 2816.0,956.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -2141.0,252.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1918.0,865.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1918.0,865.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2140.5,253.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2878.0,1033.5
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3783.0,2034.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1085.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1085.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1085.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1085.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7144.0,812.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6346.0,196.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5800.0,1080.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5800.0,1080.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2140.0,253.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 961.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: -1927.0,373.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7272.0,287.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7272.0,287.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -2879.0,2538.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3847,-707 to -434,1213
+Monitor 4: -3840,1453 to 0,3613
+Found in monitor: 4
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5328.0,1172.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5709.0,1418.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5709.0,1418.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5709.0,1418.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1408.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6718.0,1081.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5328.0,1172.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5328.0,1172.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5328.0,1172.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: -1920.0,2533.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: -3840,1453 to 0,3613
+Found in monitor: 3
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5328.0,1172.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 7623.0,2130.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 6718.0,1408.5
+Monitor 1: 3840,0 to 7680,2160
+Found in monitor: 1
+Point: 2878.0,1340.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: 1920.0,1080.0
+Monitor 1: 3840,0 to 7680,2160
+Monitor 2: -3847,-707 to -434,1213
+Monitor 3: 0,0 to 3840,2160
+Found in monitor: 3
+Point: -1920.0,2533.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3840,1453 to 0,3613
+Found in monitor: 3
+Point: -57.0,3583.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Monitor 3: -3840,1453 to 0,3613
+Found in monitor: 3
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 2878.0,1340.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 3783.0,2034.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 2878.0,1340.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 4801.0,1086.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1085.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1085.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5328.0,1172.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 7623.0,2130.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 5760.0,1080.0
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 6715.0,1412.5
+Monitor 1: 0,0 to 3840,2160
+Monitor 2: 3840,0 to 7680,2160
+Found in monitor: 2
+Point: 1920.0,1032.0
+Monitor 1: 0,0 to 3840,2160
+Found in monitor: 1
