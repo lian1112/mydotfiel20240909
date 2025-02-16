@@ -118,9 +118,12 @@ RunPowerShell(value) {
 }
 
 !+s:: {
-    ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.21.3231.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe")
+    ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.21.10351.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe")
 }
 
+!n:: {
+    ActivateOrRun("notepad++.exe", "C:\Program Files\Notepad++\notepad++.exe")
+}
 
 ; Alt+f: 啟動/切換 Total Commander
 !f:: {
@@ -131,7 +134,6 @@ RunPowerShell(value) {
 ;     ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
 ; }
 
-!+q::
 !y:: {
     ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
 }
@@ -186,6 +188,7 @@ RunPowerShell(value) {
     ActivateOrRun("WhatsApp.exe", "C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2504.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe")
 }
 
+!+q::
 !`:: {
     ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
     ActivateOrRun("brave.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe")
