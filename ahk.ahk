@@ -21,6 +21,74 @@ global LAST_POSITION := ""
 
 
 
+; Show hotkey list when Ctrl+/ is pressed
+!/:: {
+    static hotkeyText := "
+(
+系統快捷鍵:
+-------------------
+Win+Shift+M: 最大化當前窗口
+Win+Q: 關閉當前窗口 (Alt+F4)
+Ctrl+Shift+R: 重新載入腳本
+Alt+V: Win+V (顯示剪貼板)
+Win+C: Ctrl+C (複製)
+
+應用程式快捷鍵:
+-------------------
+Alt+A: Microsoft Edge
+Alt+B/Alt+Shift+D: Cursor
+Alt+D: VS Code
+Alt+E: Firefox
+Alt+F: Total Commander
+Alt+H/Alt+\: 115瀏覽器
+Alt+K: XQLite
+Alt+N: Notepad++
+Alt+O/Alt+Shift+W: WhatsApp
+Alt+P: PowerPoint
+Alt+Q: Chrome
+Alt+S: MobaXterm
+Alt+Shift+S: Windows Terminal
+Alt+T: Todo
+Alt+U: WinSCP
+Alt+X: Teams
+Alt+Y: Spotify
+Alt+Z: Notion
+Alt+.: WeChat
+Alt+;: FTNN
+Alt+`: Brave
+Alt+Shift+A: Sidekick
+Alt+Shift+C: Beyond Compare
+Alt+Shift+E: Excel
+Alt+Shift+G: Arc
+Alt+Shift+R: Opera
+
+115瀏覽器特殊功能:
+-------------------
+Q: 快速選擇並搜索
+Ctrl+Q: 選擇並在新分頁搜索
+
+文件管理器快捷鍵:
+-------------------
+/: 在Total Commander中打開
+左箭頭: 返回上一級目錄
+右箭頭: 進入所選目錄
+Ctrl+R: 重命名
+Shift+Enter: 顯示右鍵菜單
+)"
+
+    ; Create GUI
+    MyGui := Gui()
+    MyGui.SetFont("s10", "Consolas")
+    MyGui.Add("Edit", "ReadOnly w800 h600", hotkeyText)
+    MyGui.Title := "熱鍵列表"
+    
+    ; Show GUI
+    MyGui.Show()
+}
+
+
+
+
 ; PotPlayer 特定熱鍵
 #HotIf WinActive("ahk_exe PotPlayer64.exe") or WinActive("ahk_exe PotPlayer.exe") or WinActive("ahk_exe PotPlayerMini64.exe") or WinActive("ahk_exe PotPlayerMini.exe")
 w:: MovePotPlayerToPosition("topleft")
@@ -185,7 +253,7 @@ RunPowerShell(value) {
 !+w::
 !o:: {
     ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
-    ActivateOrRun("WhatsApp.exe", "C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2504.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe")
+    ActivateOrRun("WhatsApp.exe", "c:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2506.4.0_x64__cv1g1gvanyjgm\WhatsApp.exe")
 }
 
 !+q::
@@ -200,6 +268,11 @@ RunPowerShell(value) {
     ActivateOrRun("opera.exe", "C:\Users\yulia\AppData\Local\Programs\Opera\opera.exe")
 }
 
+
+!+a:: {
+    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
+    ActivateOrRun("sidekick.exe", "C:\Users\yulia\AppData\Local\Sidekick\Application\sidekick.exe")
+}
 ; Alt+4: 執行 Win+2
 ; !4:: Send "#2"
 
