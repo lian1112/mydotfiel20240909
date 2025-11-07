@@ -8,8 +8,20 @@ SetWorkingDir A_ScriptDir
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
 ::/lll::林口區麗園一街6巷5號10樓-2
 ::/eee::10F.-2, No. 5, Ln. 6, Liyuan 1st St., Linkou Dist., New Taipei City, Taiwan (R.O.C.) 
-::/jjj::中文說明文法,單字意思,假名發音,詞性 動詞形容詞助動詞等變化,助詞(ni,ha,wo,de,te,to)的用法
+::/jjj::用中文翻譯以上日文句子,並且用中文,說明日文日的文法,文法變化,詞性,連接詞變化,漢字標註假名
+::/jjp::天天給我一篇日文長篇章,每段下方給我中文,並且用中文,說明日文日的文法,文法變化,詞性,連接詞變化,漢字標註假名
 ::/ccc::給我完整的function,記得不要影響現有功能
+::/eng::對話是中文說明,code是英文
+::/def::我的環境是linux(192.168.1.2)需要設定為defensics的SUT, windows11(defensics安裝在這台,191.168.31.1(小米路由器port轉發), 另外有192.168.1.1是有線網路)
+::/ppp::查看project文檔並給我回答及提供出處(for 確保回答正確)
+::/png1::/mnt/d/snipaste/recent/1.png
+::/png2::/mnt/d/snipaste/recent/2.png
+::/png3::/mnt/d/snipaste/recent/3.png
+::/know::參考project的knowledgebase,查看以下的問題
+::/know2::確定project的knowledgebase有提到這些?
+::/snap::@/home/allenl/snipaste/recent/1.png
+
+
 
 ; 全局變量
 global LINE_PATH := "C:\Users\yulia\AppData\Local\LINE\bin\current\LINE.exe"
@@ -18,6 +30,332 @@ global FIREFOX_PATH := "C:\Program Files\Mozilla Firefox\firefox.exe"
 global POTPLAYER_EXES := ["PotPlayer64.exe", "PotPlayer.exe", "PotPlayerMini64.exe", "PotPlayerMini.exe"]
 global CURRENT_SCREEN := 2
 global LAST_POSITION := ""
+
+
+; sleep-stable.ahk - AutoHotkey v2
+; Alt+Shift+S 進入睡眠模式
+
+!+s::  ; Alt+Shift+S
+{
+    Sleep(500)
+
+    ; 等待按鍵釋放*
+
+    SendMessage(0x112, 0xF170, 2,, "Program Manager")
+
+}
+
+; 一鍵切換到公司電腦模式(開啟4螢幕->切換到公司電腦->只保留2螢幕)
+!+5:: {
+    ; 步驟1: 先啟用所有螢幕
+    ToolTip("正在啟用所有螢幕...")
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    Sleep(1000)
+    
+    ; 設定正確位置
+    ToolTip("正在設定螢幕位置...")
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
+    
+    ; 步驟2: 等待20秒讓4個螢幕都完全初始化
+    ToolTip("等待4個螢幕初始化 (20秒)...")
+    Sleep(20000)
+    
+    ; 步驟3: 使用 RunWait 確保每個指令完成後再執行下一個
+    ToolTip("正在切換螢幕1輸入源到公司電腦...")
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
+    Sleep(5000)
+    
+    ToolTip("正在切換螢幕2輸入源到公司電腦...")
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
+    Sleep(5000)
+    
+    ; 步驟4: 確認輸入源切換完成後，才停用螢幕3和4
+    ToolTip("正在停用螢幕 3 和 4...")
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable 3 4')
+    Sleep(1000)
+    
+    ; 完成
+    ToolTip("切換完成!")
+    Sleep(2000)
+    ToolTip()
+}
+
+; 一鍵切換到個人電腦模式(開啟4螢幕->切換到個人電腦->保持4螢幕)
+!+6:: {
+    ; 步驟1: 先啟用所有螢幕
+    ToolTip("正在啟用所有螢幕...")
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    Sleep(1000)
+    
+    ; 設定正確位置
+    ToolTip("正在設定螢幕位置...")
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
+    
+    ; 步驟2: 等待20秒讓4個螢幕都完全初始化
+    ToolTip("等待4個螢幕初始化 (20秒)...")
+    Sleep(20000)
+    
+    ; 步驟3: 使用 RunWait 確保每個指令完成後再執行下一個
+    ToolTip("正在切換螢幕1輸入源到個人電腦...")
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 15')
+    Sleep(5000)
+    
+    ToolTip("正在切換螢幕2輸入源到個人電腦...")
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
+    Sleep(2000)
+    
+    ; 完成 (保持4個螢幕開啟)
+    ToolTip("切換完成! (保持4個螢幕開啟)")
+    Sleep(2000)
+    ToolTip()
+}
+
+;切換samsung螢幕到公司電腦
+![:: {
+    Run('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
+}
+;切換samsung螢幕到公司電腦
+!]:: {
+    Run('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
+}
+
+;切換samsung螢幕1到個人電腦
+!+{:: {
+    Run('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 15')
+}
+;切換samsung螢幕到2個人電腦
+!+}:: {
+    Run('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
+}
+
+; 在檔案開頭定義
+vscode := "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+tunnel := "allenl-2404"
+
+; 然後快捷鍵這樣寫
+!+t:: {  ; Ctrl+Alt+T
+    Run(vscode . " --remote tunnel+" . tunnel)
+}
+
+; 在檔案開頭定義
+vscode := "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+remote_ssh := "192.168.31.5"  ; 這是你在 ~/.ssh/config 設定的 Host 名稱
+
+; SSH 遠端連線快捷鍵
+!+j:: {  ; Ctrl+Alt+J
+    Run(vscode . " --remote ssh-remote+" . remote_ssh . " .")
+}
+
+; 切換到只顯示 1,2 (停用 3,4)
+!+2:: {
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable 3 4')
+}
+
+; 切換到 1,2,3,4 全開,恢復正確位置(4在上,3在下)
+!+4:: {
+    ; 先啟用所有螢幕
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    Sleep(1000)
+    
+    ; 設定正確位置 - 螢幕4在上(-1021),螢幕3在下(1155)
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
+}
+
+; 切換到 1,2,3 開啟(螢幕4關閉)
+!+3:: {
+    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\monitors_123only.cfg"')
+}
+
+; PotPlayer 特定熱鍵
+#HotIf WinActive("ahk_exe PotPlayer64.exe") or WinActive("ahk_exe PotPlayer.exe") or WinActive("ahk_exe PotPlayerMini64.exe") or WinActive("ahk_exe PotPlayerMini.exe")
+w:: MovePotPlayerToPosition("topleft")
+e:: MovePotPlayerToPosition("topright")
+s:: MovePotPlayerToPosition("bottomleft")
+d:: MovePotPlayerToPosition("bottomright")
+r:: DistributePotPlayerWindows()
+#HotIf
+
+;系統熱鍵,先透過powertoy remap alt+shit+ 在用akh 模擬alt+shift+
+; !+t:: {
+;     ActivateOrRun("Todo.exe", "C:\Program Files\WindowsApps\Microsoft.Todos_2.114.7122.0_x64__8wekyb3d8bbwe\Todo.exe")
+; }
+
+
+RunPowerShell(value) {
+    cmd := Format('PowerShell.exe -Command "$path = `'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3`'; $v = (Get-ItemProperty -Path $path).Settings; $v[8] = {}; Set-ItemProperty -Path $path -Name Settings -Value $v; Stop-Process -Name explorer -Force"', value)
+    Run(cmd,, "Hide")
+}
+
+
+; !o:: {
+;     SetWorkingDir "D:\Tools\controlmymonitor"
+;     Run('pwsh -File "switch.ps1" -M 3 -V 17')
+; }
+
+
+#h:: RunPowerShell(3)  ; 開啟自動隱藏taksbar
+; #l:: ^l
+#l:: ^l
+^l:: ^l
+#+h:: RunPowerShell(2)  ; 關閉自動隱藏tarskbar
+
+!u:: {
+    ActivateOrRun("WinSCP.exe", "C:\Program Files (x86)\WinSCP\WinSCP.exe")
+ }
+
+
+!+r:: {
+    ActivateOrRun("firefox.exe", FIREFOX_PATH)
+}
+
+
+; !+g:: {
+;     ActivateOrRun("onenote.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Chrome 遠端桌面.lnk")
+;     ; ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
+; }
+
+; !+t:: {
+;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+; }
+!x:: {
+    ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
+}
+
+; !+g:: {
+;     ; ActivateOrRun("Arc.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\Arc.exe")
+;     ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
+; }
+
+; !+d::{
+;     ; ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
+;     ActivateOrRun("Wireshark.exe", "C:\Program Files\Wireshark\Wireshark.exe")
+; }
+
+!d:: {
+    ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+}
+; ; Alt+t: 啟動/切換 VS Code
+; !+T:: {
+;     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+; }
+; 熱鍵設置
+; Alt+A: 啟動/切換 Microsoft Edge
+; !e::
+!a:: {
+    ActivateOrRun("msedge.exe", "c:\program files (x86)\microsoft\edge\application\msedge.exe")
+}
+
+; Alt+z: 啟動/切換 Onenote
+!z:: {
+    ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
+}
+
+
+; Alt+Q: 啟動/切換 Google Chrome
+!q:: {
+    ActivateOrRun("chrome.exe", "C:\Program Files\Google\Chrome\Application\chrome.exe")
+}
+
+!.:: {
+    ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
+}
+
+
+; Alt+S: 啟動/切換 Windows Terminal
+; !s:: {
+;     ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.20.11781.0_x64__8wekyb3d8bbwe\wt.exe")
+; }
+!s:: {
+    ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
+}
+
+!c:: {
+    ActivateOrRun("WinSCP.exe", "C:\Program Files (x86)\WinSCP\WinSCP.exe")
+}
+
+!n:: {
+    ActivateOrRun("notepad++.exe", "C:\Program Files\Notepad++\notepad++.exe")
+}
+
+; Alt+f: 啟動/切換 Total Commander
+!f:: {
+    ActivateOrRun("TOTALCMD64.EXE", "C:\Program Files\totalcmd\TOTALCMD64.EXE")
+}
+
+; !x:: {
+;     ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
+; }
+
+!y:: {
+    ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
+}
+
+
+!+x:: {
+    ActivateOrRun("claude.exe", "C:\Users\yulia\AppData\Local\AnthropicClaude\claude.exe")
+}
+
+; !5::
+!p:: {
+    ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
+}
+
+
+!i::
+!+e:: {
+    ActivateOrRun("Excel.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk")
+}
+
+!k:: {
+    ActivateOrRun("daqxqlite.exe", "C:\SysJust\XQLite\daqxqlite.exe")
+}
+
+!+g::
+!\:: {
+    ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
+}
+
+!;:: {
+    ActivateOrRun("FTNN.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\富途牛牛.lnk")
+}
+
+; !+t:: {
+;     ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+;     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+; }
+
+
+;  !`::#5 
+; !`:: {
+;     ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
+;     ActivateOrRun("claude.exe", "C:\Users\yulia\AppData\Local\AnthropicClaude\claude.exe")
+; }
+
+
+
+!+b:: {
+    ActivateOrRun("BCompare.exe", "d:\Tools\buy\Beyond_Compare\Beyond_Compare_Pro_Win_v4.4.4\BCompare\BCompare.exe")
+}
+
+
+
+; !+w::
+; !o:: {
+;     ActivateOrRun("Wireshark.exe", "C:\Program Files\Wireshark\Wireshark.exe")
+; }
+
+!e:: {
+    ActivateOrRun("browser.exe", "C:\Users\yulia\AppData\Local\Yandex\YandexBrowser\Application\browser.exe")
+}
+
+
+!+a:: {
+    ActivateOrRun("opera.exe", "C:\Users\yulia\AppData\Local\Programs\Opera\opera.exe")
+}
+
+!+f:: {
+    ActivateOrRun("filezilla.exe", "C:\Program Files\FileZilla FTP Client\filezilla.exe")
+}
 
 
 
@@ -36,9 +374,9 @@ Win+C: Ctrl+C (複製)
 應用程式快捷鍵:
 -------------------
 Alt+A: Microsoft Edge
-Alt+B/Alt+Shift+D: Cursor
+Alt+cAlt+Shift+D: Cursor
 Alt+D: VS Code
-Alt+E: Firefox
+Alt+r: Firefox
 Alt+F: Total Commander
 Alt+H/Alt+\: 115瀏覽器
 Alt+K: XQLite
@@ -52,14 +390,12 @@ Alt+T: Todo
 Alt+U: WinSCP
 Alt+X: Teams
 Alt+Y: Spotify
-Alt+Z: Notion
+Alt+z: Notion
 Alt+.: WeChat
 Alt+;: FTNN
-Alt+`: Brave
-Alt+Shift+A: Sidekick
 Alt+Shift+C: Beyond Compare
 Alt+Shift+E: Excel
-Alt+Shift+G: Arc
+Alt+Shift+G: OneNote
 Alt+Shift+R: Opera
 
 115瀏覽器特殊功能:
@@ -87,192 +423,6 @@ Shift+Enter: 顯示右鍵菜單
 }
 
 
-
-
-; PotPlayer 特定熱鍵
-#HotIf WinActive("ahk_exe PotPlayer64.exe") or WinActive("ahk_exe PotPlayer.exe") or WinActive("ahk_exe PotPlayerMini64.exe") or WinActive("ahk_exe PotPlayerMini.exe")
-w:: MovePotPlayerToPosition("topleft")
-e:: MovePotPlayerToPosition("topright")
-s:: MovePotPlayerToPosition("bottomleft")
-d:: MovePotPlayerToPosition("bottomright")
-r:: DistributePotPlayerWindows()
-#HotIf
-
-;系統熱鍵,先透過powertoy remap alt+shit+ 在用akh 模擬alt+shift+
-!+t:: {
-    ActivateOrRun("Todo.exe", "C:\Program Files\WindowsApps\Microsoft.Todos_2.114.7122.0_x64__8wekyb3d8bbwe\Todo.exe")
-}
-
-
-RunPowerShell(value) {
-    cmd := Format('PowerShell.exe -Command "$path = `'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3`'; $v = (Get-ItemProperty -Path $path).Settings; $v[8] = {}; Set-ItemProperty -Path $path -Name Settings -Value $v; Stop-Process -Name explorer -Force"', value)
-    Run(cmd,, "Hide")
-}
-
-#h:: RunPowerShell(3)  ; 開啟自動隱藏taksbar
-; #l:: ^l
-#l:: ^l
-^l:: ^l
-#+h:: RunPowerShell(2)  ; 關閉自動隱藏tarskbar
-
-!u:: {
-    ActivateOrRun("WinSCP.exe", "C:\Program Files (x86)\WinSCP\WinSCP.exe")
- }
-
-
-!e:: {
-    ActivateOrRun("firefox.exe", FIREFOX_PATH)
-}
-
-!+d::
-!b:: {
-    ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
-}
-
-; !+g:: {
-;     ActivateOrRun("onenote.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Chrome 遠端桌面.lnk")
-;     ; ActivateOrRun("onenote.exe", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk")
-; }
-
-; !+t:: {
-;     ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-; }
-!x:: {
-    ActivateOrRun("ms-teams.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\ms-teams.exe")
-}
-
-!+g:: {
-    ActivateOrRun("Arc.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\Arc.exe")
-}
-
-!d:: {
-    ; ActivateOrRun("cursor.exe", "C:\Users\yulia\AppData\Local\Programs\cursor\Cursor.exe")
-    ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
-}
-
-; ; Alt+t: 啟動/切換 VS Code
-; !+T:: {
-;     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
-; }
-; 熱鍵設置
-; Alt+A: 啟動/切換 Microsoft Edge
-; !e::
-!a:: {
-    ActivateOrRun("msedge.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
-}
-
-; Alt+z: 啟動/切換 Onenote
-!z:: {
-    ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
-}
-
-
-; Alt+Q: 啟動/切換 Google Chrome
-!q:: {
-    ActivateOrRun("chrome.exe", "C:\Program Files\Google\Chrome\Application\chrome.exe")
-}
-
-!.:: {
-    ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
-}
-
-
-; Alt+S: 啟動/切換 Windows Terminal
-; !s:: {
-;     ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.20.11781.0_x64__8wekyb3d8bbwe\wt.exe")
-; }
-!s:: {
-    ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
-}
-
-!+s:: {
-    ActivateOrRun("WindowsTerminal.exe", "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.21.10351.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe")
-}
-
-!n:: {
-    ActivateOrRun("notepad++.exe", "C:\Program Files\Notepad++\notepad++.exe")
-}
-
-; Alt+f: 啟動/切換 Total Commander
-!f:: {
-    ActivateOrRun("TOTALCMD64.EXE", "C:\Program Files\totalcmd\TOTALCMD64.EXE")
-}
-
-; !x:: {
-;     ActivateOrRun("slack.exe", "C:\Users\yulia\AppData\Local\slack\slack.exe")
-; }
-
-!y:: {
-    ActivateOrRun("spotify.exe", "C:\Users\yulia\AppData\Roaming\Spotify\Spotify.exe")
-}
-
-
-; !5::
-!p:: {
-    ActivateOrRun("POWERPNT.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk")
-}
-
-!+e:: {
-    ActivateOrRun("Excel.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk")
-}
-
-!k:: {
-    ActivateOrRun("daqxqlite.exe", "C:\SysJust\XQLite\daqxqlite.exe")
-}
-
-!h::
-!\:: {
-    ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
-}
-
-!;:: {
-    ActivateOrRun("FTNN.exe", "C:\Program Files (x86)\FTNN\FTNN.exe")
-}
-
-; !+t:: {
-;     ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
-;     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
-; }
-
-
-;  !`::#5 
-; !`:: {
-;     ; ActivateOrRun("pycharm64.exe", "C:\Users\yulia\AppData\Local\Programs\PyCharm Community\bin\pycharm64.exe")
-;     ActivateOrRun("claude.exe", "C:\Users\yulia\AppData\Local\AnthropicClaude\claude.exe")
-; }
-
-
-
-!+c:: {
-    ActivateOrRun("BCompare.exe", "d:\Tools\buy\Beyond_Compare\Beyond_Compare_Pro_Win_v4.4.4\BCompare\BCompare.exe")
-}
-
-
-
-; Alt+W: 啟動/切換 Firefox
-!+w::
-!o:: {
-    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
-    ActivateOrRun("WhatsApp.exe", "c:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2506.4.0_x64__cv1g1gvanyjgm\WhatsApp.exe")
-}
-
-!+q::
-!`:: {
-    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
-    ActivateOrRun("brave.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe")
-}
-
-
-!+r:: {
-    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
-    ActivateOrRun("opera.exe", "C:\Users\yulia\AppData\Local\Programs\Opera\opera.exe")
-}
-
-
-!+a:: {
-    ; ActivateOrRun("firefox.exe", FIREFOX_PATH)
-    ActivateOrRun("sidekick.exe", "C:\Users\yulia\AppData\Local\Sidekick\Application\sidekick.exe")
-}
 ; Alt+4: 執行 Win+2
 ; !4:: Send "#2"
 
@@ -280,8 +430,8 @@ RunPowerShell(value) {
 ; !1:: Send "#1"
 ; !3:: Send "#3"
 
-; Alt+V: 執行 Win+V
-!v:: Send "#v"
+; ; Alt+V: 執行 Win+V
+; !v:: Send "#v"
 
 #c:: Send "^c"
 
@@ -442,8 +592,8 @@ GetExplorerPath() {
 ; 使用优化的 #HotIf 表达式
 #HotIf WinActive("ahk_class CabinetWClass") or WinActive("ahk_class ExploreWClass")
 /::OpenInTotalCommander()
-Left::Send "!{Up}"  ; Left 键映射到 Alt+Up（向上一级目录）
-Right::Send "{Enter}"
+; Left::Send "!{Up}"  ; Left 键映射到 Alt+Up（向上一级目录）
+; Right::Send "{Enter}"
 ^r::Send "{F2}"  ; Ctrl+R 映射到 F2（重命名）
 +Enter::Send "{AppsKey}"  ; Shift+Enter 映射到显示上下文菜单
 #HotIf
@@ -577,7 +727,6 @@ IsSelectedItemFolder() {
 
 #SingleInstance Force
 #Warn
-
 ; Ensure coordinate mode is screen
 CoordMode("Mouse", "Screen")
 
@@ -634,7 +783,6 @@ MoveToCenterOfMonitor(monitorNumber) {
     centerX := left + (right - left) / 2
     centerY := top + (bottom - top) / 2
     MouseMove(centerX, centerY, 2)
-    ; Click ; Click to ensure focus
 }
 
 ActivateOrRun(processName, exePath, params := "") {
@@ -674,9 +822,17 @@ ActivateOrRun(processName, exePath, params := "") {
             centerX := winX + winWidth / 2
             centerY := winY + winHeight / 2
             
-            ; Find monitor number and move to its center
-            monitorNumber := GetMonitorFromPoint(centerX, centerY)
-            MoveToCenterOfMonitor(monitorNumber)
+            ; Get current mouse position
+            MouseGetPos(&mouseX, &mouseY)
+            
+            ; Find monitor numbers for window and mouse
+            windowMonitor := GetMonitorFromPoint(centerX, centerY)
+            mouseMonitor := GetMonitorFromPoint(mouseX, mouseY)
+            
+            ; Only move mouse if it's on a different monitor
+            if (windowMonitor != mouseMonitor) {
+                MoveToCenterOfMonitor(windowMonitor)
+            }
         } else {
             Run(exePath . " " . params)
         }
@@ -937,3 +1093,165 @@ DistributeWindowsToScreens(windows, screenCount) {
 ToolTip("整合腳本已啟動！")
 SetTimer () => ToolTip(), -3000
 LogMessage("整合腳本已啟動")
+
+
+; Diablo 4 自動連按功能
+; 檢查是否為 Diablo 4 遊戲視窗 (確認執行檔名稱為 Diablo IV.exe)
+IsDiablo4Active() {
+    return WinActive("ahk_exe Diablo IV.exe") || WinActive("ahk_class Diablo IV Main Window Class")
+}
+
+; 全局變量來追蹤自動連按狀態
+global autoClickActive := false
+global currentMode := ""
+
+; 當 Diablo 4 處於活動狀態時的熱鍵
+#HotIf IsDiablo4Active()
+s::HandleHotkey("s")
+f::HandleHotkey("b")
+v::HandleHotkey("b")
+#HotIf
+
+; 處理熱鍵的函數
+HandleHotkey(key) {
+    global autoClickActive, currentMode
+    
+    ; 如果按下的按鍵與當前模式相同,則取消自動連按
+    if (key = "s" && currentMode = "full" || key = "b" && currentMode = "mouse") {
+        autoClickActive := false
+        SetTimer AutoClickLoop, 0
+        
+        ; 取得螢幕尺寸
+        screenWidth := A_ScreenWidth
+        screenHeight := A_ScreenHeight
+        
+        ; 計算中間位置
+        tooltipX := screenWidth // 2 - 100
+        tooltipY := screenHeight // 2 + 1500
+        
+        ToolTip("0000000000000000", tooltipX, tooltipY)
+        SetTimer () => ToolTip(), -2000
+        currentMode := ""
+        return
+    }
+    
+    ; 設定新模式
+    if (key = "s") {
+        currentMode := "full"
+    } else if (key = "b") {
+        currentMode := "mouse"
+    }
+    
+    ; 啟動或維持啟動狀態
+    if (!autoClickActive) {
+        autoClickActive := true
+        SetTimer AutoClickLoop, 25  ; 每25ms檢查一次,確保精確度
+    }
+    
+    ; 顯示模式提示
+    if (currentMode = "full") {
+        ToolTip("1111111111111111", A_ScreenWidth // 2 - 100, A_ScreenHeight // 2 + 1500)
+    } else if (currentMode = "mouse") {
+        ToolTip("K + J 連按", A_ScreenWidth // 2 - 100, A_ScreenHeight // 2 + 1500)
+    }
+    SetTimer () => ToolTip(), -2000
+}
+
+; 自動連按循環函數
+AutoClickLoop() {
+    static nextKTime := 0
+    static nextJTime := 0
+    static nextQTime := 0
+    static nextWTime := 0
+    static nextETime := 0
+    static nextRTime := 0
+    static nextYTime := 0
+    static nextClickTime := 0
+    static nextATime := 0
+    static initialized := false
+    
+    currentTime := A_TickCount
+    
+    ; 檢查是否仍然在 Diablo 4 中
+    if (!IsDiablo4Active()) {
+        global autoClickActive := false
+        SetTimer AutoClickLoop, 0
+        ToolTip("自動連按已停止 - Diablo 4 不再是活動視窗", 100, 100)
+        SetTimer () => ToolTip(), -2000
+        initialized := false
+        return
+    }
+    
+    ; 初始化時設定錯開的起始時間,每個間隔 50ms
+    if (!initialized) {
+        nextKTime := currentTime + 0          ; 0ms - K鍵
+        nextJTime := currentTime + 50         ; 50ms - J鍵
+        nextQTime := currentTime + 100        ; 100ms - Q
+        nextWTime := currentTime + 150        ; 150ms - W
+        nextETime := currentTime + 200        ; 200ms - E
+        nextRTime := currentTime + 250        ; 250ms - R
+        nextYTime := currentTime + 300        ; 300ms - Y
+        nextClickTime := currentTime + 350    ; 350ms - 滑鼠左鍵
+        nextATime := currentTime + 400        ; 400ms - A
+        initialized := true
+    }
+    
+    global currentMode
+    
+    ; K鍵每150毫秒按一次 (不論何種模式)
+    if (currentTime >= nextKTime) {
+        Send "k"
+        nextKTime := currentTime + 150
+    }
+    
+    ; J鍵每150毫秒按一次 (不論何種模式)
+    if (currentTime >= nextJTime) {
+        Send "j"
+        nextJTime := currentTime + 150
+    }
+    
+    ; 只有在全鍵模式時才按鍵盤按鍵
+    if (currentMode = "full") {
+        ; Q 鍵每150毫秒按一次
+        if (currentTime >= nextQTime) {
+            Send "q"
+            nextQTime := currentTime + 400
+        }
+        
+        ; W 鍵每100毫秒按一次
+        if (currentTime >= nextWTime) {
+            Send "w"
+            nextWTime := currentTime + 50
+        }
+        
+        ; E 鍵每100毫秒按一次
+        if (currentTime >= nextETime) {
+            Send "e"
+            nextETime := currentTime + 100
+        }
+        
+        ; R 鍵每100毫秒按一次
+        if (currentTime >= nextRTime) {
+            Send "r"
+            nextRTime := currentTime + 100
+        }
+        
+        ; Y 鍵每100毫秒按一次
+        if (currentTime >= nextYTime) {
+            Send "y"
+            nextYTime := currentTime + 100
+        }
+        
+        ; 滑鼠左鍵每100毫秒按一次
+        if (currentTime >= nextClickTime) {
+            Click
+            nextClickTime := currentTime + 100
+        }
+        
+        ; A 鍵每1500毫秒按一次
+        if (currentTime >= nextATime) {
+            Send "a"
+            nextATime := currentTime + 1500
+        }
+    }
+}

@@ -1,0 +1,149 @@
+====================================
+Seeker SSL 自動部署開始
+時間: 2025-10-29 13:16:28
+====================================
+
+
+=========================================
+    Seeker SSL 憑證部署腳本
+=========================================
+Samba 伺服器: \\192.168.31.5\allenl_home
+來源路徑: SSL_files\seeker_windows
+目標路徑: C:\Seeker\data\server\conf\certs
+
+
+[13:16:28] 連接到 Samba 共享
+  ✓ Samba 磁碟機 Z: 已掛載
+
+[13:16:28] 驗證來源憑證檔案
+  ✓ 找到憑證檔案
+  - fullchain.pem: 2847 bytes
+  - privkey.pem: 241 bytes
+
+📄 README 內容:
+------------------------------------------------------------
+  Seeker SSL Certificate Files
+  ==============================
+  Generated: Wed Oct 29 12:38:14 PM CST 2025
+  Domain: mydemo.idv.tw
+  Certificate Subject: CN = mydemo.idv.tw
+  
+  Certificate Validity:
+  ---------------------
+  Valid From: Oct 25 08:38:51 2025 GMT
+  Valid To:   Jan 23 08:38:50 2026 GMT
+  
+  Files:
+  ------
+  - fullchain.pem  : Full certificate chain (domain + intermediate CA)
+  - privkey.pem    : Private key (keep secure!)
+  
+  Windows Deployment Path:
+  ------------------------
+  C:\Seeker\data\server\conf\certs  ├── fullchain.pem
+    └── privkey.pem
+------------------------------------------------------------
+
+[13:16:28] 停止 Seeker 服務
+  正在停止 SeekerEnterpriseServer...
+  ✓ 服務已停止
+
+[13:16:28] 備份現有憑證
+  ✓ 備份目錄已存在
+  ✓ 已備份 fullchain.pem
+  ✓ 已備份 privkey.pem
+
+[13:16:28] 部署新憑證
+  ✓ 憑證檔案已部署
+  - C:\Seeker\data\server\conf\certs\fullchain.pem
+  - C:\Seeker\data\server\conf\certs\privkey.pem
+  ✓ 檔案權限已設定
+
+[13:16:28] 檢查並更新 NGINX 配置
+  目前端口: 8450
+  ✓ ssl_certificate 路徑正確
+  ✓ ssl_certificate_key 路徑正確
+  ✓ nginx.conf 配置正確,無需修改
+
+[13:16:28] 啟動 Seeker 服務
+  正在啟動 SeekerEnterpriseServer...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+Waiting for service 'SeekerEnterpriseServer (SeekerEnterpriseServer)' to start...
+  ✓ 服務已啟動
+
+[13:16:50] 驗證部署
+  服務狀態: Running
+  ⚠ 端口 8445 未檢測到監聽
+  服務可能還在啟動中,請稍後再試
+
+  憑證資訊:
+    notBefore=Oct 25 08:38:51 2025 GMT
+    notAfter=Jan 23 08:38:50 2026 GMT
+
+[13:16:54] 清理
+  ✓ 已中斷 Samba 連接
+
+=========================================
+         部署完成！
+=========================================
+
+📋 部署摘要:
+  ✓ 憑證已從 Samba 下載
+  ✓ 舊憑證已備份
+  ✓ 新憑證已部署到 C:\Seeker\data\server\conf\certs
+  ✓ nginx.conf 已檢查並更新 (如有需要)
+  ✓ Seeker 服務已重啟
+
+🔍 驗證步驟:
+  1. 檢查端口 8450 是否在監聽:
+     Get-NetTCPConnection -LocalPort 8450 -State Listen
+
+  2. 測試本機連線:
+     Test-NetConnection -ComputerName localhost -Port 8450
+
+  3. 開啟瀏覽器訪問: https://mydemo.idv.tw:8450
+     Start-Process 'https://mydemo.idv.tw:8450'
+
+📁 重要路徑:
+  憑證目錄: C:\Seeker\data\server\conf\certs
+  備份目錄: C:\Seeker\data\server\conf\certs\backup
+  NGINX 配置: C:\Seeker\data\server\conf\nginx.conf
+
+⚙️  NGINX 配置重點:
+  listen 8450 ssl;
+  ssl_certificate "C:/Seeker/data/server/conf/certs/fullchain.pem";
+  ssl_certificate_key "C:/Seeker/data/server/conf/certs/privkey.pem";
+
+⚠️  重要提醒:
+  1. 確保路由器端口轉發設定為: 8450 → 192.168.31.6:8450
+  2. 在 Seeker Web UI 的 Settings > Server URL 更新為: https://mydemo.idv.tw:8450
+  3. 確保防火牆允許端口 8450
+
+🔧 快速診斷命令:
+  # 檢查服務狀態
+  Get-Service SeekerEnterpriseServer
+
+  # 檢查端口監聽
+  Get-NetTCPConnection -LocalPort 8450
+
+  # 完整診斷
+  .\Diagnose-Seeker.ps1 -Port 8450
+
+💡 提示:
+  - 憑證會在 Linux 伺服器上每天自動更新
+  - 請定期執行此腳本以保持憑證最新
+  - 可以將此腳本加入 Windows 排程工作自動執行
+
+
+
+====================================
+✓ 部署成功完成
+====================================

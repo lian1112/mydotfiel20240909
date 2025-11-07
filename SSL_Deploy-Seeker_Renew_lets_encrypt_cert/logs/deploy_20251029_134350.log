@@ -1,0 +1,17 @@
+====================================
+Seeker SSL 自動部署開始
+時間: 2025-10-29 13:43:50
+執行身分: LIAN1112\yulia
+工作目錄: D:\mydotfile\SSL_Deploy-Seeker_Renew_lets_encrypt_cert
+====================================
+
+讀取 Samba 認證配置...
+✓ 已載入 Samba 認證
+使用配置檔案中的認證執行...
+
+====================================
+✗ 執行時發生錯誤:
+A parameter cannot be found that matches parameter name 'SambaPassword'.
+at <ScriptBlock>, D:\mydotfile\SSL_Deploy-Seeker_Renew_lets_encrypt_cert\Deploy-SeekerSsl-Wrapper.ps1: line 60
+at <ScriptBlock>, <No file>: line 1
+====================================

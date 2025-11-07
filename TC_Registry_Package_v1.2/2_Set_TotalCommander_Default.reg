@@ -1,0 +1,97 @@
+Windows Registry Editor Version 5.00
+
+; ================================================================
+; Total Commander 系統整合 - 設定為預設檔案管理器
+; ================================================================
+; 
+; 此腳本會將 Total Commander 設定為預設的資料夾和磁碟機開啟程式
+; 
+; 執行前請確認：
+; 1. 已執行 1_Backup_Current_Settings.bat 進行備份
+; 2. Total Commander 路徑正確（預設：C:\Program Files\totalcmd\TOTALCMD64.EXE）
+; 3. 如路徑不同，請用記事本開啟此檔案修改路徑
+; 
+; 執行方式：
+; - 雙擊此檔案執行
+; - 或右鍵 → 合併
+; 
+; 執行後請：
+; - 登出再登入，或重新開機
+; 
+; 如有問題：
+; - 執行 3_Restore_Original_Settings.reg 還原設定
+; ================================================================
+
+; ================================================================
+; 資料夾 (Directory) 開啟設定
+; ================================================================
+
+; 設定預設動作為 "TC"
+[HKEY_CLASSES_ROOT\Directory\shell]
+@="TC"
+
+; 建立 Total Commander 開啟選項
+[HKEY_CLASSES_ROOT\Directory\shell\TC]
+@="用 Total Commander 開啟(&T)"
+"Icon"="C:\\Program Files\\totalcmd\\TOTALCMD64.EXE,0"
+
+; 設定執行命令
+[HKEY_CLASSES_ROOT\Directory\shell\TC\command]
+@="\"C:\\Program Files\\totalcmd\\TOTALCMD64.EXE\" /O /T /S \"%1\""
+
+; ================================================================
+; 資料夾背景右鍵選單（在資料夾內空白處按右鍵）
+; ================================================================
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\TC]
+@="在此位置開啟 Total Commander(&T)"
+"Icon"="C:\\Program Files\\totalcmd\\TOTALCMD64.EXE,0"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\TC\command]
+@="\"C:\\Program Files\\totalcmd\\TOTALCMD64.EXE\" /O /T /S \"%V\""
+
+; ================================================================
+; 磁碟機 (Drive) 開啟設定
+; ================================================================
+
+; 設定預設動作為 "TC"
+[HKEY_CLASSES_ROOT\Drive\shell]
+@="TC"
+
+; 建立 Total Commander 開啟選項
+[HKEY_CLASSES_ROOT\Drive\shell\TC]
+@="用 Total Commander 開啟(&T)"
+"Icon"="C:\\Program Files\\totalcmd\\TOTALCMD64.EXE,0"
+
+; 設定執行命令
+[HKEY_CLASSES_ROOT\Drive\shell\TC\command]
+@="\"C:\\Program Files\\totalcmd\\TOTALCMD64.EXE\" /O /T /S \"%1\""
+
+; ================================================================
+; 參數說明
+; ================================================================
+; /O  - 使用現有的 Total Commander 視窗（不開新視窗）
+; /T  - 在新分頁開啟
+; /S  - 在來源面板（左側）開啟
+; /A  - 在目標面板（右側）開啟
+; %1  - 傳入的路徑參數
+; %V  - 資料夾背景右鍵時的路徑參數
+; ================================================================
+
+; ================================================================
+; 路徑修改說明
+; ================================================================
+; 如果您的 Total Commander 安裝在其他位置，請修改以下所有路徑：
+; 
+; 範例 1：安裝在 D:\Tools\TotalCommander
+; "C:\\Program Files\\totalcmd\\TOTALCMD64.EXE"
+; 改為：
+; "D:\\Tools\\TotalCommander\\TOTALCMD64.EXE"
+; 
+; 範例 2：使用 32-bit 版本
+; "C:\\Program Files\\totalcmd\\TOTALCMD64.EXE"
+; 改為：
+; "C:\\Program Files\\totalcmd\\TOTALCMD.EXE"
+; 
+; 注意：路徑中的反斜線必須寫兩次（\\）
+; ================================================================
