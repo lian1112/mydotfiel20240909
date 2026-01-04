@@ -1,0 +1,496 @@
+{
+    "window.commandCenter": true,
+    "files.autoSave": "afterDelay",
+    "workbench.colorTheme": "Copilot Theme",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    // "vim.autoSwitchInputMethod.enable": true,
+    // "vim.autoSwitchInputMethod.obtainIMCmd": "e:\\mydotfile\\im-select.exe",
+    // "vim.autoSwitchInputMethod.switchIMCmd": "e:\\mydotfile\\im-select.exe",
+    // "vim.autoSwitchInputMethod.defaultIM": "2052",
+    "vim.highlightedyank.enable": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.handleKeys": {
+        "<C-f>": false,
+        "<C-y>": false,
+        "<C-j>": false,
+        "<C-b>": false,
+        "<C-n>": false,
+        "<C-p>": false,
+        "<C-w>": false,
+        "<C-c>": false,
+        "<C-h>": false,
+        "<C-x>": false,
+        "<C-v>": false,
+        "<Tab>": false,
+        "<S-Tab>": false  // 如果你也想停用 Shift+Tab
+        // "<C-o>": false,
+        // "<C-i>": false,
+    },
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<C-a>"],
+            "after": ["g", "g", "V", "G"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<up>"],
+            "after": ["#"]
+        },
+        {
+            "before": ["<down>"],
+            "after": ["*"]
+        },
+        {
+            "before": ["<left>"],
+            "after": ["<C-o>"]
+        },
+        {
+            "before": ["<right>"],
+            "after": ["<C-i>"]
+        },
+        // 開啟檔案瀏覽器
+        {
+            "before": ["<leader>", "e"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        
+        
+        // {//導致crash
+        //     "before": ["<leader>", "m"],
+        //     // "commands": ["bookmarks.toggle"]
+        //     "commands": ["bookmarks.toggleLabeled"]
+        // },
+        // {
+        //     "before": ["<leader>", "b"],
+        //     "commands": ["workbench.view.extension.bookmarks"]
+        // },
+        // {
+        //     "before": ["<leader>", "n"],
+        //     "commands": ["bookmarks.jumpToNext"]
+        // },
+        // {
+        //     "before": ["<leader>", "p"],
+        //     "commands": ["bookmarks.jumpToPrevious"]
+        // },
+        {
+            "before": ["<enter>"],
+            "commands": [
+                "editor.action.insertLineAfter",
+                "vim.escape"
+            ]
+        },
+        {
+            "before": ["<leader>", "O"],
+            "commands": [
+                "editor.action.insertLineBefore",
+                "vim.escape"
+            ]
+        },
+                // 尋找所有參考
+        {
+            "before": [";", "f", "r"],
+            "commands": ["references-view.findReferences"]
+        },
+        // {{//無效,改用keyboard json
+        //     "before": ["<C-}>"],
+        //     "after": ["]", "M"]
+        // },
+        // {
+        //     "before": ["<C-{"],
+        //     "after": ["[", "M"]
+        // },
+        // {
+        //     "before": ["[", "m"],  // 不需要額外的中括號
+        //     "commands": ["editor.action.goToNextFunction"]
+        // },
+        // {
+        //     "before": ["]", "m"],  // 不需要額外的中括號
+        //     "commands": ["editor.action.goToPreviousFunction"]
+        // }
+    // 一般刪除操作都用黑洞存寄器（不 yank）
+        {
+            "before": ["x"],
+            "after": ["\"", "_", "x"]
+        },
+        {
+            "before": ["X"],
+            "after": ["\"", "_", "X"]
+        },
+        {
+            "before": ["d"],
+            "after": ["\"", "_", "d"]
+        },
+        {
+            "before": ["D"],
+            "after": ["\"", "_", "D"]
+        },
+        {
+            "before": ["d", "d"],
+            "after": ["\"", "_", "d", "d"]
+        },
+        
+        // leader 組合才會 cut（會 yank）
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d"]
+        },
+        {
+            "before": ["<leader>", "D"],
+            "after": ["D"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "after": ["x"]
+        },
+        {
+            "before": ["<leader>", "d", "d"],
+            "after": ["d", "d"]
+        }
+        // ]m  - 下一個方法(function)開始
+        // [m  - 上一個方法(function)開始
+        // ]M  - 下一個方法(function)結尾
+        // [M  - 上一個方法(function)結尾
+
+        // ]]  - 下一個 class 開始
+        // [[  - 上一個 class 開始
+        // ][  - 下一個 class 結尾
+        // []  - 上一個 class 結尾
+
+        // 縮排階層導航：
+
+        // ]h  - 跳到當前縮排階層的下一個開始
+        // [h  - 跳到當前縮排階層的上一個開始
+
+        // 段落移動：
+
+        // }   - 下一個空行
+        // {   - 上一個空行
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<left>"],
+            "after": ["<C-o>"]
+        },
+        {
+            "before": ["<right>"],
+            "after": ["<C-i>"]
+        },
+        {
+            "before": ["p"],
+            // "after": ["\"", "_", "p", "v", "i", "{"]
+            "after": ["p", "g", "v", "y"]
+        },
+        // {
+        //     "before": ["<C-v>"],
+        //     // "after": ["\"", "_", "p", "g", "v", "y", "V", "}", "k"]
+        //     "after": ["p", "g", "v", "y", "V", "}"]
+        //     // "after": ["\"", "_", "p", "g", "v", "V", "}", "k"]
+        // },
+        {
+            "before": [";", "f", "f"],
+            "commands": ["editor.action.formatSelection"]  // 注意這裡用 formatSelection
+        },
+        // {//無效,改用keyboard json
+        //     "before": ["<C-}>"],
+        //     "after": ["]", "M"]
+        // },
+        // {
+        //     "before": ["<C->{"],
+        //     "after": ["[", "M"]
+        // },
+        // {
+        //     // "before": ["<C-]>"],  // 或你想要的其他按鍵組合
+        //     "before": ["[", "m"],  // 或你想要的其他按鍵組合
+        //     "commands": ["editor.action.goToNextFunction"]
+        // },
+        // {
+        //     "before": ["]", "m"],  // 上一個函數
+        //     "commands": ["editor.action.goToPreviousFunction"]
+        // }
+            // 一般刪除操作都用黑洞寄存器（不 yank）
+        {
+            "before": ["x"],
+            "after": ["\"", "_", "x"]
+        },
+        {
+            "before": ["X"],
+            "after": ["\"", "_", "X"]
+        },
+        {
+            "before": ["d"],
+            "after": ["\"", "_", "d"]
+        },
+        {
+            "before": ["D"],
+            "after": ["\"", "_", "D"]
+        },
+        {
+            "before": ["d", "d"],
+            "after": ["\"", "_", "d", "d"]
+        },
+        
+        // leader 組合才會 cut（會 yank）
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d"]
+        },
+        {
+            "before": ["<leader>", "D"],
+            "after": ["D"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "after": ["x"]
+        },
+        {
+            "before": ["<leader>", "d", "d"],
+            "after": ["d", "d"]
+        }
+    ],
+    // "vim.operatorPendingModeKeyBindings": [
+    //     {
+    //         "before": ["L"],
+    //         "after": ["$"]
+    //     },
+    //     {
+    //         "before": ["H"],
+    //         "after": ["^"]
+    //     }
+    // ],
+    "vim.useSystemClipboard": true,
+    "editor.wordWrap": "on",
+    "git.autofetch": true,
+    "files.associations": {
+        "*.log.*": "log",
+        "*.txt": "log",
+        "*.txt.*": "log"
+    },
+    "git.enableSmartCommit": true,
+    "git.openRepositoryInParentFolders": "always",
+    "remote.SSH.remotePlatform": {
+        "192.168.31.5": "linux"
+    },
+    "vim.easymotion": true,
+    "workbench.editor.tabSwitchOrder": "default",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "python.createEnvironment.trigger": "off",
+    "terminal.integrated.defaultProfile.windows": "Ubuntu-24.04 (WSL)",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.enableMultiLinePasteWarning": false
+
+}
+/*
+是的，Vim 提供了幾種方式來跳轉到之前的修改位置：
+
+使用修改列表（changelist）：
+
+g;    - 跳到上一個修改位置
+g,    - 跳到下一個修改位置
+:changes  - 查看修改列表
+
+使用跳轉列表（jumplist）：
+
+ctrl-o  - 跳回上一個位置
+ctrl-i  - 跳到下一個位置（或 <Tab>）
+:jumps  - 查看跳轉列表
+
+最後修改位置：
+
+`.    - 跳到最後修改的位置
+`"    - 跳到最後離開時的位置
+gi    - 跳到最後插入的位置並進入插入模式
+實用技巧：
+
+可以用數字加命令來多次跳轉：
+
+3g;   - 跳回前3個修改位置
+5ctrl-o - 跳回前5個位置
+
+在 VS Code 中設定快捷鍵：
+
+json{
+    "key": "alt+,",
+    "command": "vim.remap",
+    "when": "vim.active && editorTextFocus",
+    "args": {
+        "after": ["g", ";"]
+    }
+},
+{
+    "key": "alt+.",
+    "command": "vim.remap",
+    "when": "vim.active && editorTextFocus",
+    "args": {
+        "after": ["g", ","]
+    }
+}
+
+也可以使用標記（marks）來手動記錄重要位置：
+
+ma    - 設定標記 a
+`a    - 跳到標記 a 的位置
+'a    - 跳到標記 a 所在行的行首
+修改列表（g;）和跳轉列表（ctrl-o）的主要區別：
+
+修改列表：記錄所有文字修改的位置
+跳轉列表：記錄所有大範圍移動的位置（如搜尋、G、gg等）
+
+這些功能組合使用會更強大：
+vim" 跳到上次修改位置後進入插入模式
+`.i
+
+" 跳回上個修改後選擇整行
+g;V
+
+" 在多個修改點間快速切換
+g;g,
+
+
+
+
+以下是這些特殊符號在 Vim 中的所有用途：
+; (分號)：
+
+重複上一次的 f、F、t 或 T 搜尋命令
+
+vimfa    - 向前搜尋字母 'a'
+;     - 重複搜尋下一個 'a'
+,     - 反向重複搜尋上一個 'a'
+' (單引號)：
+
+行標記跳轉（跳到標記行的第一個非空白字元）
+
+vimma    - 設定標記 a
+'a    - 跳到標記 a 所在行的第一個非空白字元
+''    - 跳回上一個跳轉的行
+'.    - 跳到最後修改的那一行
+'[    - 跳到上次修改或複製的文字開始處所在行
+']    - 跳到上次修改或複製的文字結束處所在行
+'{    - 跳到上一段落
+'}    - 跳到下一段落
+'<    - 跳到上次視覺模式選擇的開始行
+'>    - 跳到上次視覺模式選擇的結束行
+, (逗號)：
+
+反向重複 f、F、t、T 搜尋
+常用作 leader 鍵（自定義快捷鍵的前綴）
+
+vim" 在 .vimrc 中設定
+let mapleader = ","
+" 然後可以用來定義快捷鍵
+nnoremap ,w :w<CR>
+. (點號)：
+
+重複上一次的修改
+當前位置標記
+.     - 重複上一個修改操作
+`.    - 跳到最後修改的確切位置
+'.    - 跳到最後修改的那一行
+`(反引號)：
+
+精確的標記跳轉（跳到標記的確切位置）
+ma    - 設定標記 a
+`a    - 跳到標記 a 的確切位置
+``    - 跳回上一個跳轉的確切位置
+`.    - 跳到最後修改的確切位置
+`[    - 跳到上次修改或複製的文字開始處
+`]    - 跳到上次修改或複製的文字結束處
+`<    - 跳到上次視覺模式選擇的開始位置
+`>    - 跳到上次視覺模式選擇的結束位置
+組合應用：
+
+修改後快速跳回：
+vim
+dd`.   - 刪除當前行後跳回上次修改位置
+yi(`a  - 複製括號內容後跳回標記 a
+
+標記間快速移動：
+vimma`b   - 設定標記 a 後跳到標記 b
+y`a    - 複製到標記 a 的位置
+d`a    - 刪除到標記 a 的位置
+
+視覺模式中使用：
+v`a    - 選取到標記 a 的位置
+y`a    - 複製到標記 a 的位置
+特殊用途：
+
+大寫標記（A-Z）可以在不同檔案間跳轉
+mA    - 設定全域標記 A
+`A    - 跳到標記 A（可能在另一個檔案）
+
+自動標記
+`.    - 最後修改的位置
+`"    - 最後離開檔案時的位置
+`0    - 最後編輯的檔案位置
+`1    - 上上次編輯的檔案位置
+實用技巧：
+
+使用 ` 和 ' 的區別：
+
+
+` 跳到確切的列和行
+' 只跳到行首的第一個非空白字元
+
+
+組合命令：
+
+d`a   - 刪除至標記 a
+y`a   - 複製至標記 a
+c`a   - 修改至標記 a
+v`a   - 選取至標記 a
+
+在 VS Code 中的設定：
+
+json{
+    "key": "alt+;",
+    "command": "vim.remap",
+    "when": "vim.active",
+    "args": {
+        "after": [";"]
+    }
+}
+記住：
+
+; 和 , 主要用於字元搜尋
+' 和 ` 用於標記跳轉
+. 用於重複操作
+這些符號常常可以組合使用，創造更強大的功能
+*/
