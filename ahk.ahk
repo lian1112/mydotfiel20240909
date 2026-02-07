@@ -68,26 +68,20 @@ LogMessage("整合腳本已啟動")
 
 ; 4螢幕模式 - 全開（個人電腦）
 !+5:: {
-    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
-    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
-
-    ; 步驟1: 啟用所有螢幕
     ToolTip("正在啟用所有螢幕...")
-    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable "HNMR400156" "HNMR600125"')
     Sleep(1500)
 
-    ; 步驟2: 載入4螢幕配置
     ToolTip("正在載入4螢幕配置...")
-    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
     Sleep(1500)
 
-    ; 步驟3: 切換輸入源
     ToolTip("正在切換上方螢幕到個人電腦...")
-    RunWait(cmm ' /SetValue "HNMR400156" 60 6')
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
     Sleep(500)
 
     ToolTip("正在切換下方螢幕到個人電腦...")
-    RunWait(cmm ' /SetValue "HNMR600125" 60 15')
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
 
     ToolTip("切換完成! (4螢幕)")
     Sleep(1000)
@@ -96,26 +90,20 @@ LogMessage("整合腳本已啟動")
 
 ; 2螢幕模式 - 切換到公司電腦
 !+6:: {
-    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
-    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
-
-    ; 步驟1: 啟用所有螢幕
     ToolTip("正在啟用所有螢幕...")
-    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable "HNMR400156" "HNMR600125"')
     Sleep(1500)
 
-    ; 步驟2: 切換輸入源到公司電腦
     ToolTip("正在切換上方螢幕到公司電腦...")
-    RunWait(cmm ' /SetValue "HNMR400156" 60 15')
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 15')
     Sleep(500)
 
     ToolTip("正在切換下方螢幕到公司電腦...")
-    RunWait(cmm ' /SetValue "HNMR600125" 60 6')
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
     Sleep(1000)
 
-    ; 步驟3: 停用 Samsung 螢幕
     ToolTip("正在停用 Samsung 螢幕...")
-    RunWait(mmt ' /disable "HNMR400156" "HNMR600125"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable "HNMR400156" "HNMR600125"')
 
     ToolTip("切換完成! (2螢幕)")
     Sleep(1000)
@@ -124,37 +112,28 @@ LogMessage("整合腳本已啟動")
 
 ; 3螢幕模式
 !+7:: {
-    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
-    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
-
-    ; 步驟1: 啟用所有螢幕
     ToolTip("正在啟用所有螢幕...")
-    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable "HNMR400156" "HNMR600125"')
     Sleep(3000)
 
-    ; 步驟2: 載入4螢幕配置
     ToolTip("正在載入4螢幕配置...")
-    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
     Sleep(7000)
 
-    ; 步驟3: 切換上方螢幕到公司電腦
     ToolTip("正在切換上方螢幕到公司電腦...")
-    RunWait(cmm ' /SetValue "HNMR600156" 60 15')
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600156" 60 15')
     Sleep(1500)
 
-    ; 步驟4: 切換下方螢幕到個人電腦
     ToolTip("正在切換下方螢幕到個人電腦...")
-    RunWait(cmm ' /SetValue "HNMR400125" 60 15')
+    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400125" 60 15')
     Sleep(1500)
 
-    ; 步驟5: 停用上方螢幕
     ToolTip("正在停用上方 Samsung...")
-    RunWait(mmt ' /disable "HNMR400156"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable "HNMR400156"')
     Sleep(1000)
 
-    ; 步驟6: 載入3螢幕配置
     ToolTip("正在載入3螢幕配置...")
-    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\3monitors.cfg"')
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\3monitors.cfg"')
 
     ToolTip("切換完成! (3螢幕)")
     Sleep(1000)
