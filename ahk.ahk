@@ -35,7 +35,7 @@ global currentMode := ""
 ; Section 3: 熱字串
 ; ============================================================================
 ::/ggg::yulian.lin2@gmail.com
-::/reg::Synopsys_AllenLin_Engineering_Test_hub_00130000005No8C
+::/reg::BlackDuck_AllenLin_Engineering_Test_hub_0013400001XYQeLAAX
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
 ::/lll::林口區麗園一街6巷5號10樓-2
 ::/eee::10F.-2, No. 5, Ln. 6, Liyuan 1st St., Linkou Dist., New Taipei City, Taiwan (R.O.C.)
@@ -66,74 +66,86 @@ LogMessage("整合腳本已啟動")
 ; Section 5: 全域熱鍵 - 螢幕管理
 ; ============================================================================
 
-; 一鍵切換到個人電腦模式(開啟4螢幕->切換到個人電腦->保持4螢幕)
+; 4螢幕模式 - 全開（個人電腦）
 !+5:: {
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+
     ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(1500)
+
+    ToolTip("正在載入4螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    Sleep(1500)
+
+    ToolTip("正在切換上方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR400156" 60 6')
+    Sleep(500)
+
+    ToolTip("正在切換下方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR600125" 60 15')
+
+    ToolTip("切換完成! (4螢幕)")
     Sleep(1000)
-
-    ToolTip("正在設定螢幕位置...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1080" "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1080" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=0"')
-    ToolTip("切換螢幕1,2到個人電腦,等待4個螢幕初始化 (5秒)...")
-    Sleep(3000)
-
-    ToolTip("正在切換螢幕1輸入源到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
-    Sleep(2000)
-
-    ToolTip("正在切換螢幕2輸入源到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
-    Sleep(2000)
-
-    ToolTip("切換完成! (保持4個螢幕開啟)")
-    Sleep(2000)
     ToolTip()
 }
 
-; 一鍵切換到公司電腦模式(開啟4螢幕->切換到公司電腦->只保留2螢幕)
+; 2螢幕模式 - 切換到公司電腦
 !+6:: {
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+
     ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(1500)
+
+    ToolTip("正在切換上方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR400156" 60 15')
+    Sleep(500)
+
+    ToolTip("正在切換下方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR600125" 60 6')
     Sleep(1000)
 
-    ToolTip("正在設定螢幕位置...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
+    ToolTip("正在停用 Samsung 螢幕...")
+    RunWait(mmt ' /disable "HNMR400156" "HNMR600125"')
 
-    ToolTip("切換螢幕1,2到公司電腦,等待4個螢幕初始化 (5秒)...")
-    Sleep(3000)
-
-    ToolTip("正在切換螢幕1輸入源到公司電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 15')
-    Sleep(3000)
-
-    ToolTip("正在切換螢幕2輸入源到公司電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
-    Sleep(3000)
-
-    ToolTip("正在停用螢幕 3 和 4...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable 3 4')
+    ToolTip("切換完成! (2螢幕)")
     Sleep(1000)
-
-    ToolTip("切換完成!")
-    Sleep(2000)
     ToolTip()
 }
 
-; 切換螢幕3到個人電腦,保留3個螢幕
+; 3螢幕模式
 !+7:: {
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+
     ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable \\.\DISPLAY3 \\.\DISPLAY4')
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(3000)
+
+    ToolTip("正在載入4螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    Sleep(7000)
+
+    ToolTip("正在切換上方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR600156" 60 15')
+    Sleep(1500)
+
+    ToolTip("正在切換下方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR400125" 60 15')
+    Sleep(1500)
+
+    ToolTip("正在停用上方 Samsung...")
+    RunWait(mmt ' /disable "HNMR400156"')
     Sleep(1000)
-    ToolTip("正在切換螢幕4到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600156" 60 15')
-    Sleep(2000)
 
-    ToolTip("正在關閉螢幕3...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable \\.\DISPLAY4')
-    Sleep(2000)
+    ToolTip("正在載入3螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\3monitors.cfg"')
 
-    ToolTip("切換完成! (保留3個螢幕)")
-    Sleep(2000)
+    ToolTip("切換完成! (3螢幕)")
+    Sleep(1000)
     ToolTip()
 }
 
@@ -172,6 +184,11 @@ LogMessage("整合腳本已啟動")
     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
 }
 
+; --- 螢幕管理備用版本 ---
+; !+5:: (舊版用 DISPLAY 編號，已改用 monitor serial number)
+; !+6:: (舊版用 DISPLAY 編號，已改用 monitor serial number)
+; !+7:: (舊版用 DISPLAY 編號，已改用 monitor serial number)
+
 
 ; ============================================================================
 ; Section 6: 全域熱鍵 - 應用程式啟動
@@ -208,10 +225,64 @@ LogMessage("整合腳本已啟動")
     ActivateOrRun("Excel.EXE", "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk")
 }
 
-; Alt+K / Alt+Shift+G: MobaXterm
+; Alt+J: Linux 路徑轉換 → 在 Total Commander 中開啟
+!j:: {
+    linuxPath := Trim(A_Clipboard)
+
+    if (linuxPath = "") {
+        ToolTip("剪貼簿是空的")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+
+    if !InStr(linuxPath, "/") {
+        ToolTip("剪貼簿內容不是 Linux 路徑")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+
+    winPath := ""
+    if (SubStr(linuxPath, 1, 13) = "/home/allenl/") {
+        winPath := "Z:\" . StrReplace(SubStr(linuxPath, 14), "/", "\")
+    } else if (linuxPath = "/home/allenl") {
+        winPath := "Z:\"
+    } else {
+        ToolTip("無法對應的 Linux 路徑: " . linuxPath)
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+
+    lastPart := ""
+    lastSlashPos := InStr(winPath, "\",, -1)
+    if (lastSlashPos > 0)
+        lastPart := SubStr(winPath, lastSlashPos + 1)
+
+    if (lastPart != "" && InStr(lastPart, ".")) {
+        winPath := SubStr(winPath, 1, lastSlashPos - 1)
+    }
+
+    if (StrLen(winPath) > 3 && SubStr(winPath, -1) = "\")
+        winPath := SubStr(winPath, 1, -1)
+
+    if (winPath = "Z:")
+        winPath := "Z:\"
+
+    tcPath := "C:\Program Files\totalcmd\TOTALCMD64.EXE"
+
+    try {
+        Run(tcPath . ' /O /T /S "' . winPath . '"')
+        ToolTip("已導航到: " . winPath)
+    } catch as err {
+        ToolTip("執行失敗: " . err.Message)
+    }
+
+    SetTimer(() => ToolTip(), -2000)
+}
+
+; Alt+K / Alt+Shift+G: Telegram
 !+g::
 !k:: {
-    ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
+    ActivateOrRun("Telegram.exe", "c:\Users\yulia\AppData\Roaming\Telegram Desktop\Telegram.exe")
 }
 
 ; Alt+N: Notepad++
@@ -254,11 +325,6 @@ LogMessage("整合腳本已啟動")
     ActivateOrRun("Notion.exe", "C:\Users\yulia\AppData\Local\Programs\Notion\Notion.exe")
 }
 
-; Alt+.: WeChat
-!.:: {
-    ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
-}
-
 ; Alt+;: FTNN (富途牛牛)
 !;:: {
     ActivateOrRun("FTNN.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\富途牛牛.lnk")
@@ -279,9 +345,54 @@ LogMessage("整合腳本已啟動")
     ActivateOrRun("filezilla.exe", "C:\Program Files\FileZilla FTP Client\filezilla.exe")
 }
 
-; Alt+Shift+J: VS Code Tunnel 遠端連線
+; Alt+Shift+J: Linux 路徑轉換 → 用關聯程式開啟檔案
 !+j:: {
-    Run(vscode . " --remote tunnel+" . tunnel)
+    linuxPath := Trim(A_Clipboard)
+
+    if (linuxPath = "") {
+        ToolTip("剪貼簿是空的")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+
+    if !InStr(linuxPath, "/") {
+        ToolTip("剪貼簿內容不是 Linux 路徑")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+
+    winPath := ""
+    if (SubStr(linuxPath, 1, 13) = "/home/allenl/") {
+        winPath := "Z:\" . StrReplace(SubStr(linuxPath, 14), "/", "\")
+    } else if (linuxPath = "/home/allenl") {
+        ToolTip("這是目錄，不是檔案")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    } else {
+        ToolTip("無法對應的 Linux 路徑: " . linuxPath)
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+
+    lastPart := ""
+    lastSlashPos := InStr(winPath, "\",, -1)
+    if (lastSlashPos > 0)
+        lastPart := SubStr(winPath, lastSlashPos + 1)
+
+    if (lastPart = "" || !InStr(lastPart, ".")) {
+        ToolTip("這是目錄，不是檔案，請用 Alt+J")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+
+    try {
+        Run('powershell -WindowStyle Hidden -Command "Invoke-Item \"' . winPath . '\""')
+        ToolTip("已開啟: " . winPath)
+    } catch as err {
+        ToolTip("開啟失敗: " . err.Message)
+    }
+
+    SetTimer(() => ToolTip(), -2000)
 }
 
 ; Alt+Shift+P: 小畫家
@@ -313,11 +424,8 @@ LogMessage("整合腳本已啟動")
 }
 
 ; --- 已停用的應用程式快捷鍵 ---
-; !+d:: ActivateOrRun("cursor.exe", ...) / ActivateOrRun("Wireshark.exe", ...)
-; !+t:: ActivateOrRun("Code.exe", ...) / Todo.exe
-; !`:: ActivateOrRun("claude.exe", ...)
-; !o:: ActivateOrRun("Wireshark.exe", ...)
-; !k:: ActivateOrRun("daqxqlite.exe", ...)
+; !.:: ActivateOrRun("WeChat.exe", ...)  ; WeChat 已停用
+; !+j:: Run(vscode . " --remote tunnel+" . tunnel)  ; VS Code Tunnel 已改為 Linux 路徑轉換
 
 
 ; ============================================================================
@@ -420,35 +528,45 @@ $^+r:: {
 Win+Shift+M: 最大化當前窗口
 Win+Q: 關閉當前窗口 (Alt+F4)
 Ctrl+Shift+R: 重新載入腳本
-Alt+V: Win+V (顯示剪貼板)
 Win+C: Ctrl+C (複製)
 
 應用程式快捷鍵:
 -------------------
 Alt+A: Microsoft Edge
-Alt+cAlt+Shift+D: Cursor
+Alt+C: Claude
 Alt+D: VS Code
-Alt+r: Firefox
+Alt+E: Yandex Browser
 Alt+F: Total Commander
-Alt+H/Alt+\: 115瀏覽器
-Alt+K: XQLite
+Alt+I: Excel
+Alt+J: Linux路徑→TC開啟
+Alt+K: Telegram
 Alt+N: Notepad++
-Alt+O/Alt+Shift+W: WhatsApp
 Alt+P: PowerPoint
 Alt+Q: Chrome
-Alt+S: MobaXterm
-Alt+Shift+S: Windows Terminal
-Alt+T: Todo
+Alt+S: Windows Terminal
 Alt+U: WinSCP
 Alt+X: Teams
 Alt+Y: Spotify
-Alt+z: Notion
-Alt+.: WeChat
+Alt+Z: Notion
 Alt+;: FTNN
-Alt+Shift+C: Beyond Compare
-Alt+Shift+E: Excel
-Alt+Shift+G: OneNote
-Alt+Shift+R: Opera
+Alt+\: 115瀏覽器
+Alt+Shift+A: Opera
+Alt+Shift+F: FileZilla
+Alt+Shift+J: Linux路徑→開啟檔案
+Alt+Shift+P: 小畫家
+Alt+Shift+R: Firefox
+Alt+Shift+S: Warp Terminal
+Alt+Shift+T: VS Code SSH
+Alt+Shift+V: Beyond Compare
+Alt+Shift+X: Claude
+
+螢幕管理:
+-------------------
+Alt+Shift+5: 4螢幕(個人電腦)
+Alt+Shift+6: 2螢幕(公司電腦)
+Alt+Shift+7: 3螢幕
+Alt+Shift+{/}: 上/下螢幕→個人
+Alt+[/]: 上/下螢幕→公司
 
 115瀏覽器特殊功能:
 -------------------
@@ -458,8 +576,6 @@ Ctrl+Q: 選擇並在新分頁搜索
 文件管理器快捷鍵:
 -------------------
 /: 在Total Commander中打開
-左箭頭: 返回上一級目錄
-右箭頭: 進入所選目錄
 Ctrl+R: 重命名
 Shift+Enter: 顯示右鍵菜單
 )"
@@ -476,8 +592,8 @@ Shift+Enter: 顯示右鍵菜單
 ; Section 8: #HotIf 區塊 - 應用程式專用熱鍵
 ; ============================================================================
 
-; --- Chrome ---
-#HotIf WinActive("ahk_exe chrome.exe")
+; --- Chrome / Edge ---
+#HotIf WinActive("ahk_exe chrome.exe") || WinActive("ahk_exe msedge.exe")
 ^r::{
     ToolTip("已轉換為 Ctrl+Shift+R")
     SetTimer () => ToolTip(), -1000
@@ -635,109 +751,13 @@ ActivateOrRun(processName, exePath, params := "") {
 ; --- 備用版本 (未使用) ---
 ; ActivateOrRun(processName, exePath, params := "") {
 ;     LogMessage("嘗試啟動或切換到: " . processName)
-;     if (windowSet := WinGetList("ahk_exe " . processName)) {
-;         LogMessage("找到 " . windowSet.Length . " 個窗口")
-;         try {
-;             activeWindow := WinGetID("A")
-;         } catch as err {
-;             LogMessage("獲取活動窗口時出錯: " . err.Message)
-;             activeWindow := 0
-;         }
-;
-;         nextWindow := 0
-;         found := false
-;
-;         if (activeWindow != 0) {
-;             for window in windowSet {
-;                 if (found) {
-;                     nextWindow := window
-;                     break
-;                 }
-;                 if (window == activeWindow) {
-;                     found := true
-;                 }
-;             }
-;         } else {
-;             if (windowSet.Length > 0) {
-;                 nextWindow := windowSet[1]
-;             }
-;         }
-;
-;         if (nextWindow == 0 && windowSet.Length > 0) {
-;             nextWindow := windowSet[1]
-;         }
-;
-;         if (nextWindow != 0) {
-;             WinActivate(nextWindow)
-;             LogMessage("激活窗口: " . nextWindow)
-;         } else {
-;             RunProgram(exePath, params)
-;         }
-;     } else {
-;         LogMessage("沒有找到窗口，嘗試啟動新實例")
-;         RunProgram(exePath, params)
-;     }
+;     ...
 ; }
 
 ; --- 備用版本2: 追蹤最近使用的視窗 (未使用) ---
 ; global recentWindows := Map()
-;
 ; ActivateOrRun(processName, exePath, params := "") {
-;     windowSet := WinGetList("ahk_exe " . processName)
-;
-;     if (windowSet.Length == 0) {
-;         Run(exePath . " " . params)
-;         return
-;     }
-;
-;     try {
-;         activeWindow := WinGetID("A")
-;         activeProcessName := WinGetProcessName("A")
-;     } catch {
-;         activeWindow := 0
-;         activeProcessName := ""
-;     }
-;
-;     if (activeProcessName == processName) {
-;         if (windowSet.Length > 1) {
-;             if (!recentWindows.Has(processName)) {
-;                 recentWindows[processName] := []
-;             }
-;
-;             recent := recentWindows[processName]
-;
-;             for i, win in recent {
-;                 if (win == activeWindow) {
-;                     recent.RemoveAt(i)
-;                     break
-;                 }
-;             }
-;             recent.InsertAt(1, activeWindow)
-;             while (recent.Length > 2) {
-;                 recent.Pop()
-;             }
-;
-;             nextWindow := 0
-;             if (recent.Length >= 2) {
-;                 nextWindow := recent[2]
-;             } else {
-;                 for window in windowSet {
-;                     if (window != activeWindow) {
-;                         nextWindow := window
-;                         break
-;                     }
-;                 }
-;             }
-;
-;             if (nextWindow != 0) {
-;                 WinActivate(nextWindow)
-;                 HandleMousePosition(nextWindow)
-;             }
-;         }
-;     } else {
-;         WinActivate(windowSet[1])
-;         HandleMousePosition(windowSet[1])
-;     }
+;     ...
 ; }
 
 ; 共用的滑鼠處理邏輯
