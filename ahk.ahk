@@ -4,7 +4,8 @@ SetWorkingDir A_ScriptDir
 
 
 ::/ggg::yulian.lin2@gmail.com
-::/reg::Synopsys_AllenLin_Engineering_Test_hub_00130000005No8C
+::/reg::BlackDuck_AllenLin_Engineering_Test_hub_0013400001XYQeLAAX
+
 ::/tok::ZTQ3ODg1ZTgtYzg5OC00NDJlLThkZjktODk2YjgzMzRmZDM4OmE3MWJmMzhiLWMyMzAtNDg0NS05YTNhLTU3ODQ2MzEyYmUzZg==
 ::/lll::林口區麗園一街6巷5號10樓-2
 ::/eee::10F.-2, No. 5, Ln. 6, Liyuan 1st St., Linkou Dist., New Taipei City, Taiwan (R.O.C.) 
@@ -36,7 +37,7 @@ global LAST_POSITION := ""
 ; Alt+Shift+S 進入睡眠模式
 
 
-#HotIf WinActive("ahk_exe chrome.exe")
+#HotIf WinActive("ahk_exe chrome.exe") || WinActive("ahk_exe msedge.exe")
 ^r::{
     ToolTip("已轉換為 Ctrl+Shift+R")
     SetTimer () => ToolTip(), -1000
@@ -44,6 +45,116 @@ global LAST_POSITION := ""
 }
 #HotIf
 
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+
+; Alt + J: 將 clipboard 中的 Linux 路徑轉換為 Windows 路徑，並在 Total Commander 中 cd 到該路徑
+!j:: {
+    linuxPath := Trim(A_Clipboard)
+    
+    if (linuxPath = "") {
+        ToolTip("剪貼簿是空的")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+    
+    if !InStr(linuxPath, "/") {
+        ToolTip("剪貼簿內容不是 Linux 路徑")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+    
+    ; 路徑對應: /home/allenl → Z:
+    winPath := ""
+    if (SubStr(linuxPath, 1, 13) = "/home/allenl/") {
+        winPath := "Z:\" . StrReplace(SubStr(linuxPath, 14), "/", "\")
+    } else if (linuxPath = "/home/allenl") {
+        winPath := "Z:\"
+    } else {
+        ToolTip("無法對應的 Linux 路徑: " . linuxPath)
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+    
+    ; 判斷最後是否為檔案（包含副檔名）
+    lastPart := ""
+    lastSlashPos := InStr(winPath, "\",, -1)
+    if (lastSlashPos > 0)
+        lastPart := SubStr(winPath, lastSlashPos + 1)
+    
+    if (lastPart != "" && InStr(lastPart, ".")) {
+        winPath := SubStr(winPath, 1, lastSlashPos - 1)
+    }
+    
+    ; 移除尾端反斜線（但保留 Z:\）
+    if (StrLen(winPath) > 3 && SubStr(winPath, -1) = "\")
+        winPath := SubStr(winPath, 1, -1)
+    
+    if (winPath = "Z:")
+        winPath := "Z:\"
+    
+    tcPath := "C:\Program Files\totalcmd\TOTALCMD64.EXE"
+    
+    try {
+        Run(tcPath . ' /O /T /S "' . winPath . '"')
+        ToolTip("已導航到: " . winPath)
+    } catch as err {
+        ToolTip("執行失敗: " . err.Message)
+    }
+    
+    SetTimer(() => ToolTip(), -2000)
+}
+
+; Alt + Shift + J: 將 clipboard 中的 Linux 路徑轉換為 Windows 路徑，用關聯程式開啟檔案
+!+j:: {
+    linuxPath := Trim(A_Clipboard)
+    
+    if (linuxPath = "") {
+        ToolTip("剪貼簿是空的")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+    
+    if !InStr(linuxPath, "/") {
+        ToolTip("剪貼簿內容不是 Linux 路徑")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+    
+    winPath := ""
+    if (SubStr(linuxPath, 1, 13) = "/home/allenl/") {
+        winPath := "Z:\" . StrReplace(SubStr(linuxPath, 14), "/", "\")
+    } else if (linuxPath = "/home/allenl") {
+        ToolTip("這是目錄，不是檔案")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    } else {
+        ToolTip("無法對應的 Linux 路徑: " . linuxPath)
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+    
+    ; 檢查是否為檔案（包含副檔名）
+    lastPart := ""
+    lastSlashPos := InStr(winPath, "\",, -1)
+    if (lastSlashPos > 0)
+        lastPart := SubStr(winPath, lastSlashPos + 1)
+    
+    if (lastPart = "" || !InStr(lastPart, ".")) {
+        ToolTip("這是目錄，不是檔案，請用 Alt+J")
+        SetTimer(() => ToolTip(), -2000)
+        return
+    }
+    
+    try {
+        Run('powershell -WindowStyle Hidden -Command "Invoke-Item \"' . winPath . '\""')
+        ToolTip("已開啟: " . winPath)
+    } catch as err {
+        ToolTip("開啟失敗: " . err.Message)
+    }
+    
+    SetTimer(() => ToolTip(), -2000)
+}
 ; !+s::  ; Alt+Shift+S
 ; {
 ;     Sleep(500)
@@ -53,93 +164,202 @@ global LAST_POSITION := ""
 ;     SendMessage(0x112, 0xF170, 2,, "Program Manager")
 
 ; }
-
-; 一鍵切換到公司電腦模式(開啟4螢幕->切換到公司電腦->只保留2螢幕)
-!+6:: {
-    ; 步驟1: 先啟用所有螢幕
-    ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
-    Sleep(1000)
-    
-    ; 設定正確位置
-    ToolTip("正在設定螢幕位置...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
-    
-    ; 步驟2: 等待20秒讓4個螢幕都完全初始化
-    ToolTip("切換螢幕1,2到公司電腦,等待4個螢幕初始化 (5秒)...")
-    Sleep(3000)
-    
-    ; 步驟3: 使用 RunWait 確保每個指令完成後再執行下一個
-    ToolTip("正在切換螢幕1輸入源到公司電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 15')
-    Sleep(3000)
-    
-    ToolTip("正在切換螢幕2輸入源到公司電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
-    Sleep(3000)
-    
-    ; 步驟4: 確認輸入源切換完成後，才停用螢幕3和4
-    ToolTip("正在停用螢幕 3 和 4...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable 3 4')
-    Sleep(1000)
-    
-    ; 完成
-    ToolTip("切換完成!")
-    Sleep(2000)
-    ToolTip()
-}
-
-; 一鍵切換到個人電腦模式(開啟4螢幕->切換到個人電腦->保持4螢幕)
+; ============================================================
+; 4螢幕模式 - 全開（個人電腦）
+; ============================================================
 !+5:: {
-    ; 步驟1: 先啟用所有螢幕
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+    
+    ; 步驟1: 啟用所有螢幕
     ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(1500)
+    
+    ; 步驟2: 載入4螢幕配置
+    ToolTip("正在載入4螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    Sleep(1500)
+    
+    ; 步驟3: 切換輸入源
+    ToolTip("正在切換上方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR400156" 60 6')
+    Sleep(500)
+    
+    ToolTip("正在切換下方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR600125" 60 15')
+    
+    ToolTip("切換完成! (4螢幕)")
     Sleep(1000)
-    
-    ; 設定正確位置
-    ToolTip("正在設定螢幕位置...")
-    ; Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
-Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1080" "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1080" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=0"')
-    ; 步驟2: 等待20秒讓4個螢幕都完全初始化
-    ToolTip("切換螢幕1,2到個人電腦,等待4個螢幕初始化 (5秒)...")
-    Sleep(3000)
-    
-    ; 步驟3: 使用 RunWait 確保每個指令完成後再執行下一個
-    ToolTip("正在切換螢幕1輸入源到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
-    Sleep(2000)
-    
-    ToolTip("正在切換螢幕2輸入源到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
-    Sleep(2000)
-    
-    ; 完成 (保持4個螢幕開啟)
-    ToolTip("切換完成! (保持4個螢幕開啟)")
-    Sleep(2000)
-    ToolTip()
-}
-; 切換螢幕3到個人電腦,保留3個螢幕
-!+7:: {
-        ; 步驟1: 先啟用所有螢幕
-    ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable \\.\DISPLAY3 \\.\DISPLAY4')
-    Sleep(1000)
-    ; 步驟1: 切換螢幕4到個人電腦
-    ToolTip("正在切換螢幕4到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600156" 60 15')
-    Sleep(2000)
-    
-    ; 步驟2: 關閉螢幕3,保留3個螢幕
-    ToolTip("正在關閉螢幕3...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable \\.\DISPLAY4')
-    Sleep(2000)
-    
-    ; 完成
-    ToolTip("切換完成! (保留3個螢幕)")
-    Sleep(2000)
     ToolTip()
 }
 
+!+7:: {
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+    
+    ; 步驟1: 啟用所有螢幕
+    ToolTip("正在啟用所有螢幕...")
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(3000)  ; 3秒
+    
+    ; 步驟2: 載入4螢幕配置
+    ToolTip("正在載入4螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    Sleep(7000)  ; 3秒
+    
+    ; 步驟3: 切換上方螢幕到公司電腦
+    ToolTip("正在切換上方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR600156" 60 15')
+    Sleep(1500)
+    
+    ; 步驟4: 切換下方螢幕到個人電腦
+    ToolTip("正在切換下方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR400125" 60 15')
+    Sleep(1500)
+    
+    ; 步驟5: 停用上方螢幕
+    ToolTip("正在停用上方 Samsung...")
+    RunWait(mmt ' /disable "HNMR400156"')
+    Sleep(1000)
+    
+    ; 步驟6: 載入3螢幕配置
+    ToolTip("正在載入3螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\3monitors.cfg"')
+    
+    ToolTip("切換完成! (3螢幕)")
+    Sleep(1000)
+    ToolTip()
+}
+!+6:: {
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+    
+    ; 步驟1: 啟用所有螢幕
+    ToolTip("正在啟用所有螢幕...")
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(1500)
+    
+    ; 步驟2: 切換輸入源
+    ToolTip("正在切換上方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR400156" 60 15')
+    Sleep(500)
+    
+    ToolTip("正在切換下方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR600125" 60 6')
+    Sleep(1000)
+    
+    ; 步驟3: 停用兩個 Samsung
+    ToolTip("正在停用 Samsung 螢幕...")
+    RunWait(mmt ' /disable "HNMR400156" "HNMR600125"')
+    
+    ToolTip("切換完成! (2螢幕)")
+    Sleep(1000)
+    ToolTip()
+}
+; !+5:: {
+;     ; 步驟1: 先啟用所有螢幕
+;     ToolTip("正在啟用所有螢幕...")
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+;     Sleep(1000)
+
+;     ; 步驟2: 載入正確的螢幕配置
+;     ToolTip("正在設定螢幕位置...")
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+;     Sleep(3000)
+
+;     ; 步驟3: 切換輸入源
+;     ToolTip("正在切換螢幕4(上方)輸入源到個人電腦...")
+;     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
+;     Sleep(2000)
+
+;     ToolTip("正在切換螢幕1(下方)輸入源到個人電腦...")
+;     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
+;     Sleep(2000)
+
+;     ; 完成
+;     ToolTip("切換完成! (4個螢幕模式)")
+;     Sleep(2000)
+;     ToolTip()
+; }
+
+; !+6:: {
+;     ; 步驟1: 先啟用所有螢幕
+;     ToolTip("正在啟用所有螢幕...")
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+;     Sleep(1000)
+    
+;     ; 步驟2: 載入3螢幕配置（作為中間狀態）
+;     ToolTip("正在設定螢幕位置...")
+;     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\3monitors.cfg"')
+;     Sleep(2000)
+    
+;     ; 步驟3: 切換輸入源到公司電腦
+;     ToolTip("正在切換螢幕4(上方)輸入源到公司電腦...")
+;     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
+;     Sleep(2000)
+    
+;     ToolTip("正在切換螢幕1(下方)輸入源到公司電腦...")
+;     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 15')
+;     Sleep(2000)
+    
+;     ; 步驟4: 停用 Samsung 螢幕
+;     ; 注意：在2螢幕模式下，Windows會重新分配DISPLAY編號
+;     ; 原本的 DISPLAY1(Samsung下) 和 DISPLAY4(Samsung上) 會變成 DISPLAY3 和 DISPLAY4
+;     ; 所以這裡要用 DISPLAY3 和 DISPLAY4 而不是 1 和 4
+;     ; 可以查看 D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SaveConfig "D:\Tools\multimonitortool-x64\2monitors.cfg"產生的2monitors.cfg來確認是哪個DISPLAY編號是存在的
+;     ToolTip("正在停用 Samsung 螢幕...")
+;     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable \\.\DISPLAY3')
+;     Sleep(2000)
+;     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable \\.\DISPLAY4')
+;     Sleep(2000)
+    
+;     ; 完成
+;     ToolTip("切換完成! (2螢幕模式 - 公司電腦)")
+;     Sleep(1000)
+;     ToolTip()
+; }
+; ; 切換螢幕3到個人電腦,保留3個螢幕
+; !+7:: {
+;         ; 步驟1: 先啟用所有螢幕
+;     ToolTip("正在啟用所有螢幕...")
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+;     Sleep(1000)
+
+;     ; 步驟2: 載入正確的螢幕配置
+;     ToolTip("正在設定螢幕位置...")
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+;     Sleep(3000)
+
+;     ; 步驟3: 切換輸入源
+;     ToolTip("正在切換螢幕4(上方)輸入源到個人電腦...")
+;     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
+;     Sleep(2000)
+
+;     ToolTip("正在切換螢幕1(下方)輸入源到個人電腦...")
+;     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
+;     Sleep(2000)
+
+;     ; 完成
+;     ToolTip("切換完成! (4個螢幕模式)")
+;     Sleep(2000)
+;     ToolTip()
+;     ToolTip("正在啟用螢幕...")
+;     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable \\.\DISPLAY1')
+;     Sleep(2000)
+    
+;     ToolTip("正在設定螢幕位置...")
+;     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\3monitors.cfg"')
+;     Sleep(2000)
+    
+;     ToolTip("正在切換螢幕到個人電腦...")
+;     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
+;     Sleep(1000)
+    
+;     ToolTip("切換完成! (3螢幕模式)")
+;     Sleep(1000)
+;     ToolTip()
+; }
 ^!t:: {
     text := WinGetText("ahk_class TTOTAL_CMD")
     MsgBox(text)
@@ -217,10 +437,9 @@ GetTCPath(hwnd) {
 vscode := "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 tunnel := "allenl-2404"
 
-; 然後快捷鍵這樣寫
-!+j:: {  ; Ctrl+Alt+T
-    Run(vscode . " --remote tunnel+" . tunnel)
-}
+; !+j:: {  ; Ctrl+Alt+T
+;     Run(vscode . " --remote tunnel+" . tunnel)
+; }
 
 ; 在檔案開頭定義
 vscode := "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe"
@@ -338,9 +557,9 @@ RunPowerShell(value) {
     ActivateOrRun("chrome.exe", "C:\Program Files\Google\Chrome\Application\chrome.exe")
 }
 
-!.:: {
-    ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
-}
+; !.:: {
+;     ActivateOrRun("WeChat.exe", "C:\Program Files\Tencent\WeChat\WeChat.exe")
+; }
 
 
 ; Alt+S: 啟動/切換 Windows Terminal
@@ -354,6 +573,12 @@ RunPowerShell(value) {
     ActivateOrRun("warp.exe", "C:\Users\yulia\AppData\Local\Programs\Warp\warp.exe")
 }
 
+; #Requires AutoHotkey v2.0
+; ^+1:: {
+;     if WinActive("ahk_exe Warp.exe") {
+;         SendInput "ssh allenl@192.168.31.5{Enter}"
+;     }
+; }
 
 !c:: {
     ActivateOrRun("claude.exe", "C:\Users\yulia\AppData\Local\AnthropicClaude\claude.exe")
@@ -401,7 +626,8 @@ RunPowerShell(value) {
 !+g::
 !k:: {
     ; ActivateOrRun("WindowsTerminal.exe", "C:\Users\yulia\AppData\Local\Microsoft\WindowsApps\wt.exe")
-    ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
+    ; ActivateOrRun("MobaXterm.exe", "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe")
+    ActivateOrRun("Telegram.exe", "c:\Users\yulia\AppData\Roaming\Telegram Desktop\Telegram.exe")
 }
 !\:: {
     ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
