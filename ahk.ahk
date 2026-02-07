@@ -66,91 +66,98 @@ LogMessage("整合腳本已啟動")
 ; Section 5: 全域熱鍵 - 螢幕管理
 ; ============================================================================
 
-; 一鍵切換到個人電腦模式(開啟4螢幕->切換到個人電腦->保持4螢幕)
+; 4螢幕模式 - 全開（個人電腦）
 !+5:: {
-    ; 步驟1: 先啟用所有螢幕
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+
+    ; 步驟1: 啟用所有螢幕
     ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(1500)
+
+    ; 步驟2: 載入4螢幕配置
+    ToolTip("正在載入4螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    Sleep(1500)
+
+    ; 步驟3: 切換輸入源
+    ToolTip("正在切換上方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR400156" 60 6')
+    Sleep(500)
+
+    ToolTip("正在切換下方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR600125" 60 15')
+
+    ToolTip("切換完成! (4螢幕)")
     Sleep(1000)
-
-    ; 設定正確位置
-    ToolTip("正在設定螢幕位置...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1080" "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1080" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=0"')
-
-    ; 步驟2: 等待4個螢幕初始化
-    ToolTip("切換螢幕1,2到個人電腦,等待4個螢幕初始化 (5秒)...")
-    Sleep(3000)
-
-    ; 步驟3: 使用 RunWait 確保每個指令完成後再執行下一個
-    ToolTip("正在切換螢幕1輸入源到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
-    Sleep(2000)
-
-    ToolTip("正在切換螢幕2輸入源到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
-    Sleep(2000)
-
-    ; 完成 (保持4個螢幕開啟)
-    ToolTip("切換完成! (保持4個螢幕開啟)")
-    Sleep(2000)
     ToolTip()
 }
 
-; 一鍵切換到公司電腦模式(開啟4螢幕->切換到公司電腦->只保留2螢幕)
+; 2螢幕模式 - 切換到公司電腦
 !+6:: {
-    ; 步驟1: 先啟用所有螢幕
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+
+    ; 步驟1: 啟用所有螢幕
     ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(1500)
+
+    ; 步驟2: 切換輸入源到公司電腦
+    ToolTip("正在切換上方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR400156" 60 15')
+    Sleep(500)
+
+    ToolTip("正在切換下方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR600125" 60 6')
     Sleep(1000)
 
-    ; 設定正確位置
-    ToolTip("正在設定螢幕位置...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
+    ; 步驟3: 停用 Samsung 螢幕
+    ToolTip("正在停用 Samsung 螢幕...")
+    RunWait(mmt ' /disable "HNMR400156" "HNMR600125"')
 
-    ; 步驟2: 等待4個螢幕初始化
-    ToolTip("切換螢幕1,2到公司電腦,等待4個螢幕初始化 (5秒)...")
-    Sleep(3000)
-
-    ; 步驟3: 使用 RunWait 確保每個指令完成後再執行下一個
-    ToolTip("正在切換螢幕1輸入源到公司電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 15')
-    Sleep(3000)
-
-    ToolTip("正在切換螢幕2輸入源到公司電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
-    Sleep(3000)
-
-    ; 步驟4: 確認輸入源切換完成後，才停用螢幕3和4
-    ToolTip("正在停用螢幕 3 和 4...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable 3 4')
+    ToolTip("切換完成! (2螢幕)")
     Sleep(1000)
-
-    ; 完成
-    ToolTip("切換完成!")
-    Sleep(2000)
     ToolTip()
 }
 
-; 切換螢幕3到個人電腦,保留3個螢幕
+; 3螢幕模式
 !+7:: {
-    ; 步驟1: 先啟用所有螢幕
+    mmt := 'D:\Tools\multimonitortool-x64\MultiMonitorTool.exe'
+    cmm := 'D:\Tools\controlmymonitor\ControlMyMonitor.exe'
+
+    ; 步驟1: 啟用所有螢幕
     ToolTip("正在啟用所有螢幕...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable \\.\DISPLAY3 \\.\DISPLAY4')
+    RunWait(mmt ' /enable "HNMR400156" "HNMR600125"')
+    Sleep(3000)
+
+    ; 步驟2: 載入4螢幕配置
+    ToolTip("正在載入4螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    Sleep(7000)
+
+    ; 步驟3: 切換上方螢幕到公司電腦
+    ToolTip("正在切換上方螢幕到公司電腦...")
+    RunWait(cmm ' /SetValue "HNMR600156" 60 15')
+    Sleep(1500)
+
+    ; 步驟4: 切換下方螢幕到個人電腦
+    ToolTip("正在切換下方螢幕到個人電腦...")
+    RunWait(cmm ' /SetValue "HNMR400125" 60 15')
+    Sleep(1500)
+
+    ; 步驟5: 停用上方螢幕
+    ToolTip("正在停用上方 Samsung...")
+    RunWait(mmt ' /disable "HNMR400156"')
     Sleep(1000)
 
-    ; 步驟2: 切換螢幕4到個人電腦
-    ToolTip("正在切換螢幕4到個人電腦...")
-    RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600156" 60 15')
-    Sleep(2000)
+    ; 步驟6: 載入3螢幕配置
+    ToolTip("正在載入3螢幕配置...")
+    RunWait(mmt ' /LoadConfig "D:\Tools\multimonitortool-x64\3monitors.cfg"')
 
-    ; 步驟3: 關閉螢幕3,保留3個螢幕
-    ToolTip("正在關閉螢幕3...")
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable \\.\DISPLAY4')
-    Sleep(2000)
-
-    ; 完成
-    ToolTip("切換完成! (保留3個螢幕)")
-    Sleep(2000)
+    ToolTip("切換完成! (3螢幕)")
+    Sleep(1000)
     ToolTip()
 }
 
