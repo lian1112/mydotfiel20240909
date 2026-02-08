@@ -61,6 +61,9 @@ ToolTip("整合腳本已啟動！")
 SetTimer () => ToolTip(), -3000
 LogMessage("整合腳本已啟動")
 
+; 清除 Explorer 地址列歷史
+try RunWait("powershell.exe -NoProfile -Command Remove-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths' -Name 'url*' -ErrorAction SilentlyContinue",, "Hide")
+
 ; Explorer 新視窗監控：自動合併到已有視窗的新 tab（使用系統級 WinEvent hook）
 global explorerHook_pCallback := CallbackCreate(OnExplorerWindowShow, "F", 7)
 global explorerHook_handle := DllCall("SetWinEventHook"
@@ -332,8 +335,9 @@ global explorerHook_handle := DllCall("SetWinEventHook"
     ActivateOrRun("FTNN.exe", "C:\Users\yulia\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\富途牛牛.lnk")
 }
 
-; Alt+\: 115瀏覽器
-!\:: {
+; Alt+\ / Alt+H: 115瀏覽器
+!\::
+!h:: {
     ActivateOrRun("115chrome.exe", "C:\Users\yulia\AppData\Local\115Chrome\Application\115chrome.exe")
 }
 
@@ -525,10 +529,10 @@ $^+r:: {
     TrayTip(filePath)
 }
 
-; Alt+M: 暫停/播放媒體
-!m:: {
-    Send "{Media_Play_Pause}"
-}
+; ; Alt+M: 暫停/播放媒體
+; !m:: {
+;     Send "{Media_Play_Pause}"
+; }
 
 ; Alt+/: 顯示快捷鍵列表
 !/:: {
@@ -682,6 +686,10 @@ Left::ExplorerArrowLeft()
 ^t::ExplorerNewTabD()
 ; Ctrl+Enter：用 VSCode 開啟選中的檔案/資料夾
 ^Enter::ExplorerOpenInVSCode()
+; Ctrl+N：新建資料夾（Send 原生 Ctrl+Shift+N）
+^n::Send("^+n")
+; Ctrl+Shift+N：新建文字檔（$ 防止被 ^n 的 Send 觸發）
+$^+n::ExplorerNewTextFile()
 #HotIf
 
 ; --- Diablo 4 --- (函式見 Section 13)
@@ -1069,20 +1077,34 @@ IsSpecialExplorerPage() {
 
 ; Ctrl+P：複製選中項目的完整路徑，沒有選中則複製當前資料夾路徑
 ExplorerCopyPath() {
-    try {
-        tab := GetActiveExplorerTab()
-        if (tab = "")
-            return
-        ; 有選中項目 → 複製選中項目路徑
-        if (tab.Document.SelectedItems.Count > 0) {
-            A_Clipboard := tab.Document.SelectedItems.Item(0).Path
-        } else {
-            ; 沒有選中 → 複製當前資料夾路徑
-            A_Clipboard := tab.Document.Folder.Self.Path
-        }
-        ToolTip("已複製: " . A_Clipboard)
+    path := GetExplorerSelectedPath()
+    if (path != "") {
+        A_Clipboard := path
+        ToolTip("已複製: " . path)
         SetTimer(() => ToolTip(), -1500)
     }
+}
+
+; 用 IShellBrowser 正確識別 Win11 多 tab Explorer 的 active tab
+GetExplorerSelectedPath() {
+    hwnd := WinGetID("A")
+    try activeTab := ControlGetHwnd("ShellTabWindowClass1", hwnd)
+    for w in ComObject("Shell.Application").Windows {
+        try {
+            if w.hwnd != hwnd
+                continue
+            if IsSet(activeTab) {
+                static IID := "{000214E2-0000-0000-C000-000000000046}"
+                sb := ComObjQuery(w, IID, IID)
+                ComCall(3, sb, "uint*", &tab := 0)
+                if tab != activeTab
+                    continue
+            }
+            sel := w.Document.SelectedItems
+            return sel.Count > 0 ? sel.Item(0).Path : w.Document.Folder.Self.Path
+        }
+    }
+    return ""
 }
 
 ; Ctrl+Shift+P：複製當前資料夾路徑（不含檔名）
@@ -1111,6 +1133,25 @@ ExplorerOpenInVSCode() {
     }
 }
 
+; Ctrl+Shift+N：在當前資料夾建立新文字檔
+ExplorerNewTextFile() {
+    tab := GetActiveExplorerTab()
+    if (tab = "")
+        return
+    folderPath := tab.Document.Folder.Self.Path
+    name := "New Text Document.txt"
+    fullPath := folderPath "\" name
+    n := 2
+    while FileExist(fullPath) {
+        name := "New Text Document (" n ").txt"
+        fullPath := folderPath "\" name
+        n++
+    }
+    FileAppend("", fullPath)
+    ToolTip("已建立: " . name)
+    SetTimer(() => ToolTip(), -1500)
+}
+
 ; Ctrl+T：開新 tab 並導航到 D:\
 ExplorerNewTabD() {
     hwnd := WinGetID("A")
@@ -1134,27 +1175,22 @@ ExplorerNewTabD() {
     }
 }
 
-; 取得當前 active tab 的 COM 物件（Windows 11 多 tab 共用 HWND）
-; 用視窗標題比對資料夾名稱來找 active tab
+; 取得當前 active tab 的 COM 物件（用 IShellBrowser 正確識別 Win11 多 tab）
 GetActiveExplorerTab() {
     activeHwnd := WinGetID("A")
-    title := WinGetTitle("A")
-    ; 視窗標題就是 active tab 的資料夾名稱
-    ; 先嘗試精確匹配資料夾名稱
-    for window in ComObject("Shell.Application").Windows {
+    try activeTab := ControlGetHwnd("ShellTabWindowClass1", activeHwnd)
+    for w in ComObject("Shell.Application").Windows {
         try {
-            if (window.HWND != activeHwnd)
+            if w.hwnd != activeHwnd
                 continue
-            folderName := window.Document.Folder.Self.Name
-            if (folderName = title)
-                return window
-        }
-    }
-    ; fallback：回傳第一個匹配 HWND 的
-    for window in ComObject("Shell.Application").Windows {
-        try {
-            if (window.HWND = activeHwnd)
-                return window
+            if IsSet(activeTab) {
+                static IID := "{000214E2-0000-0000-C000-000000000046}"
+                sb := ComObjQuery(w, IID, IID)
+                ComCall(3, sb, "uint*", &tab := 0)
+                if tab != activeTab
+                    continue
+            }
+            return w
         }
     }
     return ""
