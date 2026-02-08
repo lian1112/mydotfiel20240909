@@ -670,6 +670,8 @@ q::
 ; 方向鍵：→ 進入選中資料夾，← 上一層（只在檔案列表區，不影響地址列/搜尋列）
 Right::ExplorerArrowRight()
 Left::ExplorerArrowLeft()
+; Ctrl+P：複製選中項目的完整路徑
+^p::ExplorerCopyPath()
 #HotIf
 
 ; --- Diablo 4 --- (函式見 Section 13)
@@ -1046,6 +1048,26 @@ ExplorerArrowLeft() {
         return Send("{Left}")
     ; 上一層（Alt+Up）
     Send("!{Up}")
+}
+
+; Ctrl+P：複製選中項目的完整路徑，沒有選中則複製當前資料夾路徑
+ExplorerCopyPath() {
+    try {
+        for window in ComObject("Shell.Application").Windows {
+            if (window.HWND = WinGetID("A")) {
+                ; 有選中項目 → 複製選中項目路徑
+                if (window.Document.SelectedItems.Count > 0) {
+                    A_Clipboard := window.Document.SelectedItems.Item(0).Path
+                } else {
+                    ; 沒有選中 → 複製當前資料夾路徑
+                    A_Clipboard := window.Document.Folder.Self.Path
+                }
+                ToolTip("已複製: " . A_Clipboard)
+                SetTimer(() => ToolTip(), -1500)
+                return
+            }
+        }
+    }
 }
 
 ; 判斷 Explorer 焦點是否在檔案列表區（反向邏輯：只有在列表區才攔截）
