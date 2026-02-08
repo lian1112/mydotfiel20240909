@@ -15,7 +15,7 @@ All system modifications (registry, settings, etc.) are recorded here for tracki
 **Path:** `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer`
 **Value:** `OpenFolderInNewTab` = `1` (DWORD)
 **Previous:** Not set (default = 0)
-**Status:** ⚠️ 已設定但未生效（Windows 26200.7705），改用 AHK SetWinEventHook 方案替代
+**Status:** ❌ 已移除（未生效，改用 AHK SetWinEventHook 方案替代）
 **Purpose:** 從 115 等外部程式點資料夾圖示時，在已有 Explorer 視窗開新 tab，而非開新視窗
 **Rollback:**
 ```powershell
