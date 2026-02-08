@@ -713,40 +713,46 @@ RedirectExplorerWindow(newHwnd) {
     }
     if (newPath = "")
         return
-    ; 找已有的 Explorer 視窗 COM 物件
-    oldWindow := ""
+    ; 找已有的 Explorer 視窗 HWND（非新視窗的）
+    oldHwnd := 0
     for window in ComObject("Shell.Application").Windows {
         try {
             if (window.HWND != newHwnd) {
-                oldWindow := window
+                oldHwnd := window.HWND
                 break
             }
         }
     }
-    if (oldWindow = "")
-        return  ; 這是唯一的 Explorer 視窗，不處理
-    ; 關掉新視窗，在舊視窗開新 tab 導航到目標路徑
-    oldHwnd := 0
-    try oldHwnd := oldWindow.HWND
     if (oldHwnd = 0)
-        return
+        return  ; 這是唯一的 Explorer 視窗，不處理
+    ; 關掉新視窗
     WinClose("ahk_id " . newHwnd)
     Sleep(150)
+    ; 在舊視窗用 WM_COMMAND 開新 tab，再用 COM Navigate2 導航
     WinActivate("ahk_id " . oldHwnd)
     WinWaitActive("ahk_id " . oldHwnd,, 2)
-    Sleep(300)
-    ; 開新 tab
-    Send("^t")
-    Sleep(1000)
-    ; 用 Alt+D 聚焦地址列（比 Ctrl+L 更可靠，直接選中地址列文字）
-    Send("!d")
-    Sleep(500)
-    ; 清除地址列內容，輸入路徑
-    Send("^a")
+    ; 記錄開新 tab 前的 COM window 數量
+    shellApp := ComObject("Shell.Application")
+    oldCount := shellApp.Windows.Count
+    ; 發送未公開的 WM_COMMAND 0xA21B 給 ShellTabWindowClass1 開新 tab
+    try {
+        SendMessage(0x0111, 0xA21B, 0, "ShellTabWindowClass1", "ahk_id " . oldHwnd)
+    } catch {
+        return
+    }
+    ; 等待新 tab 在 COM 中出現（最多 3 秒）
+    timeout := A_TickCount + 3000
+    while (shellApp.Windows.Count <= oldCount) {
+        Sleep(50)
+        if (A_TickCount > timeout)
+            return
+    }
     Sleep(100)
-    SendText(newPath)
-    Sleep(200)
-    Send("{Enter}")
+    ; 導航新 tab（COM 集合中最後一個就是新開的 tab）
+    try {
+        newTab := shellApp.Windows.Item(oldCount)
+        newTab.Navigate2(newPath)
+    }
 }
 
 ; 在所有視窗間循環切換
