@@ -418,6 +418,16 @@ LogMessage("整合腳本已啟動")
 ; Section 7: 全域熱鍵 - 系統/工具
 ; ============================================================================
 
+; Win+E: 在已有 Explorer 視窗中開新 tab，而非新視窗
+#e:: {
+    if WinExist("ahk_class CabinetWClass") {
+        WinActivate()
+        Send("^t")
+    } else {
+        Run("explorer.exe")
+    }
+}
+
 ; Win+H: 開啟自動隱藏 taskbar
 #h:: RunPowerShell(3)
 ; Win+Shift+H: 關閉自動隱藏 taskbar
