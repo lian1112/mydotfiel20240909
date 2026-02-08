@@ -726,21 +726,27 @@ RedirectExplorerWindow(newHwnd) {
     if (oldWindow = "")
         return  ; 這是唯一的 Explorer 視窗，不處理
     ; 關掉新視窗，在舊視窗開新 tab 導航到目標路徑
+    oldHwnd := 0
+    try oldHwnd := oldWindow.HWND
+    if (oldHwnd = 0)
+        return
     WinClose("ahk_id " . newHwnd)
+    Sleep(150)
+    WinActivate("ahk_id " . oldHwnd)
+    WinWaitActive("ahk_id " . oldHwnd,, 2)
+    Sleep(300)
+    ; 開新 tab
+    Send("^t")
+    Sleep(1000)
+    ; 用 Alt+D 聚焦地址列（比 Ctrl+L 更可靠，直接選中地址列文字）
+    Send("!d")
+    Sleep(500)
+    ; 清除地址列內容，輸入路徑
+    Send("^a")
     Sleep(100)
-    try {
-        oldHwnd := oldWindow.HWND
-        WinActivate("ahk_id " . oldHwnd)
-        WinWaitActive("ahk_id " . oldHwnd,, 2)
-        Sleep(300)
-        Send("^t")
-        Sleep(800)
-        Send("^l")
-        Sleep(500)
-        SendText(newPath)
-        Sleep(200)
-        Send("{Enter}")
-    }
+    SendText(newPath)
+    Sleep(200)
+    Send("{Enter}")
 }
 
 ; 在所有視窗間循環切換
