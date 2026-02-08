@@ -7,6 +7,8 @@ All system modifications (registry, settings, etc.) are recorded here for tracki
 > 2. 提示使用者確認後才執行
 > 3. 附上 rollback 指令
 
+> **截圖參考：** 當使用者說「參考圖1-10」，代表去讀 `D:\snipaste\recent\1.jpg` ~ `10.jpg`
+
 ---
 
 ## 2025-02-08: Explorer - Open external folders in new tab
