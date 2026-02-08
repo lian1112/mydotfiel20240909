@@ -1029,8 +1029,8 @@ GetSelectedItem() {
 
 ; Explorer 方向鍵 → ：選中資料夾時進入，否則原始行為
 ExplorerArrowRight() {
-    ; 如果焦點在地址列/搜尋列等編輯控件，不攔截
-    if (ExplorerFocusInEditControl())
+    ; 只在檔案列表區攔截，其他地方（地址列/搜尋列/重命名）放行原始行為
+    if (!ExplorerFocusInFileList())
         return Send("{Right}")
     ; 如果選中的是資料夾，進入
     if (IsSelectedItemFolder())
@@ -1041,20 +1041,23 @@ ExplorerArrowRight() {
 
 ; Explorer 方向鍵 ← ：上一層資料夾，否則原始行為
 ExplorerArrowLeft() {
-    ; 如果焦點在地址列/搜尋列等編輯控件，不攔截
-    if (ExplorerFocusInEditControl())
+    ; 只在檔案列表區攔截，其他地方放行原始行為
+    if (!ExplorerFocusInFileList())
         return Send("{Left}")
     ; 上一層（Alt+Up）
     Send("!{Up}")
 }
 
-; 判斷 Explorer 焦點是否在編輯控件（地址列/搜尋列/重新命名）
-ExplorerFocusInEditControl() {
+; 判斷 Explorer 焦點是否在檔案列表區（反向邏輯：只有在列表區才攔截）
+ExplorerFocusInFileList() {
     try {
-        focusedControl := ControlGetClassNN(ControlGetFocus("A"))
-        ; 地址列、搜尋列、重新命名輸入框等
-        if (InStr(focusedControl, "Edit") || InStr(focusedControl, "ComboBox")
-            || InStr(focusedControl, "SearchBox") || InStr(focusedControl, "RichEdit"))
+        focused := ControlGetFocus("A")
+        focusedClass := ControlGetClassNN(focused)
+        ; 檔案列表的控件 class 包含這些
+        if (InStr(focusedClass, "DirectUIHWND")
+            || InStr(focusedClass, "SysListView32")
+            || InStr(focusedClass, "SysTreeView32")
+            || InStr(focusedClass, "ShellTabWindowClass"))
             return true
     }
     return false
