@@ -713,28 +713,27 @@ RedirectExplorerWindow(newHwnd) {
     }
     if (newPath = "")
         return
-    ; 找已有的 Explorer 視窗
-    oldHwnd := 0
+    ; 找已有的 Explorer 視窗 COM 物件
+    oldWindow := ""
     for window in ComObject("Shell.Application").Windows {
         try {
             if (window.HWND != newHwnd) {
-                oldHwnd := window.HWND
+                oldWindow := window
                 break
             }
         }
     }
-    if (oldHwnd = 0)
+    if (oldWindow = "")
         return  ; 這是唯一的 Explorer 視窗，不處理
-    ; 關掉新視窗，在舊視窗開新 tab 並導航
+    ; 關掉新視窗，在舊視窗開新 tab 導航到目標路徑
     WinClose("ahk_id " . newHwnd)
-    WinActivate("ahk_id " . oldHwnd)
-    Sleep(200)
-    Send("^t")
-    Sleep(300)
-    Send("^l")
-    Sleep(200)
-    SendText(newPath)
-    Send("{Enter}")
+    Sleep(100)
+    try {
+        WinActivate("ahk_id " . oldWindow.HWND)
+        Sleep(200)
+        ; 用 Navigate2 + navOpenInNewTab flag (0x800) 在新 tab 開路徑
+        oldWindow.Navigate2(newPath, 0x800)
+    }
 }
 
 ; 在所有視窗間循環切換
