@@ -61,10 +61,17 @@ ToolTip("整合腳本已啟動！")
 SetTimer () => ToolTip(), -3000
 LogMessage("整合腳本已啟動")
 
-; Explorer 新視窗監控：自動合併到已有視窗的新 tab
-global explorerWindowIds := Map()
-RefreshExplorerList()
-SetTimer(CheckNewExplorer, 500)
+; Explorer 新視窗監控：自動合併到已有視窗的新 tab（使用系統級 WinEvent hook）
+global explorerHook_pCallback := CallbackCreate(OnExplorerWindowShow, "F", 7)
+global explorerHook_handle := DllCall("SetWinEventHook"
+    , "UInt", 0x8002  ; EVENT_OBJECT_SHOW
+    , "UInt", 0x8002
+    , "Ptr", 0
+    , "Ptr", explorerHook_pCallback
+    , "UInt", 0  ; 所有 process
+    , "UInt", 0  ; 所有 thread
+    , "UInt", 0x0  ; WINEVENT_OUTOFCONTEXT
+    , "Ptr")
 
 
 ; ============================================================================
@@ -674,52 +681,60 @@ v::HandleHotkey("b")
 ; Section 9: 函式 - 核心/共用工具
 ; ============================================================================
 
-; Explorer 新視窗監控函式
-RefreshExplorerList() {
-    global explorerWindowIds
-    explorerWindowIds := Map()
-    for window in ComObject("Shell.Application").Windows {
-        try explorerWindowIds[window.HWND] := true
+; Explorer 新視窗監控函式（系統級 WinEvent hook 回調）
+OnExplorerWindowShow(hWinEventHook, event, hwnd, idObject, idChild, dwEventThread, dwmsEventTime) {
+    ; 只處理視窗本體 (idObject=0, idChild=0)
+    if (idObject != 0 || idChild != 0)
+        return
+    ; 檢查是否為 Explorer 視窗
+    try {
+        if (WinGetClass("ahk_id " . hwnd) != "CabinetWClass")
+            return
+    } catch {
+        return
     }
+    ; 延遲一下讓視窗完全初始化
+    SetTimer(() => RedirectExplorerWindow(hwnd), -300)
 }
 
-CheckNewExplorer() {
-    global explorerWindowIds
+RedirectExplorerWindow(newHwnd) {
+    ; 確認視窗還存在
+    if !WinExist("ahk_id " . newHwnd)
+        return
+    ; 取得新視窗的路徑
+    newPath := ""
     for window in ComObject("Shell.Application").Windows {
         try {
-            hwnd := window.HWND
-            if !explorerWindowIds.Has(hwnd) {
-                ; 發現新 Explorer 視窗
-                newPath := ""
-                try newPath := window.Document.Folder.Self.Path
-                ; 找已有的 Explorer 視窗
-                oldHwnd := 0
-                for w in ComObject("Shell.Application").Windows {
-                    try {
-                        if (w.HWND != hwnd) {
-                            oldHwnd := w.HWND
-                            break
-                        }
-                    }
-                }
-                if (oldHwnd != 0 && newPath != "") {
-                    ; 關掉新視窗，在舊視窗開新 tab 並導航
-                    WinClose("ahk_id " . hwnd)
-                    WinActivate("ahk_id " . oldHwnd)
-                    Sleep(200)
-                    Send("^t")
-                    Sleep(300)
-                    Send("^l")
-                    Sleep(200)
-                    SendText(newPath)
-                    Send("{Enter}")
-                }
-                RefreshExplorerList()
-                return
+            if (window.HWND = newHwnd) {
+                newPath := window.Document.Folder.Self.Path
+                break
             }
         }
     }
-    RefreshExplorerList()
+    if (newPath = "")
+        return
+    ; 找已有的 Explorer 視窗
+    oldHwnd := 0
+    for window in ComObject("Shell.Application").Windows {
+        try {
+            if (window.HWND != newHwnd) {
+                oldHwnd := window.HWND
+                break
+            }
+        }
+    }
+    if (oldHwnd = 0)
+        return  ; 這是唯一的 Explorer 視窗，不處理
+    ; 關掉新視窗，在舊視窗開新 tab 並導航
+    WinClose("ahk_id " . newHwnd)
+    WinActivate("ahk_id " . oldHwnd)
+    Sleep(200)
+    Send("^t")
+    Sleep(300)
+    Send("^l")
+    Sleep(200)
+    SendText(newPath)
+    Send("{Enter}")
 }
 
 ; 在所有視窗間循環切換
