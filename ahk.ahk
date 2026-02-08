@@ -216,11 +216,6 @@ global explorerHook_handle := DllCall("SetWinEventHook"
     }
 }
 
-; Alt+R: Yandex Browser
-!r:: {
-    ActivateOrRun("browser.exe", "C:\Users\yulia\AppData\Local\Yandex\YandexBrowser\Application\browser.exe")
-}
-
 ; Alt+F: Total Commander
 !f:: {
     ActivateOrRun("TOTALCMD64.EXE", "C:\Program Files\totalcmd\TOTALCMD64.EXE")
@@ -405,9 +400,9 @@ global explorerHook_handle := DllCall("SetWinEventHook"
 ; Alt+Shift+P: 小畫家
 !+p:: ActivateOrRun("mspaint.exe", "C:\Windows\System32\mspaint.exe")
 
-; Alt+Shift+R: Firefox
+; Alt+Shift+R: Yandex Browser
 !+r:: {
-    ActivateOrRun("firefox.exe", FIREFOX_PATH)
+    ActivateOrRun("browser.exe", "C:\Users\yulia\AppData\Local\Yandex\YandexBrowser\Application\browser.exe")
 }
 
 ; Alt+Shift+S: Warp Terminal
@@ -553,7 +548,6 @@ Alt+C: Claude
 Alt+D: VS Code
 Alt+E: Explorer
 Alt+F: Total Commander
-Alt+R: Yandex Browser
 Alt+I: Excel
 Alt+J: Linux路徑→TC開啟
 Alt+K: Telegram
@@ -571,7 +565,7 @@ Alt+Shift+A: Opera
 Alt+Shift+F: FileZilla
 Alt+Shift+J: Linux路徑→開啟檔案
 Alt+Shift+P: 小畫家
-Alt+Shift+R: Firefox
+Alt+Shift+R: Yandex Browser
 Alt+Shift+S: Warp Terminal
 Alt+Shift+T: VS Code SSH
 Alt+Shift+V: Beyond Compare
