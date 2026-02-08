@@ -207,8 +207,17 @@ global explorerHook_handle := DllCall("SetWinEventHook"
     ActivateOrRun("Code.exe", "C:\Users\yulia\AppData\Local\Programs\Microsoft VS Code\Code.exe")
 }
 
-; Alt+E: Yandex Browser
+; Alt+E: Explorer（切到已有視窗，沒有才開 D:\）
 !e:: {
+    if WinExist("ahk_class CabinetWClass") {
+        WinActivate()
+    } else {
+        Run("explorer.exe D:\")
+    }
+}
+
+; Alt+R: Yandex Browser
+!r:: {
     ActivateOrRun("browser.exe", "C:\Users\yulia\AppData\Local\Yandex\YandexBrowser\Application\browser.exe")
 }
 
@@ -542,8 +551,9 @@ Win+C: Ctrl+C (複製)
 Alt+A: Microsoft Edge
 Alt+C: Claude
 Alt+D: VS Code
-Alt+E: Yandex Browser
+Alt+E: Explorer
 Alt+F: Total Commander
+Alt+R: Yandex Browser
 Alt+I: Excel
 Alt+J: Linux路徑→TC開啟
 Alt+K: Telegram
