@@ -61,6 +61,11 @@ ToolTip("整合腳本已啟動！")
 SetTimer () => ToolTip(), -3000
 LogMessage("整合腳本已啟動")
 
+; Explorer 新視窗監控：自動合併到已有視窗的新 tab
+global explorerWindowIds := Map()
+RefreshExplorerList()
+SetTimer(CheckNewExplorer, 500)
+
 
 ; ============================================================================
 ; Section 5: 全域熱鍵 - 螢幕管理
@@ -668,6 +673,54 @@ v::HandleHotkey("b")
 ; ============================================================================
 ; Section 9: 函式 - 核心/共用工具
 ; ============================================================================
+
+; Explorer 新視窗監控函式
+RefreshExplorerList() {
+    global explorerWindowIds
+    explorerWindowIds := Map()
+    for window in ComObject("Shell.Application").Windows {
+        try explorerWindowIds[window.HWND] := true
+    }
+}
+
+CheckNewExplorer() {
+    global explorerWindowIds
+    for window in ComObject("Shell.Application").Windows {
+        try {
+            hwnd := window.HWND
+            if !explorerWindowIds.Has(hwnd) {
+                ; 發現新 Explorer 視窗
+                newPath := ""
+                try newPath := window.Document.Folder.Self.Path
+                ; 找已有的 Explorer 視窗
+                oldHwnd := 0
+                for w in ComObject("Shell.Application").Windows {
+                    try {
+                        if (w.HWND != hwnd) {
+                            oldHwnd := w.HWND
+                            break
+                        }
+                    }
+                }
+                if (oldHwnd != 0 && newPath != "") {
+                    ; 關掉新視窗，在舊視窗開新 tab 並導航
+                    WinClose("ahk_id " . hwnd)
+                    WinActivate("ahk_id " . oldHwnd)
+                    Sleep(200)
+                    Send("^t")
+                    Sleep(300)
+                    Send("^l")
+                    Sleep(200)
+                    SendText(newPath)
+                    Send("{Enter}")
+                }
+                RefreshExplorerList()
+                return
+            }
+        }
+    }
+    RefreshExplorerList()
+}
 
 ; 在所有視窗間循環切換
 ActivateOrRun(processName, exePath, params := "") {
