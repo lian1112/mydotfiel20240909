@@ -1036,10 +1036,13 @@ ExplorerArrowRight() {
     ; 只在檔案列表區攔截，其他地方（地址列/搜尋列/重命名）放行原始行為
     if (!ExplorerFocusInFileList())
         return Send("{Right}")
-    ; 如果選中的是資料夾，進入
-    if (IsSelectedItemFolder())
-        return Send("{Enter}")
-    ; 否則原始行為
+    ; 取得 focused 項目（方向鍵 highlight 的那個，不一定是 selected）
+    try {
+        tab := GetActiveExplorerTab()
+        if (tab != "" && tab.Document.FocusedItem.IsFolder)
+            return Send("{Enter}")
+    }
+    ; 不是資料夾或取不到 → 原始行為
     Send("{Right}")
 }
 
