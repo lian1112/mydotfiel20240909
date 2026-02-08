@@ -435,7 +435,7 @@ global explorerHook_handle := DllCall("SetWinEventHook"
     if WinExist("ahk_class CabinetWClass") {
         WinActivate()
     } else {
-        Run("explorer.exe")
+        Run("explorer.exe D:\")
     }
 }
 
