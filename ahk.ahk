@@ -725,6 +725,21 @@ RedirectExplorerWindow(newHwnd) {
     }
     if (oldHwnd = 0)
         return  ; 這是唯一的 Explorer 視窗，不處理
+    ; 檢查是否已有相同路徑的 tab，如果有就切過去而非開新 tab
+    for window in ComObject("Shell.Application").Windows {
+        try {
+            if (window.HWND != newHwnd) {
+                existingPath := window.Document.Folder.Self.Path
+                if (existingPath = newPath) {
+                    ; 已有同路徑 tab，關新視窗，切到舊視窗即可
+                    WinClose("ahk_id " . newHwnd)
+                    Sleep(100)
+                    WinActivate("ahk_id " . window.HWND)
+                    return
+                }
+            }
+        }
+    }
     ; 關掉新視窗
     WinClose("ahk_id " . newHwnd)
     Sleep(150)
