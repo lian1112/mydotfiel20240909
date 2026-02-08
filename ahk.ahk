@@ -1039,20 +1039,32 @@ GetSelectedItem() {
 
 ; Explorer 方向鍵 → ：選中資料夾時進入，否則原始行為
 ExplorerArrowRight() {
-    ; 只在檔案列表區攔截，其他地方（地址列/搜尋列/重命名）放行原始行為
-    if (!ExplorerFocusInFileList())
+    if (!ExplorerFocusInFileList() || IsSpecialExplorerPage())
         return Send("{Right}")
-    ; 進入資料夾或用預設 app 打開檔案（等同 Enter）
     Send("{Enter}")
 }
 
 ; Explorer 方向鍵 ← ：上一層資料夾，否則原始行為
 ExplorerArrowLeft() {
-    ; 只在檔案列表區攔截，其他地方放行原始行為
-    if (!ExplorerFocusInFileList())
+    if (!ExplorerFocusInFileList() || IsSpecialExplorerPage())
         return Send("{Left}")
-    ; 上一層（Alt+Up）
     Send("!{Up}")
+}
+
+; 判斷是否為 This PC / Home 等特殊頁面（不攔截方向鍵）
+IsSpecialExplorerPage() {
+    try {
+        tab := GetActiveExplorerTab()
+        if (tab = "")
+            return true
+        path := tab.Document.Folder.Self.Path
+        ; CLSID 開頭的是特殊資料夾（This PC, Home, Network 等）
+        if (SubStr(path, 1, 2) = "::")
+            return true
+    } catch {
+        return true
+    }
+    return false
 }
 
 ; Ctrl+P：複製選中項目的完整路徑，沒有選中則複製當前資料夾路徑
