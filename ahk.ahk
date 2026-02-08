@@ -725,21 +725,6 @@ RedirectExplorerWindow(newHwnd) {
     }
     if (oldHwnd = 0)
         return  ; 這是唯一的 Explorer 視窗，不處理
-    ; 檢查是否已有相同路徑的 tab，如果有就切過去而非開新 tab
-    for window in ComObject("Shell.Application").Windows {
-        try {
-            if (window.HWND != newHwnd) {
-                existingPath := window.Document.Folder.Self.Path
-                if (existingPath = newPath) {
-                    ; 已有同路徑 tab，關新視窗，切到舊視窗即可
-                    WinClose("ahk_id " . newHwnd)
-                    Sleep(100)
-                    WinActivate("ahk_id " . window.HWND)
-                    return
-                }
-            }
-        }
-    }
     ; 關掉新視窗
     WinClose("ahk_id " . newHwnd)
     Sleep(150)
@@ -759,14 +744,19 @@ RedirectExplorerWindow(newHwnd) {
     timeout := A_TickCount + 3000
     while (shellApp.Windows.Count <= oldCount) {
         Sleep(50)
-        if (A_TickCount > timeout)
+        if (A_TickCount > timeout) {
+            ToolTip("TIMEOUT: tab 未出現 oldCount=" . oldCount . " cur=" . shellApp.Windows.Count)
+            SetTimer(() => ToolTip(), -3000)
             return
+        }
     }
     Sleep(100)
     ; 導航新 tab（COM 集合中最後一個就是新開的 tab）
     try {
         newTab := shellApp.Windows.Item(oldCount)
         newTab.Navigate2(newPath)
+        ToolTip("OK: " . newPath . " (old=" . oldCount . " new=" . shellApp.Windows.Count . ")")
+        SetTimer(() => ToolTip(), -3000)
     }
 }
 
