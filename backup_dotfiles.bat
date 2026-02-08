@@ -28,6 +28,9 @@ copy /Y "C:\Users\yulia\AppData\Roaming\MobaXterm\MobaXterm.ini" "%BACKUP_DIR%\M
 copy /Y "C:\Users\yulia\AppData\Roaming\Notepad++\config.xml" "%BACKUP_DIR%\notepadpp\config.xml"
 copy /Y "C:\Users\yulia\AppData\Roaming\Notepad++\shortcuts.xml" "%BACKUP_DIR%\notepadpp\shortcuts.xml"
 
+:: XnView MP
+copy /Y "C:\Users\yulia\AppData\Roaming\XnViewMP\xnview.ini" "%BACKUP_DIR%\XnViewMP\xnview.ini"
+
 :: Snipaste
 copy /Y "D:\snipaste\Snipaste.ini" "%BACKUP_DIR%\snipaste_ini\Snipaste.ini" 2>nul
 
