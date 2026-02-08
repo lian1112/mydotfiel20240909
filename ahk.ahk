@@ -667,6 +667,9 @@ q::
 /::OpenInTotalCommander()
 ^r::Send "{F2}"
 +Enter::Send "{AppsKey}"
+; 方向鍵：→ 進入選中資料夾，← 上一層（只在檔案列表區，不影響地址列/搜尋列）
+Right::ExplorerArrowRight()
+Left::ExplorerArrowLeft()
 #HotIf
 
 ; --- Diablo 4 --- (函式見 Section 13)
@@ -1022,6 +1025,39 @@ GetSelectedItem() {
         }
     }
     return ""
+}
+
+; Explorer 方向鍵 → ：選中資料夾時進入，否則原始行為
+ExplorerArrowRight() {
+    ; 如果焦點在地址列/搜尋列等編輯控件，不攔截
+    if (ExplorerFocusInEditControl())
+        return Send("{Right}")
+    ; 如果選中的是資料夾，進入
+    if (IsSelectedItemFolder())
+        return Send("{Enter}")
+    ; 否則原始行為
+    Send("{Right}")
+}
+
+; Explorer 方向鍵 ← ：上一層資料夾，否則原始行為
+ExplorerArrowLeft() {
+    ; 如果焦點在地址列/搜尋列等編輯控件，不攔截
+    if (ExplorerFocusInEditControl())
+        return Send("{Left}")
+    ; 上一層（Alt+Up）
+    Send("!{Up}")
+}
+
+; 判斷 Explorer 焦點是否在編輯控件（地址列/搜尋列/重新命名）
+ExplorerFocusInEditControl() {
+    try {
+        focusedControl := ControlGetClassNN(ControlGetFocus("A"))
+        ; 地址列、搜尋列、重新命名輸入框等
+        if (InStr(focusedControl, "Edit") || InStr(focusedControl, "ComboBox")
+            || InStr(focusedControl, "SearchBox") || InStr(focusedControl, "RichEdit"))
+            return true
+    }
+    return false
 }
 
 ; 判斷選中的項目是否為資料夾
