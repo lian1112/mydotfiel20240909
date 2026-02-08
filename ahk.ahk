@@ -672,6 +672,8 @@ Right::ExplorerArrowRight()
 Left::ExplorerArrowLeft()
 ; Ctrl+P：複製選中項目的完整路徑
 ^p::ExplorerCopyPath()
+; Ctrl+Shift+P：複製當前資料夾路徑（不含檔名）
+^+p::ExplorerCopyFolderPath()
 #HotIf
 
 ; --- Diablo 4 --- (函式見 Section 13)
@@ -1061,6 +1063,18 @@ ExplorerCopyPath() {
             ; 沒有選中 → 複製當前資料夾路徑
             A_Clipboard := tab.Document.Folder.Self.Path
         }
+        ToolTip("已複製: " . A_Clipboard)
+        SetTimer(() => ToolTip(), -1500)
+    }
+}
+
+; Ctrl+Shift+P：複製當前資料夾路徑（不含檔名）
+ExplorerCopyFolderPath() {
+    try {
+        tab := GetActiveExplorerTab()
+        if (tab = "")
+            return
+        A_Clipboard := tab.Document.Folder.Self.Path
         ToolTip("已複製: " . A_Clipboard)
         SetTimer(() => ToolTip(), -1500)
     }
