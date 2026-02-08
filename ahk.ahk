@@ -967,12 +967,12 @@ GetTCPath(hwnd) {
     return ""
 }
 
-; 取得 Explorer 當前路徑
+; 取得 Explorer 當前路徑（active tab）
 GetExplorerPath() {
-    for window in ComObject("Shell.Application").Windows {
-        if (window.HWND == WinGetID("A")) {
-            return window.Document.Folder.Self.Path
-        }
+    try {
+        tab := GetActiveExplorerTab()
+        if (tab != "")
+            return tab.Document.Folder.Self.Path
     }
     return ""
 }
@@ -1018,12 +1018,10 @@ OpenInTotalCommander() {
 ; 取得當前選中的檔案或資料夾名稱
 GetSelectedItem() {
     try {
-        for window in ComObject("Shell.Application").Windows {
-            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
-                for item in window.Document.SelectedItems {
-                    return item.Name
-                }
-            }
+        tab := GetActiveExplorerTab()
+        if (tab != "") {
+            for item in tab.Document.SelectedItems
+                return item.Name
         }
     }
     return ""
@@ -1053,21 +1051,43 @@ ExplorerArrowLeft() {
 ; Ctrl+P：複製選中項目的完整路徑，沒有選中則複製當前資料夾路徑
 ExplorerCopyPath() {
     try {
-        for window in ComObject("Shell.Application").Windows {
-            if (window.HWND = WinGetID("A")) {
-                ; 有選中項目 → 複製選中項目路徑
-                if (window.Document.SelectedItems.Count > 0) {
-                    A_Clipboard := window.Document.SelectedItems.Item(0).Path
-                } else {
-                    ; 沒有選中 → 複製當前資料夾路徑
-                    A_Clipboard := window.Document.Folder.Self.Path
-                }
-                ToolTip("已複製: " . A_Clipboard)
-                SetTimer(() => ToolTip(), -1500)
-                return
-            }
+        tab := GetActiveExplorerTab()
+        if (tab = "")
+            return
+        ; 有選中項目 → 複製選中項目路徑
+        if (tab.Document.SelectedItems.Count > 0) {
+            A_Clipboard := tab.Document.SelectedItems.Item(0).Path
+        } else {
+            ; 沒有選中 → 複製當前資料夾路徑
+            A_Clipboard := tab.Document.Folder.Self.Path
+        }
+        ToolTip("已複製: " . A_Clipboard)
+        SetTimer(() => ToolTip(), -1500)
+    }
+}
+
+; 取得當前 active tab 的 COM 物件（Windows 11 多 tab 共用 HWND）
+; 透過 IShellBrowser::GetWindow 取得每個 tab 的內部 HWND，比對 active 狀態
+GetActiveExplorerTab() {
+    activeHwnd := WinGetID("A")
+    IID_IShellBrowser := "{000214E2-0000-0000-C000-000000000046}"
+    for window in ComObject("Shell.Application").Windows {
+        try {
+            if (window.HWND != activeHwnd)
+                continue
+            ; 透過 IServiceProvider 取得 IShellBrowser
+            shellBrowser := ComObjQuery(window, IID_IShellBrowser, IID_IShellBrowser)
+            if (!shellBrowser)
+                continue
+            ; IShellBrowser 繼承 IOleWindow，GetWindow 是第 3 個方法 (index 3)
+            tabHwnd := 0
+            ComCall(3, shellBrowser, "Ptr*", &tabHwnd)
+            ; 如果 tab 的內部視窗可見，就是 active tab
+            if (tabHwnd && DllCall("IsWindowVisible", "Ptr", tabHwnd))
+                return window
         }
     }
+    return ""
 }
 
 ; 判斷 Explorer 焦點是否在檔案列表區（反向邏輯：只有在列表區才攔截）
@@ -1088,12 +1108,10 @@ ExplorerFocusInFileList() {
 ; 判斷選中的項目是否為資料夾
 IsSelectedItemFolder() {
     try {
-        for window in ComObject("Shell.Application").Windows {
-            if (window.Document.Folder.Self.Path == GetExplorerPath()) {
-                for item in window.Document.SelectedItems {
-                    return item.IsFolder
-                }
-            }
+        tab := GetActiveExplorerTab()
+        if (tab != "") {
+            for item in tab.Document.SelectedItems
+                return item.IsFolder
         }
     }
     return false
