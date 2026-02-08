@@ -1067,23 +1067,25 @@ ExplorerCopyPath() {
 }
 
 ; 取得當前 active tab 的 COM 物件（Windows 11 多 tab 共用 HWND）
-; 透過 IShellBrowser::GetWindow 取得每個 tab 的內部 HWND，比對 active 狀態
+; 用視窗標題比對資料夾名稱來找 active tab
 GetActiveExplorerTab() {
     activeHwnd := WinGetID("A")
-    IID_IShellBrowser := "{000214E2-0000-0000-C000-000000000046}"
+    title := WinGetTitle("A")
+    ; 視窗標題就是 active tab 的資料夾名稱
+    ; 先嘗試精確匹配資料夾名稱
     for window in ComObject("Shell.Application").Windows {
         try {
             if (window.HWND != activeHwnd)
                 continue
-            ; 透過 IServiceProvider 取得 IShellBrowser
-            shellBrowser := ComObjQuery(window, IID_IShellBrowser, IID_IShellBrowser)
-            if (!shellBrowser)
-                continue
-            ; IShellBrowser 繼承 IOleWindow，GetWindow 是第 3 個方法 (index 3)
-            tabHwnd := 0
-            ComCall(3, shellBrowser, "Ptr*", &tabHwnd)
-            ; 如果 tab 的內部視窗可見，就是 active tab
-            if (tabHwnd && DllCall("IsWindowVisible", "Ptr", tabHwnd))
+            folderName := window.Document.Folder.Self.Name
+            if (folderName = title)
+                return window
+        }
+    }
+    ; fallback：回傳第一個匹配 HWND 的
+    for window in ComObject("Shell.Application").Windows {
+        try {
+            if (window.HWND = activeHwnd)
                 return window
         }
     }
