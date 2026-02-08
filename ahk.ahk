@@ -701,18 +701,29 @@ RedirectExplorerWindow(newHwnd) {
     ; 確認視窗還存在
     if !WinExist("ahk_id " . newHwnd)
         return
-    ; 取得新視窗的路徑
+    ; 取得新視窗的路徑和選中的項目
     newPath := ""
+    selectedPath := ""
+    newWindow := ""
     for window in ComObject("Shell.Application").Windows {
         try {
             if (window.HWND = newHwnd) {
+                newWindow := window
                 newPath := window.Document.Folder.Self.Path
+                ; 檢查是否有選中的項目（115 用 /select 開的會選中子資料夾）
+                if (window.Document.SelectedItems.Count > 0) {
+                    item := window.Document.SelectedItems.Item(0)
+                    if (item.IsFolder)
+                        selectedPath := item.Path
+                }
                 break
             }
         }
     }
     if (newPath = "")
         return
+    ; 如果有選中的子資料夾，目標路徑改為子資料夾
+    targetPath := (selectedPath != "") ? selectedPath : newPath
     ; 找已有的 Explorer 視窗 HWND（非新視窗的）
     oldHwnd := 0
     for window in ComObject("Shell.Application").Windows {
@@ -744,19 +755,14 @@ RedirectExplorerWindow(newHwnd) {
     timeout := A_TickCount + 3000
     while (shellApp.Windows.Count <= oldCount) {
         Sleep(50)
-        if (A_TickCount > timeout) {
-            ToolTip("TIMEOUT: tab 未出現 oldCount=" . oldCount . " cur=" . shellApp.Windows.Count)
-            SetTimer(() => ToolTip(), -3000)
+        if (A_TickCount > timeout)
             return
-        }
     }
     Sleep(100)
     ; 導航新 tab（COM 集合中最後一個就是新開的 tab）
     try {
         newTab := shellApp.Windows.Item(oldCount)
-        newTab.Navigate2(newPath)
-        ToolTip("OK: " . newPath . " (old=" . oldCount . " new=" . shellApp.Windows.Count . ")")
-        SetTimer(() => ToolTip(), -3000)
+        newTab.Navigate2(targetPath)
     }
 }
 
