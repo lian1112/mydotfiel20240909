@@ -674,6 +674,8 @@ Left::ExplorerArrowLeft()
 ^p::ExplorerCopyPath()
 ; Ctrl+Shift+P：複製當前資料夾路徑（不含檔名）
 ^+p::ExplorerCopyFolderPath()
+; Ctrl+T：開新 tab 預設到 D:\（取代 Quick Access）
+^t::ExplorerNewTabD()
 #HotIf
 
 ; --- Diablo 4 --- (函式見 Section 13)
@@ -1077,6 +1079,29 @@ ExplorerCopyFolderPath() {
         A_Clipboard := tab.Document.Folder.Self.Path
         ToolTip("已複製: " . A_Clipboard)
         SetTimer(() => ToolTip(), -1500)
+    }
+}
+
+; Ctrl+T：開新 tab 並導航到 D:\
+ExplorerNewTabD() {
+    hwnd := WinGetID("A")
+    shellApp := ComObject("Shell.Application")
+    oldCount := shellApp.Windows.Count
+    try {
+        SendMessage(0x0111, 0xA21B, 0, "ShellTabWindowClass1", "ahk_id " . hwnd)
+    } catch {
+        return
+    }
+    timeout := A_TickCount + 3000
+    while (shellApp.Windows.Count <= oldCount) {
+        Sleep(50)
+        if (A_TickCount > timeout)
+            return
+    }
+    Sleep(100)
+    try {
+        newTab := shellApp.Windows.Item(oldCount)
+        newTab.Navigate2("D:\")
     }
 }
 
