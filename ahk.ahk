@@ -729,10 +729,17 @@ RedirectExplorerWindow(newHwnd) {
     WinClose("ahk_id " . newHwnd)
     Sleep(100)
     try {
-        WinActivate("ahk_id " . oldWindow.HWND)
+        oldHwnd := oldWindow.HWND
+        WinActivate("ahk_id " . oldHwnd)
+        WinWaitActive("ahk_id " . oldHwnd,, 2)
+        Sleep(300)
+        Send("^t")
+        Sleep(800)
+        Send("^l")
+        Sleep(500)
+        SendText(newPath)
         Sleep(200)
-        ; 用 Navigate2 + navOpenInNewTab flag (0x800) 在新 tab 開路徑
-        oldWindow.Navigate2(newPath, 0x800)
+        Send("{Enter}")
     }
 }
 
