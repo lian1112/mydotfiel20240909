@@ -1,0 +1,4 @@
+[user]
+	email = a9115077@gapps.ntust.edu.tw
+[safe]
+	directory = %(prefix)///192.168.31.5/allenl_home/claude_project/cases

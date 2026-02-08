@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(pip:*)",
+      "Read",
+      "Write",
+      "Edit",
+      "mcp__windows-control__*"
+    ]
+  },
+  "mcpServers": {
+    "windows-control": {
+      "command": "node",
+      "args": ["D:/claude/windows-control-mcp/server.js"]
+    }
+  }
+}

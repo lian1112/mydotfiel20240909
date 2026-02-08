@@ -1,0 +1,420 @@
+{
+    "window.commandCenter": 1,
+    "files.autoSave": "afterDelay",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    // "vim.autoSwitchInputMethod.enable": true,
+    // "vim.autoSwitchInputMethod.obtainIMCmd": "e:\\mydotfile\\im-select.exe",
+    // "vim.autoSwitchInputMethod.switchIMCmd": "e:\\mydotfile\\im-select.exe",
+    // "vim.autoSwitchInputMethod.defaultIM": "2052",
+    "vim.enable": false,
+    "vim.highlightedyank.enable": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.handleKeys": {
+        "<C-f>": false,
+        // "<C-a>": true,
+        "<C-y>": false,
+        "<C-j>": false,
+        "<C-b>": false,
+        "<C-n>": false,
+        "<C-p>": false,
+        "<C-w>": false,
+        "<C-c>": false,
+        "<C-x>": false,
+        "<C-v>": false,
+        "<Tab>": false,
+        "<S-Tab>": false,  // 如果你也想停用 Shift+Tab
+        "<C-h>": false,
+        "<C-o>": false
+        // "<C-i>": false,
+    },
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<C-a>"],
+            "after": ["g", "g", "V", "G"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<up>"],
+            "after": ["#"]
+        },
+        {
+            "before": ["<down>"],
+            "after": ["*"]
+        },
+        {
+            "before": ["<left>"],
+            "after": ["<C-o>"]
+        },
+        {
+            "before": ["<right>"],
+            "after": ["<C-i>"]
+        },
+        // 開啟檔案瀏覽器
+        {
+            "before": ["<leader>", "e"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        
+        
+        // {//導致crash
+        //     "before": ["<leader>", "m"],
+        //     // "commands": ["bookmarks.toggle"]
+        //     "commands": ["bookmarks.toggleLabeled"]
+        // },
+        // {
+        //     "before": ["<leader>", "b"],
+        //     "commands": ["workbench.view.extension.bookmarks"]
+        // },
+        // {
+        //     "before": ["<leader>", "n"],
+        //     "commands": ["bookmarks.jumpToNext"]
+        // },
+        // {
+        //     "before": ["<leader>", "p"],
+        //     "commands": ["bookmarks.jumpToPrevious"]
+        // },
+        {
+            "before": ["<enter>"],
+            "commands": [
+                "editor.action.insertLineAfter",
+                "vim.escape"
+            ]
+        },
+        {
+            "before": ["<leader>", "O"],
+            "commands": [
+                "editor.action.insertLineBefore",
+                "vim.escape"
+            ]
+        },
+                // 尋找所有參考
+        {
+            "before": ["<leader>", "f", "r"],
+            "commands": ["references-view.findReferences"]
+        },
+        // {{//無效,改用keyboard json
+        //     "before": ["<C-}>"],
+        //     "after": ["]", "M"]
+        // },
+        // {
+        //     "before": ["<C-{"],
+        //     "after": ["[", "M"]
+        // },
+        // {
+        //     "before": ["[", "m"],  // 不需要額外的中括號
+        //     "commands": ["editor.action.goToNextFunction"]
+        // },
+        // {
+        //     "before": ["]", "m"],  // 不需要額外的中括號
+        //     "commands": ["editor.action.goToPreviousFunction"]
+        // }
+    // 一般刪除操作都用黑洞存寄器（不 yank）
+        {
+            "before": ["x"],
+            "after": ["\"", "_", "x"]
+        },
+        {
+            "before": ["X"],
+            "after": ["\"", "_", "X"]
+        },
+        {
+            "before": ["d"],
+            "after": ["\"", "_", "d"]
+        },
+        {
+            "before": ["D"],
+            "after": ["\"", "_", "D"]
+        },
+        {
+            "before": ["d", "d"],
+            "after": ["\"", "_", "d", "d"]
+        },
+        
+        // leader 組合才會 cut（會 yank）
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d"]
+        },
+        {
+            "before": ["<leader>", "D"],
+            "after": ["D"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "after": ["x"]
+        },
+        {
+            "before": ["<leader>", "d", "d"],
+            "after": ["d", "d"]
+        }
+        // ]m  - 下一個方法(function)開始
+        // [m  - 上一個方法(function)開始
+        // ]M  - 下一個方法(function)結尾
+        // [M  - 上一個方法(function)結尾
+
+        // ]]  - 下一個 class 開始
+        // [[  - 上一個 class 開始
+        // ][  - 下一個 class 結尾
+        // []  - 上一個 class 結尾
+
+        // 縮排階層導航：
+
+        // ]h  - 跳到當前縮排階層的下一個開始
+        // [h  - 跳到當前縮排階層的上一個開始
+
+        // 段落移動：
+
+        // }   - 下一個空行
+        // {   - 上一個空行
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<left>"],
+            "after": ["<C-o>"]
+        },
+        {
+            "before": ["<right>"],
+            "after": ["<C-i>"]
+        },
+        {
+            "before": ["p"],
+            "after": ["p", "g", "v", "y"]
+        },
+        {
+            "before": ["<leader>", "f", "f"],
+            "commands": ["editor.action.formatSelection"]  // 注意這裡用 formatSelection
+        },
+        // {//無效,改用keyboard json
+        //     "before": ["<C-}>"],
+        //     "after": ["]", "M"]
+        // },
+        // {
+        //     "before": ["<C->{"],
+        //     "after": ["[", "M"]
+        // },
+        // {
+        //     // "before": ["<C-]>"],  // 或你想要的其他按鍵組合
+        //     "before": ["[", "m"],  // 或你想要的其他按鍵組合
+        //     "commands": ["editor.action.goToNextFunction"]
+        // },
+        // {
+        //     "before": ["]", "m"],  // 上一個函數
+        //     "commands": ["editor.action.goToPreviousFunction"]
+        // }
+            // 一般刪除操作都用黑洞寄存器（不 yank）
+        {
+            "before": ["x"],
+            "after": ["\"", "_", "x"]
+        },
+        {
+            "before": ["X"],
+            "after": ["\"", "_", "X"]
+        },
+        {
+            "before": ["d"],
+            "after": ["\"", "_", "d"]
+        },
+        {
+            "before": ["D"],
+            "after": ["\"", "_", "D"]
+        },
+        {
+            "before": ["d", "d"],
+            "after": ["\"", "_", "d", "d"]
+        },
+        {
+            "before": ["<C-\">"],
+            "after": ["v", "i", "\""]
+        },
+        
+        // leader 組合才會 cut（會 yank）
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d"]
+        },
+        {
+            "before": ["<leader>", "D"],
+            "after": ["D"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "after": ["x"]
+        },
+        {
+            "before": ["<leader>", "d", "d"],
+            "after": ["d", "d"]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "editor.wordWrap": "on",
+    "git.autofetch": true,
+    "files.associations": {
+        "*.log.*": "log",
+        "*.txt": "log",
+        "*.txt.*": "log"
+    },
+    "git.enableSmartCommit": true,
+    "git.openRepositoryInParentFolders": "always",
+    "remote.SSH.remotePlatform": {
+        "192.168.31.5": "linux",
+        "114.34.97.78": "linux",
+        "192.168.31.6": "windows",
+        "aws": "windows",
+        "linux": "linux"
+    },
+    "vim.easymotion": true,
+    "workbench.editor.tabSwitchOrder": "default",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "files.eol": "\n"
+    },
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "*coverity.conf"
+            ],
+            "url": "file:c:\\Users\\yulia\\.vscode\\extensions\\synopsys-coverity.vscode-coverity-conf-2022.5.0\\resources\\coverity.conf.schema.json"
+        }
+    ],
+    "lightrun.certificatePinning": true,
+    "lightrun.certificatePinningList": [
+        "515a630cfd1fb908e30087bcc20b7413ad146b9bf2b23d3aaa72c28e45b24fb2",
+        "ee80811b38e7e6c2dc4cc372cbea86bd86b446b012e427f2e19bf094afba5d12"
+    ],
+    "lightrun.serverURL": "https://app.lightrun.com",
+    "lightrun.sendSourceFullPath": true,
+    "lightrun.deploymentName": "default",
+    "editor.minimap.enabled": false,
+    "redhat.telemetry.enabled": false,
+    "workbench.colorTheme": "Copilot Theme",
+    "tabnine.experimentalAutoImports": true,
+    "background.backgroundOpacity": [
+        0.5,
+        0.5,
+        0.1,
+        0.1
+    ],
+    "editor.suggest.showStatusBar": true,
+    "workbench.colorCustomizations": {
+        "statusBarItem.remoteBackground": "#16825d",
+		"statusBarItem.remoteForeground": "#ffffff",
+		"statusBar.background": "#68217a",
+		"statusBar.debuggingBackground": "#ffa763",
+		"statusBar.debuggingForeground": "#1a2023",
+		"statusBar.foreground": "#ffffff",
+        "statusBar.noFolderBackground": "#68217a",
+		"statusBar.noFolderForeground": "#ffffff",
+        "editorMultiCursor.primary.foreground": "#aeafad",
+		"editorMultiCursor.secondary.foreground": "#aeafad",
+		"sideBarSectionHeader.background": "#00000000",
+        "activityBar.activeBorder": "#ffffff",
+		"activityBar.background": "#333333",
+		"activityBar.dropBorder": "#ffffff",
+		"activityBar.foreground": "#ffffff",
+		"activityBar.inactiveForeground": "#ffffff66",
+		"activityBarBadge.foreground": "#ffffff",
+		"activityBarTop.activeBorder": "#e7e7e7",
+		"activityBarTop.dropBorder": "#e7e7e7",
+		"activityBarTop.foreground": "#e7e7e7",
+		"activityBarTop.inactiveForeground": "#e7e7e799",
+		"activityErrorBadge.background": "#f14c4c",
+		"activityErrorBadge.foreground": "#000000",
+		"activityWarningBadge.background": "#cca700",
+		"activityWarningBadge.foreground": "#000000",
+        "activityBarBadge.background": "#007acc",
+    },
+    "security.workspace.trust.enabled": false,
+    "chat.editing.alwaysSaveWithGeneratedChanges": true,
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.experimental.showMoves": true,
+    "git.confirmSync": false,
+    "codeSight.telemetry.enablement": false,
+    "codeSight.warnings.showAll": false,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "terminal.integrated.copyOnSelection": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "claudeCode.dangerouslySkipPermissions": true,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "sshfs.configs": [
+        {
+            "name": "myConfig"
+        }
+    ],
+    "workbench.editor.autoLockGroups": {
+        "markdown-preview-enhanced": true
+    },
+    "workbench.editor.enablePreview": false,
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "claudeCode.allowDangerouslySkipPermissions": true,
+    "claudeCode.initialPermissionMode": "bypassPermissions",
+    "claudeCode.selectedModel": "default",
+    "chat.mcp.gallery.enabled": true,
+    "claudeCode.preferredLocation": "panel",
+    "security.promptForLocalFileProtocolHandling": false,
+    "geminicodeassist.project": "stalwart-osprey-fsmxt",
+    "mssql.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "9BBDE9D0-5C3C-4270-AE58-D5F52839AB9E"
+        }
+    ],
+    "markdown-preview-enhanced.enablePreviewZenMode": true,
+    "security.allowedUNCHosts": [
+        "114.34.97.78"
+    ],
+    "accessibility.signalOptions.volume": 0
+
+}
