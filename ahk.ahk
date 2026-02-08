@@ -680,6 +680,8 @@ Left::ExplorerArrowLeft()
 ^+p::ExplorerCopyFolderPath()
 ; Ctrl+T：開新 tab 預設到 D:\（取代 Quick Access）
 ^t::ExplorerNewTabD()
+; Ctrl+Enter：用 VSCode 開啟選中的檔案/資料夾
+^Enter::ExplorerOpenInVSCode()
 #HotIf
 
 ; --- Diablo 4 --- (函式見 Section 13)
@@ -1080,6 +1082,20 @@ ExplorerCopyFolderPath() {
         A_Clipboard := tab.Document.Folder.Self.Path
         ToolTip("已複製: " . A_Clipboard)
         SetTimer(() => ToolTip(), -1500)
+    }
+}
+
+; Ctrl+Enter：用 VSCode 開啟選中的檔案/資料夾，沒選中則開當前資料夾
+ExplorerOpenInVSCode() {
+    try {
+        tab := GetActiveExplorerTab()
+        if (tab = "")
+            return
+        if (tab.Document.SelectedItems.Count > 0)
+            target := tab.Document.SelectedItems.Item(0).Path
+        else
+            target := tab.Document.Folder.Self.Path
+        Run('"' . vscode . '" "' . target . '"')
     }
 }
 
