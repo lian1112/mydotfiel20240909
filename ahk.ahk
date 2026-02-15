@@ -1019,12 +1019,17 @@ OpenInTotalCommander() {
             }
 
             WinWait "ahk_class TTOTAL_CMD"
-            WinActivate "ahk_class TTOTAL_CMD"
-            Sleep 500
 
+            ; 先關 Explorer tab（Ctrl+W 單 tab 時會關視窗，多 tab 只關當前 tab）
             if (explorerHwnd) {
-                WinClose("ahk_id " . explorerHwnd)
+                WinActivate("ahk_id " . explorerHwnd)
+                Sleep 100
+                Send "^w"
+                Sleep 200
             }
+
+            ; 確保 TC 取得焦點
+            WinActivate "ahk_class TTOTAL_CMD"
         } catch as e {
             MsgBox("Error running Total Commander: " . e.Message)
         }

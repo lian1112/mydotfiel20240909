@@ -6,6 +6,12 @@
 
 ## 偏好
 - 回覆語言：繁體中文
+- AHK 主腳本：`D:\mydotfile\ahk.ahk`，測試腳本在 `D:\mydotfile\tests\`
+
+## Secrets
+- 密碼與 API Token 存放於 `C:\Users\yulia\.claude\secrets.env`
+- 需要時直接讀取該檔案取得對應的環境變數值
+- **絕對禁止**將 secrets.env 的內容 commit 到任何 git repo
 
 ---
 
@@ -37,6 +43,8 @@ compact 時必須保留：修改過的檔案列表、關鍵決策、測試結果
 3. **提示使用者確認**後才執行
 
 **絕對禁止**：任何可能導致 Windows 無法開機的操作（boot 設定、系統關鍵 registry、驅動程式、MBR/BCD 等）。寧可不做也不能搞壞系統。
+
+**盡量避免**：修改 registry key 的 ACL/權限（Deny rule、regini 改權限等）。這類操作難以還原，且可能導致系統元件異常。優先用「定期清除」或「啟動時重設」等軟性方案替代。
 
 ---
 
@@ -94,6 +102,52 @@ Worktree 之間用 git 同步（commit+push → fetch+merge），不用 cp。Mer
 ## 自動等待與重試規則
 
 需要等待的操作（服務啟動、編譯、API 響應）自行處理：啟動後 sleep + 重試最多 3 次，不要每步問確認。
+
+---
+
+## 參考文件索引
+
+遇到相關主題時，先讀取 Linux 上的參考檔再回答（透過 Z: Samba 共享）：
+
+| 觸發關鍵字 | 參考檔 |
+|-----------|--------|
+| Black Duck / Detect / BDBA | `Z:\.claude\reference\test_environments.md` |
+| Coverity / cov-commit / analyze | `Z:\.claude\reference\test_environments.md` |
+| Defensics / DUT / pcap | `Z:\.claude\reference\test_environments.md` |
+| Polaris / Bridge CLI | `Z:\.claude\reference\test_environments.md` |
+| GitLab | `Z:\.claude\reference\test_environments.md` |
+| SSL / 憑證 / Let's Encrypt | `Z:\.claude\reference\infrastructure.md` |
+| Cloudflare / Tunnel / kumolab | `Z:\.claude\reference\infrastructure.md` |
+| Router / Port Forward / 114.34 | `Z:\.claude\reference\infrastructure.md` |
+| 服務清單 / Port 對照 | `Z:\.claude\reference\infrastructure.md` |
+
+### 常用測試環境快速參考
+
+| 服務 | URL | secrets.env 變數 |
+|------|-----|------------------|
+| Black Duck | https://mydemo.idv.tw:7443 | `BLACKDUCK_*` |
+| Coverity Connect | https://mydemo.idv.tw:8449 | `COVERITY_*` |
+| BDBA | https://mydemo.idv.tw:31443 | `BDBA_API_KEY` |
+| GitLab CE | http://192.168.31.5:8929 | `GITLAB_*` |
+| Polaris POC | https://poc.polaris.blackduck.com | token 在對話目錄 `.env.local` |
+
+### Linux 主機
+
+| 項目 | 值 |
+|------|-----|
+| 內網 IP | 192.168.31.5 |
+| 外網 IP | 114.34.97.78 |
+| SSH | `ssh -p 22 allenl@192.168.31.5` |
+| Samba | Z:\ (映射 /home/allenl) |
+| 知識庫 | `Z:\claude_project\kb\` |
+
+### 常用目錄（透過 Z:）
+
+| 用途 | 路徑 |
+|------|------|
+| 知識庫搜尋 | `Z:\claude_project\kb\*\*_kb\markdown\` |
+| 對話筆記 | `Z:\claude_project\claude_對話_產生的md\` |
+| 測試環境 | `Z:\claude_project\cases\test_env\` |
 
 ---
 

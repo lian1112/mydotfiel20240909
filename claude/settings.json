@@ -1,19 +1,54 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python:*)",
-      "Bash(pip install:*)",
-      "Bash(pip:*)",
       "Read",
-      "Write",
       "Edit",
-      "mcp__windows-control__*"
+      "Write",
+      "Bash",
+      "WebFetch",
+      "WebSearch",
+      "NotebookEdit",
+      "mcp__context7__*",
+      "mcp__memory__*",
+      "mcp__playwright__*"
+    ],
+    "deny": [],
+    "ask": [
+      "Bash(bcdedit *)",
+      "Bash(bcdboot *)",
+      "Bash(bootrec *)",
+      "Bash(diskpart *)",
+      "Bash(format *)",
+      "Bash(rd /s /q C:\\Windows*)",
+      "Bash(del /s /q C:\\Windows*)",
+      "Bash(rm -rf /*)",
+      "Bash(sfc *)",
+      "Bash(dism *)",
+      "Bash(reg delete *)",
+      "Bash(reg import *)",
+      "Bash(regini *)",
+      "Bash(net user *)",
+      "Bash(wmic *)",
+      "Bash(powershell *Set-ExecutionPolicy*)",
+      "Bash(powershell *Format-Volume*)",
+      "Bash(powershell *Clear-Disk*)",
+      "Bash(powershell *Remove-Partition*)",
+      "Bash(manage-bde *)",
+      "Bash(sc delete *)",
+      "Bash(sc config *start= disabled*)",
+      "Bash(takeown /f C:\\Windows*)",
+      "Bash(icacls C:\\Windows*)",
+      "Bash(cipher /e *)",
+      "Bash(netsh interface set interface * disable*)",
+      "Bash(shutdown *)",
+      "Bash(taskkill /f /im csrss*)"
     ]
   },
-  "mcpServers": {
-    "windows-control": {
-      "command": "node",
-      "args": ["D:/claude/windows-control-mcp/server.js"]
-    }
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "mcpServers": {},
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true
   }
 }

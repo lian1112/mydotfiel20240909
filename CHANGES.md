@@ -32,3 +32,25 @@ Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explo
 **File:** `D:\mydotfile\ahk.ahk` Section 4 + Section 9
 **Purpose:** 用系統級 EVENT_OBJECT_SHOW hook 偵測新 Explorer 視窗，自動關閉並在已有視窗開新 tab 導航
 **Rollback:** 移除 ahk.ahk 中 `explorerHook` 相關程式碼和 `OnExplorerWindowShow`/`RedirectExplorerWindow` 函式
+
+---
+
+## 2025-02-08: Disable BitLocker prompt on fixed drives (Group Policy)
+
+**Type:** Registry (Group Policy)
+**Path:** `HKLM\SOFTWARE\Policies\Microsoft\FVE`
+**Changes:**
+- `FDVConfigureBDE` = `0` (DWORD) — 不設定固定磁碟加密
+- `FDVAllowBDE` = `0` (DWORD) — 不允許固定磁碟 BitLocker
+- `FDVDisableBDE` = `1` (DWORD) — 禁用固定磁碟 BitLocker
+**Previous:** 只有 RDV（卸除式磁碟）的設定，無 FDV 設定
+**Backup:** `D:\mydotfile\backup_FVE_policy.reg`
+**Purpose:** 在 This PC 雙擊 C: 時不再跳出 BitLocker 加密提示，直接進入磁碟
+**Rollback:**
+```powershell
+reg import 'D:\mydotfile\backup_FVE_policy.reg'
+# 或手動移除:
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\FVE" /v FDVConfigureBDE /f
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\FVE" /v FDVAllowBDE /f
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\FVE" /v FDVDisableBDE /f
+```
