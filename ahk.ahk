@@ -120,6 +120,9 @@ global explorerHook_handle := DllCall("SetWinEventHook"
     ToolTip("正在停用 Samsung 螢幕...")
     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable "HNMR400156" "HNMR600125"')
 
+    ToolTip("正在載入2螢幕配置...")
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\2monitors.cfg"')
+
     ToolTip("切換完成! (2螢幕)")
     Sleep(1000)
     ToolTip()
@@ -173,22 +176,22 @@ global explorerHook_handle := DllCall("SetWinEventHook"
     Run('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 6')
 }
 
-; 切換到只顯示 1,2 (停用 3,4)
-!+2:: {
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable 3 4')
-}
+; ; 切換到只顯示 1,2 (停用 3,4)
+; !+2:: {
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /disable 3 4')
+; }
 
-; 切換到 1,2,3 開啟(螢幕4關閉)
-!+3:: {
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\monitors_123only.cfg"')
-}
+; ; 切換到 1,2,3 開啟(螢幕4關閉)
+; !+3:: {
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\monitors_123only.cfg"')
+; }
 
-; 切換到 1,2,3,4 全開,恢復正確位置(4在上,3在下)
-!+4:: {
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
-    Sleep(1000)
-    Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
-}
+; ; 切換到 1,2,3,4 全開,恢復正確位置(4在上,3在下)
+; !+4:: {
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable 3 4')
+;     Sleep(1000)
+;     Run('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /SetMonitors "Name=\\.\DISPLAY4 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=-1021" "Name=\\.\DISPLAY3 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=-3840 PositionY=1155" "Name=\\.\DISPLAY2 Primary=1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=144 DisplayOrientation=0 PositionX=0 PositionY=0" "Name=\\.\DISPLAY1 BitsPerPixel=32 Width=3840 Height=2160 DisplayFlags=0 DisplayFrequency=60 DisplayOrientation=0 PositionX=3840 PositionY=-20"')
+; }
 
 
 ; ============================================================================
