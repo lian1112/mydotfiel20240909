@@ -85,18 +85,23 @@ global explorerHook_handle := DllCall("SetWinEventHook"
 !+5:: {
     ToolTip("正在啟用所有螢幕...")
     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /enable "HNMR400156" "HNMR600125"')
-    Sleep(1500)
-
+    Sleep(2000)
     ToolTip("正在載入4螢幕配置...")
     RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
-    Sleep(1500)
+    Sleep(2000)
+
 
     ToolTip("正在切換上方螢幕到個人電腦...")
     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR400156" 60 6')
-    Sleep(500)
+    Sleep(2000)
 
     ToolTip("正在切換下方螢幕到個人電腦...")
     RunWait('D:\Tools\controlmymonitor\ControlMyMonitor.exe /SetValue "HNMR600125" 60 15')
+    Sleep(2000)
+
+    ToolTip("正在載入4螢幕配置...")
+    RunWait('D:\Tools\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "D:\Tools\multimonitortool-x64\4monitors.cfg"')
+    Sleep(2000)
 
     ToolTip("切換完成! (4螢幕)")
     Sleep(1000)
