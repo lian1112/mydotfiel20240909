@@ -446,9 +446,6 @@ global explorerHook_handle := DllCall("SetWinEventHook"
 ; Section 7: 全域熱鍵 - 系統/工具
 ; ============================================================================
 
-; Ctrl+1: Alt+Tab
-^1:: !Tab
-
 ; Win+E: 切到已有的 Explorer 視窗，沒有才開新的
 #e:: {
     if WinExist("ahk_class CabinetWClass") {
